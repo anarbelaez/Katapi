@@ -4,6 +4,14 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  #validates :first_name, :last_name, :nickname, presence: true
+  has_many :goals
+  has_many :tasks, through: :goals
+  has_one_attached :photo
 
+  validates :first_name, :last_name, presence: true, length: { minimum: 2 }
+  validates :nickname, presence: true, uniqueness: true
+
+  def name
+    "#{first_name} #{last_name}"
+  end
 end
