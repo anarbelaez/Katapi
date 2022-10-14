@@ -6,7 +6,7 @@ class CreateGoals < ActiveRecord::Migration[7.0]
       t.string :category
       t.text :review
       t.integer :maturity, default: 0
-      t.datetime :completion_date
+      t.date :completion_date
 
       t.references :user, null: false, foreign_key: true
       t.timestamps

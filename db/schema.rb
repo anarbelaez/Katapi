@@ -48,7 +48,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_12_231510) do
     t.string "category"
     t.text "review"
     t.integer "maturity", default: 0
-    t.datetime "completion_date"
+    t.date "completion_date"
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -61,8 +61,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_12_231510) do
     t.integer "status", default: 0
     t.integer "priority", default: 0
     t.integer "difficulty", default: 0
-    t.datetime "due_date", null: false
-    t.datetime "completion_date"
+    t.date "due_date"
+    t.date "completion_date"
     t.text "review"
     t.bigint "goal_id", null: false
     t.datetime "created_at", null: false
