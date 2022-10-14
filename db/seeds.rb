@@ -10,8 +10,7 @@ files = %w[https://images.unsplash.com/photo-1660949632684-3fdb4a515185?ixlib=rb
            https://images.unsplash.com/photo-1660983366226-cf167690e167?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDN8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60
            https://images.unsplash.com/photo-1659038129553-1777827549de?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDZ8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60
            https://images.unsplash.com/photo-1659644242353-0a8f3c3e9ecf?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDE1fHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=500&q=60
-           https://images.unsplash.com/photo-1584720175631-f9d3633a2e78?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&q=80
-          ]
+           https://images.unsplash.com/photo-1584720175631-f9d3633a2e78?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&q=80]
 
 goals = ["Find a career that I love 🤓", "Learn how to dance", "Visit all of the Colombian national parks", "Improve my public speaking skills", "Go to Paris 🗼"]
 categories = ["professional growth", "hobbies", "traveling", "personal growth", "dreams"]
@@ -58,3 +57,5 @@ puts "Creating tasks 🧛‍♂️"
   )
   task.save
 end
+
+puts "Bye-bye! ✨🎃"
