@@ -1,18 +1,16 @@
 Rails.application.routes.draw do
-  get 'tasks/new'
-  get 'tasks/show'
-  get 'goals/new'
-  get 'goals/show'
-  get 'users/show'
-  get 'task/new'
-  get 'task/show'
-  get 'goal/new'
-  get 'goal/show'
-  get 'user/show'
+  root to: 'pages#home', as: :home
   devise_for :users
-  root to: "pages#home"
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
-  # Defines the root path route ("/")
-  # root "articles#index"
+  # Pages
+  get 'activity', to: 'pages#activity'
+
+  # Goals
+  resources :goals, shallow: true do
+    resources :tasks
+  end
+
+  # Users - El nickname es unico para cada usuario
+  resources :users, only: %i[show edit update]
+  get 'u/:nickname', to: 'users#show'
 end

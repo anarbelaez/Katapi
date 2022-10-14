@@ -9,7 +9,7 @@ class User < ApplicationRecord
   has_one_attached :photo
 
   validates :first_name, :last_name, presence: true, length: { minimum: 2 }
-  validates :nickname, presence: true, uniqueness: true
+  validates :nickname, uniqueness: true
 
   def name
     "#{first_name} #{last_name}"
