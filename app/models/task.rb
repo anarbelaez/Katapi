@@ -8,4 +8,8 @@ class Task < ApplicationRecord
   enum status: { not_started: 0, in_progress: 1, done: 2 }
   enum priority: { low: 0, medium: 1, high: 2 }
   enum difficulty: { easy: 0, meddium: 1, hard: 2 }
+
+  def user
+    goal.user
+  end
 end
