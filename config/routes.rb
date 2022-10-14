@@ -1,4 +1,14 @@
 Rails.application.routes.draw do
+  get 'tasks/new'
+  get 'tasks/show'
+  get 'goals/new'
+  get 'goals/show'
+  get 'users/show'
+  get 'task/new'
+  get 'task/show'
+  get 'goal/new'
+  get 'goal/show'
+  get 'user/show'
   devise_for :users
   root to: "pages#home"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
