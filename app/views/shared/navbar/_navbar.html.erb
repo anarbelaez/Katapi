@@ -1,0 +1,24 @@
+<nav class="navbar shadow-sm py-2 navbar-expand-lg">
+  <div class="container-fluid">
+    <%= link_to "Katapi", home_path, class: "navbar-brand" %>
+
+    <ul class="navbar-nav ms-auto">
+      <div class="d-flex">
+        <%# Notifications %>
+        <%= render "shared/navbar/notifications" %>
+
+        <%# User actions %>
+        <a class="nav-link" href="#" data-bs-toggle="dropdown">
+          <%= image_tag "pretty.png", class: "avatar dropdown-toggle", id: "navbarDropdown", 'aria-haspopup': true, 'aria-expanded': false %>
+        </a>
+
+        <ul class="dropdown-menu dropdown-menu-end mx-3 position-absolute mt-1 border-0 rounded-4 shadow-sm">
+          <%= link_to "Profile", "#", class: "dropdown-item" %>
+          <%= link_to "Activity", "#", class: "dropdown-item" %>
+          <li><hr class="dropdown-divider"></li>
+          <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
+        </ul>
+      </div>
+    </ul>
+  </div>
+</nav>

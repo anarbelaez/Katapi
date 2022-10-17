@@ -12,5 +12,5 @@ Rails.application.routes.draw do
 
   # Users - El nickname es unico para cada usuario
   resources :users, only: %i[show edit update]
-  get 'u/:nickname', to: 'users#show'
+  # get 'u/:nickname', to: 'users#show'
 end
