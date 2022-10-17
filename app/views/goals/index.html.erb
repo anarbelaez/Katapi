@@ -1,0 +1,7 @@
+<h1>Goals</h1>
+
+<% @goals.each do |goal| %>
+    <p><%= link_to goal.name, goal_path(goal)%></p>
+    <p><%= goal.category %></p>
+    <p>Barra de progreso</p>
+<% end %>
