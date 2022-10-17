@@ -13,7 +13,7 @@ class TasksController < ApplicationController
   end
 
   def create
-    @task = Task.new(tasks_params)
+    @task = Task.new(task_params)
     @task.goal = @goal
     @task.save
     if @task.save
@@ -27,7 +27,7 @@ class TasksController < ApplicationController
   end
 
   def update
-    @task.update(tasks_params)
+    @task.update(task_params)
     redirect_to task_path(@task)
   end
 
@@ -37,7 +37,7 @@ class TasksController < ApplicationController
   end
 
   private
-  def tasks_params
+  def task_params
     params.require(:task).permit(:name, :status, :priority, :difficulty, :due_date, :goal_id)
   end
 
