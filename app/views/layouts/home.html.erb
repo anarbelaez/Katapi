@@ -10,19 +10,18 @@
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
   </head>
 
-<<<<<<< HEAD
   <body>
-    <%= render "shared/navbar/navbar" %>
-    <%= render "shared/flashes" %>
     <div class="container-fluid">
-      <%= yield %>
+      <h1>Katapi</h1>
+      <% if user_signed_in? %>
+        <%= link_to "My activity dashboard", activity_path %>
+      <% else %>
+        <p>Eres un usuario Katapi?</p>
+        <%= link_to "Iniciar sesion", new_user_session_path %>
+
+        <p>Quieres ser parte de Katapi?</p>
+        <%= link_to "Crear una cuenta", new_user_session_path %>
+      <% end %>
     </div>
-=======
-  <body><%= render "shared/navbar" %>
-<%= render "shared/flashes" %>
-  <div class="container">
-    <%= yield %>
-  </div>
->>>>>>> e78382cf64ad01c36cd7597d3571cb2962780155
   </body>
 </html>
