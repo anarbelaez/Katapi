@@ -37,10 +37,15 @@
             </div>
         </div>
 
+      <% unless @goal.name.nil? %>
+        <div class="row col-12 mb-3">
+          <%= f.input :description, input_html: {class:"border-1 rounded-4"}, size: "60x4", label: "Description", placeholder: "  Add a more detailed description..." %>
+        </div>
+      <% end %>
 
-    <div class="row">
-      <%= f.submit class:"btn btn-dark rounded-4"%>
-    </div>
+      <div class="row">
+        <%= f.submit class:"btn btn-dark rounded-4"%>
+      </div>
 
 </div>
 <% end %>
