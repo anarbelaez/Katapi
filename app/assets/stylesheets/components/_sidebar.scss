@@ -1,13 +1,49 @@
-ul {
+.sidebar-list {
   list-style: none;
 }
-aside {
-  flex: 1 0 10%;
+
+.sidebar-list span {
+  font-size: 1vw;
 }
-@media (max-width: 540px) {
-  ul {
+
+.sidebar-list li {
+  border-radius: 8px;
+
+  &:hover {
+    background-color: $secondary;
+    transition: 1s;
+  }
+
+}
+
+.sidebar {
+  flex: 1 0 13.5%;
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    flex-basis: 40px;
+  }
+
+  .sidebar-list {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .sidebar-list {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-evenly;
   }
+
+  .sidebar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    border-top: 0.5px solid rgba(0,0,0,0.25);
+    padding-top: 4px;
+  }
+
 }
