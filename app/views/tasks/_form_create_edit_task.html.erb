@@ -76,23 +76,6 @@
       <%= f.input :description, input_html: {class:"border-1 rounded-4"}, size: "60x4", label: "Description", placeholder: "  Add a more detailed description..." %>
     </div>
 
-<!-- Inicio boton collapse -->
-<div class="d-flex justify-content-end">
-    <p>
-      <button class="btn btn-outline-dark" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-        Add Notes
-      </button>
-    </p>
-    <div class="collapse" id="collapseExample">
-      <div class="card card-body">
-
-        <!-- inicio richtext
-          f.rich_text_area :review, as: :file
-          fin richtext -->
-      </div>
-  </div>
-</div>
-<!-- Fin boton collapse -->
 
     <div class="row">
       <%= f.submit class:"btn btn-dark rounded-4"%>
