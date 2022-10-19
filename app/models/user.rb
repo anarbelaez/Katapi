@@ -8,8 +8,8 @@ class User < ApplicationRecord
   has_many :tasks, through: :goals
   has_one_attached :photo
 
-  validates :first_name, :last_name, presence: true, length: { minimum: 2 }
-  validates :nickname, uniqueness: true
+  # validates :first_name, :last_name, presence: true, length: { minimum: 2 }
+  # validates :nickname, uniqueness: true
 
   def name
     "#{first_name} #{last_name}"
