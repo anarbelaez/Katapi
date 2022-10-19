@@ -1,12 +1,12 @@
-ul {
+.sidebar-list {
   list-style: none;
 }
 
-ul span {
+.sidebar-list span {
   font-size: 1vw;
 }
 
-li {
+.sidebar-list li {
   border-radius: 8px;
 
   &:hover {
@@ -14,33 +14,30 @@ li {
     transition: 1s;
   }
 
-  a:active {
-    color: deeppink;
-  }
 }
 
-aside {
+.sidebar {
   flex: 1 0 13.5%;
 }
 
 @media (max-width: 768px) {
-  aside {
+  .sidebar {
     flex-basis: 40px;
   }
 
-  ul {
+  .sidebar-list {
     font-size: 1.5rem;
   }
 }
 
 @media (max-width: 576px) {
-  ul {
+  .sidebar-list {
     display: flex;
     align-items: center;
     justify-content: space-evenly;
   }
 
-  aside {
+  .sidebar {
     position: fixed;
     bottom: 0;
     left: 0;
