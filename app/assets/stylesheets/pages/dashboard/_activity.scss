@@ -18,9 +18,9 @@ main {
 }
 
 // Cambiamos la direccion del wrapper a columna para mobiles
-@media (max-width: 540px) {
+@media (max-width: 576px) {
   .wrapper {
     flex-direction: column-reverse;
-    height: 90%;
+    // height: 90%;
   }
 }
