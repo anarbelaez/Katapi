@@ -1,0 +1,26 @@
+// Hacemos al body estatico
+body {
+  overflow: hidden;
+  height: 100vh;
+}
+
+// Solo el main tiene scroll
+main {
+  overflow-y: auto;
+  width: 100%;
+  height: 100%;
+}
+
+// Usamos flexbox sobre el wrapper
+.wrapper {
+  display: flex;
+  height: 100%;
+}
+
+// Cambiamos la direccion del wrapper a columna para mobiles
+@media (max-width: 540px) {
+  .wrapper {
+    flex-direction: column-reverse;
+    height: 90%;
+  }
+}

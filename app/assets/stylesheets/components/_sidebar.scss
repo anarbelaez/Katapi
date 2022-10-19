@@ -1,0 +1,13 @@
+ul {
+  list-style: none;
+}
+aside {
+  flex: 1 0 10%;
+}
+@media (max-width: 540px) {
+  ul {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
