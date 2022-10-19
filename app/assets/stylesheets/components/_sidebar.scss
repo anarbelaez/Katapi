@@ -1,13 +1,50 @@
 ul {
   list-style: none;
 }
-aside {
-  flex: 1 0 10%;
+
+ul span {
+  font-size: 1vw;
 }
-@media (max-width: 540px) {
+
+li {
+  border-radius: 8px;
+
+  &:hover {
+    background-color: $secondary;
+    transition: 1s;
+  }
+
+  a:active {
+    color: deeppink;
+  }
+}
+
+aside {
+  flex: 1 0 13.5%;
+}
+
+@media (max-width: 768px) {
+  aside {
+    flex-basis: 40px;
+  }
+
+  ul {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 576px) {
   ul {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-evenly;
   }
+
+  aside {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+
 }
