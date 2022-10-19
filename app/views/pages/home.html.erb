@@ -1,0 +1,10 @@
+<h1>Katapi</h1>
+<% if user_signed_in? %>
+  <%= link_to "My activity dashboard", activity_path %>
+<% else %>
+  <p>Eres un usuario Katapi?</p>
+  <%= link_to "Iniciar sesion", new_user_session_path %>
+
+  <p>Quieres ser parte de Katapi?</p>
+  <%= link_to "Crear una cuenta", new_user_session_path %>
+<% end %>
