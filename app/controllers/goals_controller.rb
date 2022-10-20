@@ -34,7 +34,7 @@ class GoalsController < ApplicationController
   def destroy
     @goal.destroy
     # dashboard
-    # redirect_to ativity_path, status: :see_other
+    redirect_to goals_path, status: :see_other
   end
 
   private
