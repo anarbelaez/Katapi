@@ -1,33 +1,43 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
-<%= cl_image_tag current_user.photo.key %>
-
-<div class="cards">
-<div class="card" style="width: 18rem;">
-  <img src="..." class="card-img-top" alt="...">
-  <div class="card-body">
-    <h5 class="card-title">Card title</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
-  </div>
+<%# User Banner %>
+<div class="ps-5 pt-4 pb-3 text-white mb-3 bg-secondary rounded-bottom rounded-4">
+  <div class="d-flex align-items-end">
+      <%= image_tag "pretty.png", class: "avatar avatar-xxl img-fluid"%>
+      <div class="px-2 py-3">
+        <p class="m-0 fs-4 fw-bold">Ana Maria</p>
+        <p class="m-0 opacity-75">@superkorita</p>
+      </div>
+    </div>
 </div>
 
-<div class="card" style="width: 18rem;">
-  <img src="..." class="card-img-top" alt="...">
-  <div class="card-body">
-    <h5 class="card-title">Card title</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
-  </div>
-</div>
+<%# Tabs %>
+<ul class="nav nav-tabs border-0" id="myTab" role="tablist">
+  <li class="nav-item" role="presentation">
+    <button class="nav-link active" id="overview-tab" data-bs-toggle="tab" data-bs-target="#overview-tab-pane" type="button" role="tab" aria-controls="overview-tab-pane" aria-selected="true">Overview</button>
+  </li>
+  <li class="nav-item" role="presentation">
+    <button class="nav-link" id="notifications-tab" data-bs-toggle="tab" data-bs-target="#notifications-tab-pane" type="button" role="tab" aria-controls="notifications-tab-pane" aria-selected="false">Activity</button>
+  </li>
+  <li class="nav-item" role="presentation">
+    <button class="nav-link" id="edit-profile-tab" data-bs-toggle="tab" data-bs-target="#edit-profile-tab-pane" type="button" role="tab" aria-controls="edit-profile-tab-pane" aria-selected="false">Profile</button>
+  </li>
+</ul>
 
-<div class="card" style="width: 18rem;">
-  <img src="..." class="card-img-top" alt="...">
-  <div class="card-body">
-    <h5 class="card-title">Card title</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
+<%# Tabs Content %>
+<div class="tab-content" id="myTabContent">
+  <div class="tab-pane fade show active" id="overview-tab-pane" role="tabpanel" aria-labelledby="overview-tab" tabindex="0">
+    <div class="p-3">
+      <p>TODO: General Stats</p>
+    </div>
   </div>
-</div>
 
+  <div class="tab-pane fade" id="notifications-tab-pane" role="tabpanel" aria-labelledby="notifications-tab" tabindex="0">
+    <div class="p-3">
+      <p>TODO: Notifications</p>
+    </div>
+  </div>
+  <div class="tab-pane fade" id="edit-profile-tab-pane" role="tabpanel" aria-labelledby="edit-profile-tab" tabindex="0">
+    <div class="p-3">
+      <p>TODO: Edit profle</p>
+    </div>
+  </div>
 </div>
