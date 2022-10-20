@@ -1,0 +1,66 @@
+<!-- Modal -->
+<div class="modal fade" id="newGoal" tabindex="-1" aria-labelledby="newGoalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+       <div class="row justify-content-center mx-auto">
+
+    <div class="d-flex justify-content-center">
+      <% if @goal.name.nil? %>
+      <h3>Create a New Goal</h3>
+      <% else %>
+       <h3>Edit Your Goal</h3>
+       <% end %>
+    </div>
+
+    <div>
+      <%= simple_form_for @goal do |f| %>
+
+        <div class="row  m-2">
+          <div class="row p-2 rounded-5 mb-3 bg-success text-dark bg-opacity-10">
+            <div class="col-1 my-auto mx-auto d-flex align-items-center">
+              <i class="fa-solid fa-cubes-stacked fs-2 mx-sm-1"></i>
+            </div>
+            <div class="col-10 pb-2">
+              <h3>Goal title</h3>
+              <%= f.input :name, input_html: {class: "border-0 rounded-4"},
+                                             placeholder: "Enter goal title...", label:false %>
+            </div>
+          </div>
+        </div>
+
+        <div class="row  m-2">
+            <div class="row p-2 rounded-5 mb-3 bg-success text-dark bg-opacity-10">
+              <div class="col-1 my-auto mx-auto d-flex align-items-center">
+                <i class="fa-solid fa-tag fs-2 mx-sm-1"></i>
+              </div>
+              <div class="col-10 pb-2">
+                 <h3>Goal category</h3>
+                  <%= f.input :category, input_html: {class: "border-0 rounded-4"},
+                                                      placeholder: "Enter category to your goal...", label:false %>
+              </div>
+            </div>
+        </div>
+
+      <% unless @goal.name.nil? %>
+        <div class="row col-12 mb-3">
+          <%= f.input :description, input_html: {class:"border-1 rounded-4"}, size: "60x4", label: "Description", placeholder: "  Add a more detailed description..." %>
+        </div>
+      <% end %>
+
+
+</div>
+
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <%= f.submit class:"btn btn-dark rounded-4"%>
+      </div>
+    </div>
+  </div>
+</div>
+<% end %>

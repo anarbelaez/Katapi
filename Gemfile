@@ -48,6 +48,9 @@ gem "sassc-rails"
 # Cloudinary
 gem "cloudinary"
 
+# Calendar
+gem "simple_calendar", "~> 2.4"
+
 # Faker
 gem 'faker'
 

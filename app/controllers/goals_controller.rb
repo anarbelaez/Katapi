@@ -3,9 +3,11 @@ class GoalsController < ApplicationController
 
   def index
     @goals = Goal.all
+    @goal = Goal.new
   end
 
   def show
+    @task = Task.new
   end
 
   def new

@@ -3,6 +3,9 @@ class TasksController < ApplicationController
   before_action :set_task, only: %i[show edit update destroy]
   def index
     @tasks = Task.all
+     # Scope your query to the dates being shown:
+  created_at = params.fetch(:created_at, Date.today).to_date
+  @tasks = Task.where(created_at: created_at.beginning_of_month.beginning_of_week..created_at.end_of_month.end_of_week)
   end
 
   def show
@@ -38,7 +41,7 @@ class TasksController < ApplicationController
 
   private
   def task_params
-    params.require(:task).permit(:name, :status, :priority, :difficulty, :due_date, :goal_id)
+    params.require(:task).permit(:name, :status, :priority, :difficulty, :due_date, :goal_id, :review)
   end
 
   def set_goal

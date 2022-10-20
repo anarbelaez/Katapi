@@ -5,6 +5,12 @@
 <p><%= @goal.description %></p>
 
 
+ <!-- <%= render 'goals/richtext_goal' %> -->
+ <%= render 'shared/tasks/button_new_task' %>
+
+ <%= render 'shared/tasks/button_modal_new_task' %>
+=======
+
 <%= link_to "Edit goal", edit_goal_path %>
 
 <%=  link_to "Delete", goal_path(@goal),
