@@ -1,7 +1,6 @@
 module UsersHelper
   # Necesitamos agregar los siguientes metodos que sobreescriben algunos metodos de
   # la gema Devise
-
   def resource_name
     :user
   end
