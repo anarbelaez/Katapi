@@ -14,13 +14,12 @@ main {
 // Usamos flexbox sobre el wrapper
 .wrapper {
   display: flex;
-  height: 100%;
+  height: 90%;
 }
 
 // Cambiamos la direccion del wrapper a columna para mobiles
 @media (max-width: 576px) {
   .wrapper {
     flex-direction: column-reverse;
-    // height: 90%;
   }
 }
