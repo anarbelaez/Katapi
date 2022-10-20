@@ -23,5 +23,13 @@ module Katapi
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
+
+    config.to_prepare do
+      Devise::SessionsController.layout "pages"
+      Devise::RegistrationsController.layout proc { user_signed_in? ? "application" : "pages" }
+      Devise::ConfirmationsController.layout "pages"
+      Devise::UnlocksController.layout "pages"
+      Devise::PasswordsController.layout "pages"
+    end
   end
 end
