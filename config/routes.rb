@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   devise_for :users
 
   # Users
-  get 'activity', to: 'users#activity'
+  get 'board', to: 'users#activity', as: :activity
 
   # Goals
   resources :goals, shallow: true do
