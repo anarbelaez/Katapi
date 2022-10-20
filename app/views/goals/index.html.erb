@@ -1,7 +1,12 @@
 <h1>Goals</h1>
 
-<% @goals.each do |goal| %>
-    <p><%= link_to goal.name, goal_path(goal)%></p>
-    <p><%= goal.category %></p>
-    <p>Barra de progreso</p>
-<% end %>
+
+
+
+
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#newGoal">
+  Create a Goal
+</button>
+ <%= render 'goals/modal_new_goal' %>
+<!-- End Button trigger modal -->
