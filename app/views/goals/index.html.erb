@@ -1,10 +1,8 @@
 <h1>Goals</h1>
 
-<%= render 'goals/button_modal_new_goal' %>
-=======
-
+<%= render 'goals/partials/button_modal_new_goal' %>
 <%= link_to "New Goal", new_goal_path %>
 
 <% @goals.each do |goal| %>
-  <%= render 'shared/goals/card_goal', goal: goal %>
+  <%= render 'goals/partials/card_goal', goal: goal %>
 <% end %>

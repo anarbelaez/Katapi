@@ -1,0 +1,15 @@
+<p>
+  <button class="btn btn-outline-dark rounded-4 d-flex justify-content-end pt-2" type="button" data-bs-toggle="collapse" data-bs-target="#newComment" aria-expanded="false" aria-controls="collapseExample">
+    Add Notes
+  </button>
+</p>
+<div class="collapse" id="newComment">
+  <div class="card card-body rounded-4">
+    <%= simple_form_for @task do |f| %>
+      <%= f.rich_text_area :review, as: :file, input_html: {class:"border-0 rounded-4"}  %>
+      <div class="d-flex justify-content-end pt-2">
+        <%= f.submit class:"btn btn-dark rounded-4"%>
+      </div>
+    <% end %>
+  </div>
+</div>
