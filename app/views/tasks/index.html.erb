@@ -1,6 +1,9 @@
 <h1>index task</h1>
 <% @tasks.each do |task| %>
 <li><%= task.name %></li>
+<li><%= task.due_date %></li>
 
 <%= link_to "Delete task", task_path(task), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class:'btn-flat'%>
 <% end %>
+
+<%= render 'shared/tasks/calendar' %>

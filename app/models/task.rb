@@ -14,4 +14,13 @@ class Task < ApplicationRecord
   def user
     goal.user
   end
+
+  def start_time
+    self.created_at ##Where 'start' is a attribute of type 'Date' accessible through MyModel's relationship
+  end
+  
+  def end_time
+   self.due_date ##Where 'start' is a attribute of type 'Date' accessible through MyModel's relationship
+  end
+
 end
