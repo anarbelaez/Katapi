@@ -3,3 +3,9 @@
 <h3><%= @goal.maturity %></h3>
 <h3><%= @goal.completion_date %></h3>
 <p><%= @goal.description %></p>
+
+<% @goal.tasks.each do |task| %>
+  <%= render 'shared/task/card_task', task: task %>
+<% end %>
+
+
