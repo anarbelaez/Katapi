@@ -1,11 +1,52 @@
-<%= form_with model: @goal do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name %>
-  <%= f.label :description %>
-  <%= f.text_field :description %>
-  <%= f.label :category %>
-  <%= f.text_field :category %>
-  <%= f.label :review %>
-  <%= f.text_field :review %>
-  <%= f.submit %>
+<div class="row justify-content-center mx-auto">
+
+    <div class="d-flex justify-content-center">
+      <% if @goal.name.nil? %>
+      <h3>Create a New Goal</h3>
+      <% else %>
+       <h3>Edit Your Goal</h3>
+       <% end %>
+    </div>
+
+    <div>
+      <%= simple_form_for @goal do |f| %>
+
+        <div class="row  m-2">
+          <div class="row p-2 rounded-5 mb-3 bg-success text-dark bg-opacity-10">
+            <div class="col-1 my-auto mx-auto d-flex align-items-center">
+              <i class="fa-solid fa-cubes-stacked fs-1 mx-sm-1 mx-lg-5"></i>
+            </div>
+            <div class="col-10 pb-2">
+              <h3>Goal title</h3>
+              <%= f.input :name, input_html: {class: "border-0 rounded-4"},
+                                             placeholder: "Enter goal title...", label:false %>
+            </div>
+          </div>
+        </div>
+
+        <div class="row  m-2">
+            <div class="row p-2 rounded-5 mb-3 bg-success text-dark bg-opacity-10">
+              <div class="col-1 my-auto mx-auto d-flex align-items-center">
+                <i class="fa-solid fa-tag fs-1 mx-sm-1 mx-lg-5"></i>
+              </div>
+              <div class="col-10 pb-2">
+                 <h3>Goal category</h3>
+                  <%= f.input :category, input_html: {class: "border-0 rounded-4"},
+                                                      placeholder: "Enter category to your goal...", label:false %>
+              </div>
+            </div>
+        </div>
+
+      <% unless @goal.name.nil? %>
+        <div class="row col-12 mb-3">
+          <%= f.input :description, input_html: {class:"border-1 rounded-4"}, size: "60x4", label: "Description", placeholder: "  Add a more detailed description..." %>
+        </div>
+      <% end %>
+
+      <div class="row">
+        <%= f.submit class:"btn btn-dark rounded-4"%>
+      </div>
+
+</div>
+
 <% end %>

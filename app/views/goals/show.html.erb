@@ -4,6 +4,7 @@
 <h3><%= @goal.completion_date %></h3>
 <p><%= @goal.description %></p>
 
+
 <%= link_to "Edit goal", edit_goal_path %>
 
 <%=  link_to "Delete", goal_path(@goal),
@@ -12,3 +13,5 @@
 <% @goal.tasks.each do |task| %>
   <%= render 'shared/task/card_task', task: task %>
 <% end %>
+
+<!-- <%= render 'goals/richtext_goal' %> -->
