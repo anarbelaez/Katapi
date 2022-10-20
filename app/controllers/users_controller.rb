@@ -7,8 +7,9 @@ class UsersController < ApplicationController
   end
 
   def show
-    @name = current_user.name
     # Mi informacion
+    @name = current_user.name
+    @nickname = current_user.nickname
     # Editar mi perfil
     # Notificaciones
   end
