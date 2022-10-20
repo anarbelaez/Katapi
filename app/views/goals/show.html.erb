@@ -4,12 +4,10 @@
 <h3><%= @goal.completion_date %></h3>
 <p><%= @goal.description %></p>
 
+<%= render 'goals/partials/richtext_goal' %>
 
- <!-- <%= render 'goals/richtext_goal' %> -->
- <%= render 'shared/tasks/button_new_task' %>
-
- <%= render 'shared/tasks/button_modal_new_task' %>
-=======
+<%= render 'tasks/partials/button_new_task' %>
+<%= render 'tasks/partials/button_modal_new_task' %>
 
 <%= link_to "Edit goal", edit_goal_path %>
 
@@ -17,7 +15,5 @@
       data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
 
 <% @goal.tasks.each do |task| %>
-  <%= render 'shared/task/card_task', task: task %>
+  <%= render 'tasks/partials/card_task', task: task %>
 <% end %>
-
-<!-- <%= render 'goals/richtext_goal' %> -->
