@@ -1,6 +1,11 @@
 <h1>Goals</h1>
 
-<%= render 'goals/partials/button_modal_new_goal' %>
+<div class="row bg-warnign">
+  <div class="col">
+    <%= render 'goals/partials/button_modal_new_goal' %>
+  </div>
+</div>
+
 <%= link_to "New Goal", new_goal_path %>
 
 <% @goals.each do |goal| %>
