@@ -9,7 +9,7 @@
       <h3>Create a new Task</h3>
         <div>
         <%= f.input :name, input_html: {class:"border-0 rounded-4 p-3"}, label:false, placeholder:"Enter task tittle..." %>
-        <%= f.input :due_date, html5:true, input_html: {class:"border-0 rounded-4"}, label: false, placeholder:false %>
+        <%= f.input :due_date, html5:true, input_html: {class:"border-0 rounded-4"}, label: "Select a date to complete your task", placeholder:false %>
         </div>
           <div class="row d-flex justify-content-end">
             <%= f.submit class:"btn btn-dark rounded-4 col-sm-4 col-lg-3"%>

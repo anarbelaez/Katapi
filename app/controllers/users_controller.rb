@@ -2,6 +2,7 @@ class UsersController < ApplicationController
   def activity
     # TODO:
     # Mostrar las tareas - calendario
+    @tasks = Task.all
     # Mostrar rendimiento
     # Mostar las goals
   end
