@@ -1,9 +1,29 @@
+  .simple-calendar .day {
+    height: 15px;
+    border: 2px solid secondary;
+    background-color: aliceblue;
+}
+.table-striped > tbody > tr:nth-of-type(odd) > * {
+    --bs-table-accent-bg: none;
+    color: none;
+}
 .calendar-heading {
-display: flex;
-align-items: center;
-justify-content: center;
+  display: flex;
+  justify-content:space-between;
+    a {
+    text-decoration: none;
+    border: 0px solid white;
+    border-radius: 5px;
+    padding: 2px;
+    background-color: white;
+
+  }
 }
 
+.calendar-title a {
+  color: aliceblue;
+  text-decoration: none;
+}
 
 
 

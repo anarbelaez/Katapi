@@ -3,6 +3,10 @@ class TasksController < ApplicationController
   before_action :set_task, only: %i[show edit update destroy]
   def index
     @tasks = Task.all if current_user
+    @todo = Task.where(status: "not_started")
+    @doing = Task.where(status: "in_progress")
+    @done = Task.where(status: "done")
+
   end
 
   def show

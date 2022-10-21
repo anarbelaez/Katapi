@@ -1,0 +1,11 @@
+
+<div class="row f-flex justify-content-center">
+  <%= month_calendar events: @tasks do |date, tasks| %>
+    <%= date.day %>
+      <% tasks.each do |task| %>
+        <div class="">
+          <%= link_to "#{task.name.capitalize}", task, class:"btn btn-white btn-sm " %>
+        </div>
+    <% end %>
+  <% end %>
+</div>

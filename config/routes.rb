@@ -9,6 +9,8 @@ Rails.application.routes.draw do
   resources :goals, shallow: true do
     resources :tasks
   end
+  # Tasks
+  resources :tasks, only: [:index]
 
   # Users - El nickname es unico para cada usuario
   resources :users, only: %i[show]
