@@ -1,9 +1,40 @@
-<h1>index task</h1>
-<% @tasks.each do |task| %>
-<li><%= task.name %></li>
-<li><%= task.due_date %></li>
+<%# Tabs %>
+<ul class="nav nav-tabs border-0" id="myTab" role="tablist">
+  <li class="nav-item" role="presentation">
+    <button class="nav-link active" id="overview-tab" data-bs-toggle="tab" data-bs-target="#overview-tab-pane" type="button" role="tab" aria-controls="overview-tab-pane" aria-selected="true"><i class="opacity-75 bi bi-list-task"></i></button>
+  </li>
+  <li class="nav-item" role="presentation">
+    <button class="nav-link" id="notifications-tab" data-bs-toggle="tab" data-bs-target="#notifications-tab-pane" type="button" role="tab" aria-controls="notifications-tab-pane" aria-selected="false"><i class="opacity-75 bi bi-calendar-minus"></i></button>
+  </li>
+  <li class="nav-item" role="presentation">
+    <button class="nav-link" id="edit-profile-tab" data-bs-toggle="tab" data-bs-target="#edit-profile-tab-pane" type="button" role="tab" aria-controls="edit-profile-tab-pane" aria-selected="false"><i class="fa-solid fa-grip"></i></button>
+  </li>
+</ul>
 
-<%= link_to "Delete task", task_path(task), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class:'btn-flat'%>
-<% end %>
+<%# Tabs Content %>
+<div class="tab-content" id="myTabContent">
+  <div class="tab-pane fade show active" id="overview-tab-pane" role="tabpanel" aria-labelledby="overview-tab" tabindex="0">
+    <div class="p-3">
+      <p>All tasks list</p>
+      <h1>index task</h1>
+        <% @tasks.each do |task| %>
+        <li><%= task.name %></li>
+        <li><%= task.due_date %></li>
+        <%= link_to "Delete task", task_path(task), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class:'btn-flat'%>
+        <% end %>
+    </div>
+  </div>
 
-<%= render 'tasks/partials/calendar' %>
+  <div class="tab-pane fade" id="notifications-tab-pane" role="tabpanel" aria-labelledby="notifications-tab" tabindex="0">
+    <div class="p-3">
+      <p>Calendar List</p>
+        <%= render 'tasks/partials/calendar_index' %>
+    </div>
+  </div>
+  <div class="tab-pane fade" id="edit-profile-tab-pane" role="tabpanel" aria-labelledby="edit-profile-tab" tabindex="0">
+    <div class="p-3">
+      <p>TODO: Edit profle</p>
+        <%= render 'tasks/partials/board_task_cards' %>
+    </div>
+  </div>
+</div>
