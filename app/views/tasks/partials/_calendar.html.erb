@@ -1,63 +1,11 @@
-<style>
-.simple-calendar .day {
-  height: 30px;
-}
-</style>
-<!-- <div class="col-6">
-<%= month_calendar(attribute: :due_date) do |date| %>
-<div class="day p-0">
-  <%= date.day %>
-</div>
 
-<% end %>
-</div>
-
-<div class="col-6"></div>
-<%= month_calendar(due_date: @tasks) do |date, meetings| %>
-  <%= date %>
-
-  <% meetings.each do |meeting| %>
-    <div>
-      <%= meeting.name %>
-    </div>
+<div class="row f-flex justify-content-center">
+  <%= month_calendar events: @tasks do |date, tasks| %>
+    <%= date.day %>
+      <% tasks.each do |task| %>
+        <div class="">
+          <%= link_to "#{task.name.capitalize}", task, class:"btn btn-white btn-sm " %>
+        </div>
+    <% end %>
   <% end %>
-<% end %>
-</div> -->
-
-
-
-
-
-<!-- <%= calendar(start_date_param: :my_date) do |date| %>
-  <%= date %>
-<% end %> -->
-
-
-<!-- <%= calendar(number_of_days: 4) do |date| %>
-  <%= date %>
-<% end %>
-
-<%= week_calendar(number_of_weeks: 2) do |date| %>
-  <%= date %>
-<% end %> -->
-
-<!-- <%= month_calendar(attribute: :due_date) do |date| %>
-<div class="day p-0">
-  <%= date.day %>
 </div>
-
-<% end %>
-</div> -->
-<!-- <%= month_calendar(attribute: :created_at, end_attribute: :due_date) do |date| %>
-  <%= date %>
-<% end %> -->
-<%= month_calendar events: @tasks do |date, tasks| %>
-  <%= date %>
-
-  <% tasks.each do |tasks| %>
-    <div>
-      <%= tasks.name %>
-      <%= date %>
-    </div>
-  <% end %>
-<% end %>
