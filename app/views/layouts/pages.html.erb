@@ -7,12 +7,14 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag "pages", "data-turbo-track": "reload" %>
-    <%#= javascript_include_tag "home", "data-turbo-track": "reload", defer: true %>
+    <%= javascript_include_tag "pages", "data-turbo-track": "reload", defer: true %>
   </head>
 
   <body>
-    <div class="container-fluid">
+    <%= render "pages/shared/navbar_pages" %>
+    <div class="">
       <%= yield %>
     </div>
+    <%= render "pages/shared/footer_pages" %>
   </body>
 </html>
