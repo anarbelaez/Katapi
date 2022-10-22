@@ -7,30 +7,71 @@ export default class extends Controller {
     let todoTask = this.element.querySelector("#col-todo")
     let doingTask = this.element.querySelector("#col-doing")
     let doneTask = this.element.querySelector("#col-done")
-    // Sortable.create(this.element, {
-    //   ghostClass: "ghost",
-    //   animation: 150,
-    //   onEnd: (event) => {
-    //     alert(`${event.oldIndex} moved to ${event.newIndex}`)
-    //   }
-    // })
+
     new Sortable(todoTask, {
       group: 'shared', // set both lists to same group
       animation: 150,
-      onMove: function (evt, originalEvent) {
-console.log("moving")
-      }
-      });
+      onEnd: function (evt) {
+        let taskId = evt.item.dataset.taskId
+        let status = evt.to.dataset.status
+        const token = document.querySelector("[name='csrf-token']").content;
+
+        console.log()
+        fetch(`/tasks_update/${taskId}`,{
+          method: 'PATCH',
+          headers: {
+            "X-CSRF-Token": token,
+            "Content-Type": "application/json",
+            "Accept": "application/json"
+          },
+          body: JSON.stringify({ status: status})
+
+        })
+
+      }});
 
     new Sortable(doingTask, {
-        group: 'shared',
-        animation: 150
-        });
+      group: 'shared', // set both lists to same group
+      animation: 150,
+      onEnd: function (evt) {
+        let taskId = evt.item.dataset.taskId
+        let status = evt.to.dataset.status
+        const token = document.querySelector("[name='csrf-token']").content;
+
+        console.log()
+        fetch(`/tasks_update/${taskId}`,{
+          method: 'PATCH',
+          headers: {
+            "X-CSRF-Token": token,
+            "Content-Type": "application/json",
+            "Accept": "application/json"
+          },
+          body: JSON.stringify({ status: status})
+
+        })
+
+      }});
 
     new Sortable(doneTask, {
-      group: 'shared',
-      animation: 150
-      });
+      group: 'shared', // set both lists to same group
+      animation: 150,
+      onEnd: function (evt) {
+        let taskId = evt.item.dataset.taskId
+        let status = evt.to.dataset.status
+        const token = document.querySelector("[name='csrf-token']").content;
 
+        console.log()
+        fetch(`/tasks_update/${taskId}`,{
+          method: 'PATCH',
+          headers: {
+            "X-CSRF-Token": token,
+            "Content-Type": "application/json",
+            "Accept": "application/json"
+          },
+          body: JSON.stringify({ status: status})
+
+        })
+
+      }});
   }
 }
