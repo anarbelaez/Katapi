@@ -4,11 +4,15 @@ class GoalsController < ApplicationController
   def index
     @goals = Goal.all
     @goal = Goal.new
+    @tasks = current_user.tasks
   end
 
   def show
     @task = Task.new
-    # redirect_to activity_path unless @goal.user == current_user
+    @todo = Task.where(status: "not_started", goal_id: @goal.id)
+    @doing = Task.where(status: "in_progress", goal_id: @goal.id)
+    @done = Task.where(status: "done", goal_id: @goal.id)
+     # redirect_to activity_path unless @goal.user == current_user
   end
 
   def new
