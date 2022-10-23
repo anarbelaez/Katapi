@@ -1,6 +1,6 @@
 <div class="row g-4">
-  <div class="col-md-7 order-1 order-md-0">
-    <h5 class="pb-2 mb-3 border-bottom">Goals summary TODO</h5>
+  <div class="col-md-8 order-1 order-md-0">
+    <h5 class="pb-2 mb-3 border-bottom">Goals summary</h5>
 
     <div class="row g-3">
       <div class="col-7 col-sm-3">
@@ -21,37 +21,42 @@
     </div>
 
     <%# Aqui el buscador %>
-    <div class="row mt-5">
+
+    <%# Aqui se renderizan las goals %>
+    <h5 class="pb-2 mt-5 mb-3 border-bottom">My goals</h5>
+
+    <div class="row" data-controller="refresh-goals-list">
       <div class="col-12">
         <h5>Search Bar TODO</h5>
       </div>
-    </div>
 
-    <%# Aqui se renderizan las goals %>
-    <h5 class="pb-2 mt-5 mb-3 border-bottom">My goals TODO</h5>
+      <div class="col-12">
+            <div class="row" data-masonry='{"percentPosition": true }' data-refresh-list-target="list">
+      <% @goals.each do |goal| %>
+        <div class="col-6 col-sm-4">
+          <div class="">
+            <%= render "goals/partials/card_goal", goal: goal %>
+          </div>
+        </div>
+      <% end %>
+      </div>
 
-    <div class="row g-3">
-      <div class="col-6 col-sm-4">
-        <div class="bg-warning">Lorem ipsum dolor sit amet consectetur.</div>
+
       </div>
-      <div class="col-6 col-sm-4">
-        <div class="bg-warning">Lorem ipsum dolor sit amet consectetur.</div>
-      </div>
-      <div class="col-6 col-sm-4">
-        <div class="bg-warning">Lorem ipsum dolor sit amet consectetur.</div>
-      </div>
+
+
     </div>
   </div>
 
-  <div class="col-md-5 order-0 order-md-1">
+  <div class="col-md-4 order-0 order-md-1">
     <div class="position-sticky" style="top: 1rem;">
-      <div class="p-2 mb-3 bg-secondary rounded">
+      <div class="p-2 mb-3 bg-light rounded">
         <h5 class="">Calendar</h5>
         TODO
       </div>
 
-      <div class="p-2 mb-3 bg-secondary rounded">
-        <h5 class="">Month and calendar</h5>
+      <div class="p-2 mb-3 bg-light rounded">
+        <h5 class="my-3">Monthly calendar</h5>
         <div class="rounded-4">
           <%= render 'tasks/partials/calendar' %>
         </div>
