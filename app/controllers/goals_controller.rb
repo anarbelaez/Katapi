@@ -4,6 +4,7 @@ class GoalsController < ApplicationController
   def index
     @goals = Goal.all
     @goal = Goal.new
+    @tasks = current_user.tasks
   end
 
   def show
