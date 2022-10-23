@@ -11,10 +11,14 @@
   </head>
 
   <body>
-    <%= render "pages/shared/navbar_pages" %>
+    <% if current_page?(home_path) %>
+      <%= render "pages/shared/navbar_pages" %>
+    <% end %>
     <div class="">
       <%= yield %>
     </div>
-    <%= render "pages/shared/footer_pages" %>
+    <% if current_page?(home_path) %>
+      <%= render "pages/shared/footer_pages" %>
+    <% end %>
   </body>
 </html>
