@@ -11,6 +11,7 @@ class GoalsController < ApplicationController
     @todo = Task.where(status: "not_started", goal_id: @goal.id)
     @doing = Task.where(status: "in_progress", goal_id: @goal.id)
     @done = Task.where(status: "done", goal_id: @goal.id)
+     # redirect_to activity_path unless @goal.user == current_user
   end
 
   def new
@@ -40,6 +41,10 @@ class GoalsController < ApplicationController
     @goal.destroy
     # dashboard
     redirect_to goals_path, status: :see_other
+  end
+
+  def by_category
+    @goals = Goal.all
   end
 
   private

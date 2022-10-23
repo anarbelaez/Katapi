@@ -1,8 +1,8 @@
 class TasksController < ApplicationController
-  before_action :set_goal, only: %i[new create]
+  before_action :set_goal, only: %i[new create index]
   before_action :set_task, only: %i[show edit update destroy update_task]
-  def index
-    @tasks = Task.all if current_user
+def index
+ @tasks = Task.all if current_user
   end
 
   def show
@@ -45,6 +45,7 @@ class TasksController < ApplicationController
   end
 
   private
+
   def task_params
     params.require(:task).permit(:name, :status, :priority, :difficulty, :due_date, :goal_id, :review)
   end

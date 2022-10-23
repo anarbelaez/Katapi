@@ -1,38 +1,104 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
-
-<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+<div class="row">
+  <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= f.error_notification %>
+  <div class="form-group row">
+    <div class="col-12 col-md-8">
 
-  <div class="form-inputs">
-    <%= f.input :email, required: true, autofocus: true %>
+      <div class="card shadow-sm border-0 rounded-4 p-2 my-1" style="">
+        <div class="card-body">
+          <h5 class="card-title fw-bold mb-3">Profile details</h5>
+          <div class="row">
+            <div class="col-12 col-sm-6">
+              <%= f.input :email,
+                          required: true,
+                          autofocus: true,
+                          input_html: { class: "rounded-3 shadow-sm border-0 rounded-4 px-3 bg-light p-2" } %>
+            </div>
+            <div class="col-12 col-sm-6">
+              <%= f.input :nickname,
+                          required: false,
+                          autofocus: true,
+                          input_html: { class: "rounded-3 shadow-sm border-0 rounded-4 px-3 bg-light p-2" } %>
+            </div>
+            <div class="col-12 col-sm-6">
+              <%= f.input :full_name,
+                          required: false,
+                          autofocus: true,
+                          input_html: { class: "rounded-3 shadow-sm border-0 rounded-4 px-3 bg-light p-2" } %>
+            </div>
+            <div class="col-12 col-sm-6 d-flex align-items-center pt-2">
+              <%#= image_tag current_user.avatar_url, class: "img-fluid avatar-sm me-2" %>
+              <%#= link_to "Edit your avatar TODO", "#", class: "text-decoration-none" %>
+            </div>
+            <div class="col-12">
+              <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+                <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
 
-    <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-      <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
-    <% end %>
+    </div>
 
-    <%= f.input :password,
-                hint: "leave it blank if you don't want to change it",
-                required: false,
-                input_html: { autocomplete: "new-password" } %>
-    <%= f.input :password_confirmation,
-                required: false,
-                input_html: { autocomplete: "new-password" } %>
-    <%= f.input :current_password,
-                hint: "we need your current password to confirm your changes",
-                required: true,
-                input_html: { autocomplete: "current-password" } %>
-  </div>
+    <div class="col-12 col-md-4">
 
-  <div class="form-actions">
-    <%= f.button :submit, "Update" %>
-  </div>
+      <div class="card shadow-sm border-0 rounded-4 p-2 my-2" style="">
+        <div class="card-body">
+          <h5 class="card-title fw-bold mb-3">Change password</h5>
+          <h6 class="text-muted mb-3 fs-08">Leave it blank if you don't want to change it</h6>
+          <div class="row">
+            <div class="col-12">
+              <%= f.input :password,
+                          required: false,
+                          input_html: { autocomplete: "new-password", class: "rounded-3 shadow-sm border-0 rounded-4 px-3 bg-light p-2" } %>
+            </div>
+            <div class="col-12">
+              <%= f.input :password_confirmation,
+                          required: false,
+                          input_html: { autocomplete: "new-password", class: "rounded-3 shadow-sm border-0 rounded-4 px-3 bg-light p-2" } %>
+            </div>
+            </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="col-12 col-md-8">
+      <div class="card shadow-sm border-2 border-top-0 border-start-0 rounded-4 p-2 my-1" style="">
+        <div class="card-body">
+          <h5 class="card-title fw-bold mb-3">We need your current password to confirm your changes</h5>
+          <div class="row">
+            <div class="col-12">
+              <%= f.input :current_password,
+                          required: true,
+                          input_html: { autocomplete: "current-password", class: "rounded-3 shadow-sm border-0 rounded-4 px-3 bg-light p-2" } %>
+              <p class="fs-08 fw-bold text-muted">
+                Can't remember your current password?
+                <%= link_to "Reset your password", new_password_path(resource_name), class: "text-decoration-none"  %>
+              </p>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="form-actions col-12">
+          <%= f.button :submit, "Update my settings", class: "btn btn-success w-100 rounded-4 my-2 p-2" %>
+        </div>
+
+      </div>
+    </div>
 <% end %>
-
-<h3>Cancel my account</h3>
-
-<div class="d-flex align-items-center">
-  <div>Unhappy?</div>
-  <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: "btn btn-link" %>
+    <div class="col-12 col-md-4">
+      <div class="card shadow-sm border rounded-4 p-2 my-2" style="">
+        <div class="card-body">
+          <h5 class="card-title fw-bold mb-3 text-danger">Close account</h5>
+          <h6 class="text-muted mb-3 fs-08">You can permanently delete your account</h6>
+          <div class="text-center">
+            <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: "btn btn-link border-danger link-danger text-decoration-none w-100 rounded-4" %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
-
-<%= link_to "Back", :back %>
