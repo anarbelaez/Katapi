@@ -112,7 +112,8 @@
     <% end %>
   </div>
 
-  <%= link_to "New Goal", new_goal_path if policy(Goal).new? %>
+<%= link_to "New Goal", new_goal_path if policy(Goal).new? %>
+
 
   <div class="col-4">
           <h2>Tareas proximas</h2>

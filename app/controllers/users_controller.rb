@@ -25,8 +25,6 @@ class UsersController < ApplicationController
     # Editar mi perfil
     # Notificaciones
     @user = current_user
-    @name = current_user.name
-    @nickname = current_user.nickname
     authorize @user
   end
 
