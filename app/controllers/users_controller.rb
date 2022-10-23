@@ -1,11 +1,13 @@
 class UsersController < ApplicationController
   def activity
-    # TODO:
-    # Mostrar las tareas - calendario
-    @tasks = current_user.tasks
-    # Mostrar rendimiento
-    # Mostar las goals
-    @goals = current_user.goals
+    @user = current_user
+    @tasks = @user.tasks
+    @goals = @user.goals
+
+    @seed_percentage = (@user.seed_count.fdiv(@goals.count) * 100).round
+    @sapling_percentage = (@user.sapling_count.fdiv(@goals.count) * 100).round
+    @mature_tree_percentage = (@user.mature_tree_count.fdiv(@goals.count) * 100).round
+
     # def search
     #   if params[:query].present?
     #     @query = params[:query]
@@ -17,11 +19,6 @@ class UsersController < ApplicationController
   end
 
   def show
-    # Mi informacion
-    # Editar mi perfil
-    # Notificaciones
     @user = current_user
   end
-
-
 end

@@ -17,8 +17,17 @@ class User < ApplicationRecord
     goals.distinct.pluck(:category)
   end
 
+  def seed_count
+    goals.seed.count
+  end
 
+  def sapling_count
+    goals.sapling.count
+  end
 
+  def mature_tree_count
+    goals.mature_tree.count
+  end
 
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|

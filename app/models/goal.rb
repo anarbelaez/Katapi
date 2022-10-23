@@ -16,5 +16,4 @@ class Goal < ApplicationRecord
 
   enum maturity: { seed: 0, sapling: 1, mature_tree: 2 }
 
-
 end
