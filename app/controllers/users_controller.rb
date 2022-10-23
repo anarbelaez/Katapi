@@ -5,6 +5,7 @@ class UsersController < ApplicationController
     @tasks = Task.all
     # Mostrar rendimiento
     # Mostar las goals
+    @goals = Goal.all
   end
 
   def show
