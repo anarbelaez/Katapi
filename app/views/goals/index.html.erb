@@ -122,9 +122,13 @@
       </div>
 
 
-      </div>
-
-<%= link_to "New Goal", new_goal_path %>
+    <% @goals.each do |goal| %>
+      <%= render 'goals/partials/card_goal', goal: goal %>
+    <% end %>
+  </div>
+  
+  <%= link_to "New Goal", new_goal_path %>
+   </div>
 
 
     </div>
