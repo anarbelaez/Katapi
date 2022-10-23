@@ -9,14 +9,10 @@
 <%= render 'tasks/partials/button_new_task' %>
 <%= render 'tasks/partials/button_modal_new_task' %>
 
-<% if policy(@goal).edit? %>
-  <%= link_to "Edit goal", edit_goal_path %>
-<% end %>
+<%= link_to "Edit goal", edit_goal_path %>
 
-<% if policy(@goal).destroy? %>
   <%=  link_to "Delete", goal_path(@goal),
         data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
-<% end %>
 
 <% @goal.tasks.each do |task| %>
   <%= render 'tasks/partials/card_task', task: task %>

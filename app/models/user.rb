@@ -12,6 +12,14 @@ class User < ApplicationRecord
   # validates :first_name, :last_name, presence: true, length: { minimum: 2 }
   # validates :nickname, uniqueness: true
 
+  # Scopes
+  def goal_categories
+    goals.distinct.pluck(:category)
+  end
+
+
+
+
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
       user.email = auth.info.email
