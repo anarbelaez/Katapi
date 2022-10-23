@@ -35,9 +35,9 @@
 
           <div class="text-center">
             <p class="card-subtitle my-4 text-muted fs-08">Or continue with</p>
-            <%= link_to "#", class: "bg-light border-bottom border-end shadow-sm p-3 rounded-4" do %>
-              <%= image_tag "google.png", class: "", style: "width: 25px" %>
-            <% end %>
+            <div class="bg-light border-bottom border-end pt-2 pb-1 shadow-sm rounded-4 mx-auto col-2">
+              <%= render "devise/shared/oauth_form", class: ""  %>
+            </div>
           </div>
 
           <div class="mt-4 p-2">
