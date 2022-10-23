@@ -1,0 +1,11 @@
+// Asignar barra desplazamiento lateral a vista de board goal
+.bar-goal {
+  scrollbar-width: none;
+  background-color: transparent;
+  height: 400px;
+  overflow-y: scroll;
+  align-content: flex-start;
+  }
+  ::-webkit-scrollbar {
+    display: none;
+  }
