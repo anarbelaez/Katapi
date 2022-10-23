@@ -6,6 +6,15 @@ class UsersController < ApplicationController
     # Mostrar rendimiento
     # Mostar las goals
     @goals = Goal.all
+
+    # def search
+    #   if params[:query].present?
+    #     @query = params[:query]
+    #     @products = Product.search(params[:query]).available
+    #   else
+    #     @products = Product.available
+    #   end
+    # end
   end
 
   def show

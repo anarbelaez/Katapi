@@ -21,16 +21,17 @@
     </div>
 
     <%# Aqui el buscador %>
-    <div class="row mt-5">
-      <div class="col-12">
-        <h5>Search Bar TODO</h5>
-      </div>
-    </div>
 
     <%# Aqui se renderizan las goals %>
     <h5 class="pb-2 mt-5 mb-3 border-bottom">My goals</h5>
 
-    <div class="row" data-masonry='{"percentPosition": true }'>
+    <div class="row" data-controller="refresh-goals-list">
+      <div class="col-12">
+        <h5>Search Bar TODO</h5>
+      </div>
+
+      <div class="col-12">
+            <div class="row" data-masonry='{"percentPosition": true }' data-refresh-list-target="list">
       <% @goals.each do |goal| %>
         <div class="col-6 col-sm-4">
           <div class="">
@@ -38,6 +39,12 @@
           </div>
         </div>
       <% end %>
+      </div>
+
+
+      </div>
+
+
     </div>
   </div>
 
