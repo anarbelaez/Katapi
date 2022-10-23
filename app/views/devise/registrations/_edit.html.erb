@@ -4,7 +4,7 @@
   <div class="form-group row">
     <div class="col-12 col-md-8">
 
-      <div class="card shadow-sm border-0 rounded-4 p-2 my-2" style="">
+      <div class="card shadow-sm border-0 rounded-4 p-2 my-1" style="">
         <div class="card-body">
           <h5 class="card-title fw-bold mb-3">Profile details</h5>
           <div class="row">
@@ -21,16 +21,14 @@
                           input_html: { class: "rounded-3 shadow-sm border-0 rounded-4 px-3 bg-light p-2" } %>
             </div>
             <div class="col-12 col-sm-6">
-              <%= f.input :first_name,
+              <%= f.input :full_name,
                           required: false,
                           autofocus: true,
                           input_html: { class: "rounded-3 shadow-sm border-0 rounded-4 px-3 bg-light p-2" } %>
             </div>
-            <div class="col-12 col-sm-6">
-              <%= f.input :last_name,
-                          required: false,
-                          autofocus: true,
-                          input_html: { class: "rounded-3 shadow-sm border-0 rounded-4 px-3 bg-light p-2" } %>
+            <div class="col-12 col-sm-6 d-flex align-items-center pt-2">
+              <%#= image_tag current_user.avatar_url, class: "img-fluid avatar-sm me-2" %>
+              <%#= link_to "Edit your avatar TODO", "#", class: "text-decoration-none" %>
             </div>
             <div class="col-12">
               <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
@@ -67,7 +65,7 @@
     </div>
 
     <div class="col-12 col-md-8">
-      <div class="card shadow-sm border-2 border-top-0 border-start-0 rounded-4 p-2 my-3" style="">
+      <div class="card shadow-sm border-2 border-top-0 border-start-0 rounded-4 p-2 my-1" style="">
         <div class="card-body">
           <h5 class="card-title fw-bold mb-3">We need your current password to confirm your changes</h5>
           <div class="row">
