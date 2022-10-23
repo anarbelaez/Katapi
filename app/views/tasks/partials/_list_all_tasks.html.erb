@@ -1,39 +1,133 @@
-<!-- <div class="row">
-  <div class="list-group">
-    <% @tasks.each do |task| %>
-      <a href="#" class="list-group-item list-group-item-action">
-        <div class="d-flex w-100 justify-content-between">
-            <h5 class="mb-1">
-              <%= task.name.capitalize %>
-            </h5>
-            <small class="text-muted"><%= task.due_date %></small>
-            <%= link_to "Delete task" , task_path(task), data: {turbo_method: :delete, turbo_confirm: "Are you sure?" },
-            class:'btn-flat'%>
-        </div>
-        <p class="mb-1">Some placeholder content in a paragraph.</p>
+  <div class="sticky-sm-top bg-white">
+    <hr>
+  <div class="row  mb-2 d-flex  align-items-center border-2 border-top-0  rouded-4">
 
-        <small class="text-muted">
+    <div class="row align-items-center">
+      <div class="col-12 col-lg-6">
+        <h5>Task Name</h5>
+      </div>
 
-        </small>
-          <% end %>
-      </a>
-  </div>
-</div>
- -->
+      <div class="col-sm-12  col-lg-2">
+        <h5>Task Status</h5>
+      </div>
 
- <% @tasks.each do |task| %>
-
-<div class="list-group">
-
-  <a href="#" class="list-group-item list-group-item-action rounded-4 bg-light my-1">
-    <div class="d-flex w-100 justify-content-between">
-
-      <h5 class="mb-1"> <%= task.name.capitalize %></h5>
-      <small>Complete at:<%= task.due_date %></small>
+      <div class="col-sm-12 col-lg-2">
+       <h5>Due Date</h5>
+      </div>
+      <div class="col-sm-12 col-lg-2">
+        <h5>Details</h5>
+      </div>
     </div>
-    <p class="mb-1"><%= task.description %></p>
-    <small>Priority: <%= task.priority %></small>
-  </a>
-
+  </div>
+  <hr>
 </div>
-<% end %>
+
+  <% @tasks.sort.reverse{:due_date}.each do |task| %>
+  <div class="row bg-ligth mb-2 d-flex  align-items-center">
+
+  <div class="row align-items-center bg-ligth border border-1 rounded-4">
+      <div class="col-12 col-lg-6">
+        <%= link_to "#{task.name.capitalize}" , task, class:"btn btn-white" %>
+      </div>
+
+      <div class="col-sm-12 col-lg-2">
+        <%= task.status %>
+      </div>
+
+      <div class="col-sm-12 col-lg-2">
+        <%= task.due_date%>
+      </div>
+      <div class="col-sm-12 col-lg-2">
+
+<!-- inicia offcanvas -->
+
+        <button class="btn btn-light" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight"
+          aria-controls="offcanvasRight">Details <i class="fa-solid fa-angle-right"></i>
+        </button>
+
+        <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+          <div class="offcanvas-header">
+            <h5 id="offcanvasRightLabel">
+              Task Details
+            </h5>
+            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+          </div>
+
+          <div class="offcanvas-body">
+
+            <div class="row border border-1 d-flex  align-items-center mb-2 rounded-4">
+              <div class="col-4 ">
+                <h5>Name:</h5>
+              </div>
+              <div class="col-8 ">
+                  <%= link_to "#{task.name.capitalize}" , task, class:"btn btn-white text-start p-0" %></p>
+              </div>
+           </div>
+
+
+            <div class="row border border-1 d-flex  align-items-center mb-2 rounded-4 bg-light my-1">
+              <div class="col-4 ">
+                <h5>Status:</h5>
+              </div>
+              <div class="col-8 ">
+                  <p><%= task.status %></p>
+              </div>
+            </div>
+
+            <div class="row border border-1 d-flex  align-items-center mb-2 rounded-4">
+              <div class="col-4 ">
+                <h5>Difficulty:</h5>
+              </div>
+              <div class="col-8 ">
+                  <p><%= task.difficulty %></p>
+              </div>
+            </div>
+
+
+            <div class="row border border-1 d-flex  align-items-center mb-2 rounded-4">
+              <div class="col-4 ">
+                <h5>Created at:</h5>
+              </div>
+              <div class="col-8 ">
+                  <p><%= task.created_at %></p>
+              </div>
+            </div>
+
+            <div class="row border border-1 d-flex  align-items-center mb-2 rounded-4">
+              <div class="col-4 ">
+                <h5>Due Date:</h5>
+              </div>
+              <div class="col-8 ">
+                  <p> <%= task.due_date %></p>
+              </div>
+            </div>
+
+            <div class="row border border-1 d-flex  align-items-center mb-2 rounded-4">
+              <div class="col-4 ">
+                <h5>Description:</h5>
+              </div>
+              <div class="col-8 ">
+                  <p> <%= task.description %> </p>
+              </div>
+            </div>
+
+            <div class="row border border-1 d-flex  align-items-center mb-2 rounded-4">
+              <div class="col-4 ">
+                <h5> Notes:</h5>
+              </div>
+              <div class="col-8 ">
+                  <p> <%= task.rich_body %> </p>
+              </div>
+            </div>
+
+
+          </div>
+        </div>
+<!-- fin offcanvas -->
+
+      </div>
+
+    </div>
+
+  </div>
+  <% end %>

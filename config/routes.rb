@@ -13,9 +13,13 @@ Rails.application.routes.draw do
   resources :goals, shallow: true do
     resources :tasks
   end
+
+  get 'goals/category/:category', to: 'goals#by_category', as: :by_category
+
   # Tasks
   resources :tasks, only: [:index]
   patch '/tasks_update/:id', to: 'tasks#update_task'
+  get '/calendar', to: 'tasks#calendar'
 
   # Users - El nickname es unico para cada usuario
   resources :users, only: %i[show]

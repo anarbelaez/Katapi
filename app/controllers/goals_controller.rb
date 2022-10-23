@@ -2,26 +2,26 @@ class GoalsController < ApplicationController
   before_action :set_goal, only: %i[show edit update destroy]
 
   def index
-    @goals = policy_scope(Goal)
+    @goals = Goal.all
     @goal = Goal.new
     @tasks = current_user.tasks
   end
 
   def show
     @task = Task.new
-    # redirect_to activity_path unless @goal.user == current_user
-    authorize @goal
+    @todo = Task.where(status: "not_started", goal_id: @goal.id)
+    @doing = Task.where(status: "in_progress", goal_id: @goal.id)
+    @done = Task.where(status: "done", goal_id: @goal.id)
+     # redirect_to activity_path unless @goal.user == current_user
   end
 
   def new
     @goal = Goal.new
-    authorize @goal
   end
 
   def create
     @goal = Goal.new(goal_params)
     @goal.user = current_user
-    authorize @goal
     @goal.save
     if @goal.save
       redirect_to goal_path(@goal)
@@ -31,20 +31,21 @@ class GoalsController < ApplicationController
   end
 
   def edit
-    autorize @goal
   end
 
   def update
-    autorize @goal
     @goal.update(goal_params)
     redirect_to goal_path(@goal)
   end
 
   def destroy
-    autorize @goal
     @goal.destroy
     # dashboard
     redirect_to goals_path, status: :see_other
+  end
+
+  def by_category
+    @goals = Goal.all
   end
 
   private
