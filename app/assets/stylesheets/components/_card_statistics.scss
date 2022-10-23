@@ -49,12 +49,12 @@
       align-items: center;
       .percent{
           position: relative;
-          width: 126px;
-          height: 126px;
+          width: 110px;
+          height: 110px;
           svg{
               position: relative;
-              width: 126px;
-              height: 126px;
+              width: 110px;
+              height: 110px;
               transform: rotate(270deg);
               circle{
                   width: 100%;
@@ -65,8 +65,8 @@
                   transform: translate(5px, 5px);
                   &:nth-child(2){
                       stroke: var(--clr);
-                      stroke-dasharray: 362;
-                      stroke-dashoffset: calc(362 - (362 * var(--num)) / 100);
+                      stroke-dasharray: 312;
+                      stroke-dashoffset: calc(312 - (312 * var(--num)) / 100);
                       opacity: 0;
                       animation: fadeIn 1s linear forwards;
                       animation-delay: 2.5s;
