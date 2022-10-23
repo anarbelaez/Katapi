@@ -1,6 +1,6 @@
-<nav class="navbar navbar-expand-lg py-3 bg-light sticky-top">
-  <div class="container-fluid">
-    <%= link_to "Katapi", "#", class: "navbar-brand fw-bold" %>
+<nav class="navbar navbar-expand-lg py-3 shadow-sm bg-light sticky-top">
+  <div class="container-fluid mx-2">
+    <%= link_to "Katapi", "#", class: "navbar-brand" %>
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarPages" aria-controls="navbarPages" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -9,15 +9,19 @@
     <div class="collapse navbar-collapse" id="navbarPages">
       <div class="ms-auto text-center">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
+          <li class="nav-item mx-2">
             <%= link_to "Home", "#", class: "nav-link", aria_current: "page" %>
           </li>
-          <li class="nav-item">
+          <li class="nav-item mx-2">
             <%= link_to "About", "#", class: "nav-link" %>
           </li>
 
-          <li class="nav-item">
-            <%= link_to "Sign in", "#", class: "nav-link btn btn-secondary" %>
+          <li class="nav-item mx-2">
+          <% if user_signed_in? %>
+            <%= link_to "My board", activity_path, class: "btn btn-primary rounded-4" %>
+          <% else %>
+            <%= link_to "Sign in", new_user_session_path, class: "btn btn-primary rounded-4" %>
+          <% end %>
           </li>
         </ul>
       </div>

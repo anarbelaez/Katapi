@@ -2,10 +2,13 @@ class UsersController < ApplicationController
   def activity
     # TODO:
     # Mostrar las tareas - calendario
-    @tasks = Task.all
+    @tasks = current_user.tasks
     # Mostrar rendimiento
     # Mostar las goals
-    @goals = Goal.all
+    @goals = current_user.goals
+    # authorize @tasks
+    authorize @goals
+    authorize @tasks
 
     # def search
     #   if params[:query].present?
@@ -21,7 +24,11 @@ class UsersController < ApplicationController
     # Mi informacion
     # Editar mi perfil
     # Notificaciones
+    @user = current_user
     @name = current_user.name
     @nickname = current_user.nickname
+    authorize @user
   end
+
+
 end
