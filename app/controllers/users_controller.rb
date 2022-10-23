@@ -6,10 +6,6 @@ class UsersController < ApplicationController
     # Mostrar rendimiento
     # Mostar las goals
     @goals = current_user.goals
-    # authorize @tasks
-    authorize @goals
-    authorize @tasks
-
     # def search
     #   if params[:query].present?
     #     @query = params[:query]
@@ -25,7 +21,6 @@ class UsersController < ApplicationController
     # Editar mi perfil
     # Notificaciones
     @user = current_user
-    authorize @user
   end
 
 

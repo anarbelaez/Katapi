@@ -30,12 +30,6 @@ gem "jbuilder"
 # Use Redis adapter to run Action Cable in production
 gem "redis", "~> 4.0"
 
-# PG Search
-gem "pg_search"
-
-# Pundit
-gem "pundit"
-
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem "kredis"
 
@@ -63,8 +57,7 @@ gem 'faker'
 # PG Search
 gem "pg_search"
 
-# Pundit
-gem "pundit"
+gem 'better_errors', '~> 2.9', '>= 2.9.1'
 
 # Oauth
 gem 'omniauth'
