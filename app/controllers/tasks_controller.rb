@@ -1,11 +1,7 @@
 class TasksController < ApplicationController
-<<<<<<< HEAD
   before_action :set_goal, only: %i[new create index]
-  before_action :set_task, only: %i[show edit update destroy]
-=======
-  before_action :set_goal, only: %i[new create]
   before_action :set_task, only: %i[show edit update destroy update_task]
->>>>>>> 87827c9629091916efe3063904cd6ea7b09a6e6d
+
   def index
     @tasks = policy_scope(Task)
     @tasks = @goal.tasks
