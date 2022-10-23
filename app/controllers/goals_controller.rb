@@ -8,6 +8,9 @@ class GoalsController < ApplicationController
 
   def show
     @task = Task.new
+    @todo = Task.where(status: "not_started", goal_id: @goal.id)
+    @doing = Task.where(status: "in_progress", goal_id: @goal.id)
+    @done = Task.where(status: "done", goal_id: @goal.id)
   end
 
   def new
