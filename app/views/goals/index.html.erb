@@ -6,7 +6,7 @@
   </div>
 </div>
 
-<%= link_to "New Goal", new_goal_path %>
+<%= link_to "New Goal", new_goal_path if policy(Goal).new? %>
 
 <% @goals.each do |goal| %>
   <%= render 'goals/partials/card_goal', goal: goal %>

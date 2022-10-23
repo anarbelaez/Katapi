@@ -1,24 +1,27 @@
 class TasksController < ApplicationController
-  before_action :set_goal, only: %i[new create]
+  before_action :set_goal, only: %i[new create index]
   before_action :set_task, only: %i[show edit update destroy]
   def index
-    @tasks = Task.all if current_user
-    @todo = Task.where(status: "not_started")
-    @doing = Task.where(status: "in_progress")
-    @done = Task.where(status: "done")
-
+    @tasks = policy_scope(Task)
+    @tasks = @goal.tasks
+    @todo = @tasks.not_started
+    @doing = @tasks.in_progress
+    @done = @tasks.done
   end
 
   def show
+    authorize @task
   end
 
   def new
     @task = Task.new
+    authorize @task
   end
 
   def create
     @task = Task.new(task_params)
     @task.goal = @goal
+    authorize @task
     @task.save
     if @task.save
       redirect_to goal_tasks_path
@@ -28,19 +31,23 @@ class TasksController < ApplicationController
   end
 
   def edit
+    authorize @task
   end
 
   def update
+    authorize @task
     @task.update(task_params)
     redirect_to task_path(@task)
   end
 
   def destroy
+    authorize @task
     @task.destroy
     redirect_to goal_tasks_path(@task.goal), status: :see_other
   end
 
   private
+
   def task_params
     params.require(:task).permit(:name, :status, :priority, :difficulty, :due_date, :goal_id, :review)
   end
