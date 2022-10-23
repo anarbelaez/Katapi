@@ -1,0 +1,114 @@
+@keyframes animateDot{
+  0%{
+      transform: rotate(0deg);
+  }
+  100%{
+      transform: rotate(calc(3.6deg * var(--num)));
+  }
+}
+
+@keyframes fadeIn{
+  0%{
+      opacity: 0;
+  }
+  100%{
+      opacity: 1;
+  }
+}
+
+.dot{
+  position: absolute;
+  inset: 5px;
+  z-index: 10;
+  transform: rotate(calc(3.6deg * var(--num)));
+  animation: animateDot 2s linear forwards;
+  &::before{
+      content: '';
+      position: absolute;
+      top: -5px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--clr);
+
+      box-shadow: 0 0 10px var(--clr),
+      0 0 30px var(--clr);
+  }
+}
+
+.containerpb{
+  position: relative;
+  gap: 40px;
+  .card{
+      position: relative;
+      background: #2a2a2a;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      .percent{
+          position: relative;
+          width: 126px;
+          height: 126px;
+          svg{
+              position: relative;
+              width: 126px;
+              height: 126px;
+              transform: rotate(270deg);
+              circle{
+                  width: 100%;
+                  height: 100%;
+                  fill: transparent;
+                  stroke-width: 5;
+                  stroke: #191919;
+                  transform: translate(5px, 5px);
+                  &:nth-child(2){
+                      stroke: var(--clr);
+                      stroke-dasharray: 362;
+                      stroke-dashoffset: calc(362 - (362 * var(--num)) / 100);
+                      opacity: 0;
+                      animation: fadeIn 1s linear forwards;
+                      animation-delay: 2.5s;
+                  }
+              }
+          }
+      }
+  }
+}
+
+.number{
+  position: absolute;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  opacity: 0;
+  animation: fadeIn 1s linear forwards;
+  animation-delay: 2.5s;
+  h2{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #fff;
+      font-weight: bold;
+      font-size: 2.5em;
+      margin-top: 5px;
+      span{
+          font-weight: normal;
+          color: #fff;
+          font-size: .5em;
+      }
+  }
+  p{
+      font-weight: bold;
+      font-size: .75em;
+      line-height: 2px;
+      color: rgba(255, 255, 255, 0.75);
+  }
+}
+
+.bg1{
+  background: #2a2a2a;
+}
