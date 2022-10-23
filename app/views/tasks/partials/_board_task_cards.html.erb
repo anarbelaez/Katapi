@@ -1,24 +1,27 @@
 <div class="row">
-<div class="card d-flex justify-content-between rounded-4 bg-success bg-opacity-10 border-0 mb-3 col-11">
+<div class="card  rounded-4 bg-success bg-opacity-10 border-0  mb-3 col-sm-11 col-lg-9">
   <div class="d-flex position-relative bg-opacity-10 d-flex justify-content-between px-3" >
     <div class="mb-0">
       <h3 class=" m-0"> <%= @goal.name%> </h3>
       <p class="my-0"><%= @goal.maturity.capitalize%> | <%= @goal.category.capitalize %> |  </p>
     </div>
-    <div>
+    <div class="col-2">
       <img src="https://i.pinimg.com/564x/f2/52/fa/f252fa96c51dd1cb0ac71f85858632db.jpg" style="width: 50px; height: 50px;" class="rounded-circle me-3" alt="...">
     </div>
   </div>
 </div>
-<div class="col-1">
+<div class="col-sm-12 col-lg-2 d-flex  align-items-center justify-content-center ">
   <p>
     <!--inicio boton de richtext -->
-    <button class="btn btn-outline-dark rounded-4 d-flex justify-content-end pt-2" type="button" data-bs-toggle="collapse" data-bs-target="#richtexGoal" aria-expanded="false" aria-controls="richtexGoal">
+    <button class="btn btn-dark rounded-4 d-flex justify-content-center pt-2 col-sm-12" type="button" data-bs-toggle="collapse" data-bs-target="#richtexGoal" aria-expanded="false" aria-controls="richtexGoal">
       See Notes
     </button>
   </p>
 </div>
   <!--fin boton de richtext -->
+  <div class="col-sm-2 col-lg-1">
+    <%= render 'tasks/partials/button_modal_new_task' %>
+  </div>
 </div>
   <!--inicio llamado de richtext -->
 <div class="collapse" id="richtexGoal">
@@ -33,7 +36,7 @@
 <% end %>
   <!--fin de llamado richtext -->
 
-<div class="row row-cols-sm-1 row-cols-m-2  row-cols-lg-3" data-controller="sortable"
+<div class="row row-cols-sm-1 row-cols-m-2  row-cols-lg-3 my-0 mx-0" data-controller="sortable"
   data-action="onEnd->sortable#sortable" id="results">
 
   <div class="col">
