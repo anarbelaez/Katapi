@@ -21,7 +21,7 @@
           <div class="card-body">
             <p class="fs-2 mb-1"><%= @seed_percentage %>%</p>
             <p class="card-text fs-08 mb-1 fw-bold">Seed - sin iniciar</p>
-            <p class="card-text fs-08 m-0">12 de todas las goals aun estan en estado semilla</p>
+            <p class="card-text fs-08 m-0">Goals que aun estan en estado semilla</p>
             <%= link_to "Ver goals", "#", class: "text-decoration-none link-primary fs-08" %>
           </div>
         </div>
@@ -31,8 +31,8 @@
         <div class="card border-0 rounded-4 bg-light shadow-sm" style="">
           <div class="card-body">
             <p class="fs-2 mb-1"><%= @sapling_percentage %>%</p>
-            <p class="card-text fs-08 mb-1 fw-bold">Sapling - sin iniciar</p>
-            <p class="card-text fs-08 m-0">12 de todas las goals aun estan en estado sapling</p>
+            <p class="card-text fs-08 mb-1 fw-bold">Sapling - en progreso</p>
+            <p class="card-text fs-08 m-0">Goals que aun estan en estado sapling</p>
             <%= link_to "Ver goals", "#", class: "text-decoration-none link-primary fs-08" %>
           </div>
         </div>
@@ -43,7 +43,7 @@
           <div class="card-body">
             <p class="fs-2 mb-1"><%= @mature_tree_percentage %>%</p>
             <p class="card-text fs-08 mb-1 fw-bold">Mature trees - metas realizadas</p>
-            <p class="card-text fs-08 m-0">12 de todas las goals aun estan en estado semilla</p>
+            <p class="card-text fs-08 m-0">Goals que aun estan en estado semilla</p>
             <%= link_to "Ver goals", "#", class: "text-decoration-none link-primary fs-08" %>
           </div>
         </div>
@@ -70,7 +70,7 @@
                 <%= render "card_goal_board", goal: goal %>
               </a>
 
-              <div class="modal fade" id="modalGoal" tabindex="-1" aria-labelledby="modalGoalLabel" aria-hidden="true">
+              <div class="modal fade mt-5" id="modalGoal" tabindex="-1" aria-labelledby="modalGoalLabel" aria-hidden="true">
                 <%= render "modal_for_goal", goal: goal %>
               </div>
             </div>
@@ -144,12 +144,6 @@
     goalDescriptionM.textContent = `${ goalDescription }`
     goalCategoryM.textContent = `${ goalCategory }`
     goalDateM.textContent = `${ goalDate }`
-
-    const mydiv = document.getElementById("#modal-footer");
-    const aTag = document.createElement('a');
-    aTag.setAttribute('href', goalUrl);
-    aTag.innerText = "See goal details";
-    mydiv.appendChild(aTag);
 
   })
 </script>
