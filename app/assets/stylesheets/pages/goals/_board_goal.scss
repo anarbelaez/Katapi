@@ -2,10 +2,14 @@
 .bar-goal {
   scrollbar-width: none;
   background-color: transparent;
-  height: 400px;
+  height: 310px;
   overflow-y: scroll;
   align-content: flex-start;
   }
   ::-webkit-scrollbar {
     display: none;
   }
+.name-goal {
+  display: flex;
+  align-items: flex-end;
+}
