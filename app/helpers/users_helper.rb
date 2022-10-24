@@ -13,4 +13,8 @@ module UsersHelper
   def devise_mapping
     @devise_mapping ||= Devise.mappings[:user]
   end
+
+  def user_has_name?
+    current_user.full_name || current_user.nickname
+  end
 end
