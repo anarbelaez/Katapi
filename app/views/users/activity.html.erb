@@ -132,6 +132,7 @@
     const goalDescription = goal.getAttribute('data-bs-goal-description')
     const goalCategory = goal.getAttribute('data-bs-goal-category')
     const goalDate = goal.getAttribute('data-bs-goal-date')
+    const goalUrl = goal.getAttribute('data-bs-goal-url')
 
     const goalNameM = modalGoal.querySelector('#goalName')
     const goalDescriptionM = modalGoal.querySelector('#goalDescription')
@@ -143,5 +144,12 @@
     goalDescriptionM.textContent = `${ goalDescription }`
     goalCategoryM.textContent = `${ goalCategory }`
     goalDateM.textContent = `${ goalDate }`
+
+    const mydiv = document.getElementById("#modal-footer");
+    const aTag = document.createElement('a');
+    aTag.setAttribute('href', goalUrl);
+    aTag.innerText = "See goal details";
+    mydiv.appendChild(aTag);
+
   })
 </script>
