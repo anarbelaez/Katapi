@@ -5,7 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable,
          :omniauthable, omniauth_providers: [:google_oauth2]
 
-  has_many :goals
+  has_many :goals, dependent: :destroy
   has_many :tasks, through: :goals
   has_one_attached :photo
 

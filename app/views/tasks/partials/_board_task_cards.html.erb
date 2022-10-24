@@ -1,8 +1,9 @@
-<div class="row">
-<div class="card  rounded-4 bg-success bg-opacity-10 border-0  mb-3 col-sm-11 col-lg-9">
+<div class="row d-none d-md-block">
+
+<div class="mx-4 card rounded-4 bg-success bg-opacity-10 border-0  mb-3 col-sm-11 col-lg-9">
   <div class="d-flex position-relative bg-opacity-10 d-flex justify-content-between px-3" >
     <div class="mb-0">
-      <h3 class=" m-0"> <%= @goal.name%> </h3>
+      <h3 class="m-0"> <%= @goal.name%> </h3>
       <p class="my-0"><%= @goal.maturity.capitalize%> | <%= @goal.category.capitalize %> |  </p>
     </div>
     <div class="col-2">
@@ -11,13 +12,13 @@
   </div>
 </div>
 <div class="col-sm-12 col-lg-2 d-flex  align-items-center justify-content-center ">
-  <p>
-    <!--inicio boton de richtext -->
-    <button class="btn btn-dark rounded-4 d-flex justify-content-center pt-2 col-sm-12" type="button" data-bs-toggle="collapse" data-bs-target="#richtexGoal" aria-expanded="false" aria-controls="richtexGoal">
-      See Notes
-    </button>
-  </p>
+  <!--inicio boton de richtext -->
+  <button class="btn btn-dark rounded-4 d-flex justify-content-center pt-2 col-sm-12" type="button" data-bs-toggle="collapse" data-bs-target="#richtexGoal" aria-expanded="false" aria-controls="richtexGoal">
+    See Notes
+  </button>
 </div>
+
+
   <!--fin boton de richtext -->
   <div class="col-sm-2 col-lg-1">
     <%= render 'tasks/partials/button_modal_new_task' %>

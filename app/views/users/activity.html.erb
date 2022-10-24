@@ -3,7 +3,7 @@
     <h5 class="pb-2 mb-3 border-bottom">Goals summary</h5>
 
     <div class="row g-3">
-      <div class="col-12 col-sm-4 d-flex align-items-stretch">
+    <div class="col-12 col-sm-4 d-flex align-items-stretch">
         <div class="card border-0 rounded-4 bg-light shadow-sm" style="">
           <div class="card-body">
             <p class="fs-2 mb-1"><%= @seed_percentage %>%</p>
@@ -18,8 +18,8 @@
         <div class="card border-0 rounded-4 bg-light shadow-sm" style="">
           <div class="card-body">
             <p class="fs-2 mb-1"><%= @sapling_percentage %>%</p>
-            <p class="card-text fs-08 mb-1 fw-bold">Sapling - En progreso</p>
-            <p class="card-text fs-08 m-0">25 de todas las goals estan en estado arbol joven</p>
+            <p class="card-text fs-08 mb-1 fw-bold">Sapling - sin iniciar</p>
+            <p class="card-text fs-08 m-0">12 de todas las goals aun estan en estado sapling</p>
             <%= link_to "Ver goals", "#", class: "text-decoration-none link-primary fs-08" %>
           </div>
         </div>
@@ -29,12 +29,13 @@
         <div class="card border-0 rounded-4 bg-light shadow-sm" style="">
           <div class="card-body">
             <p class="fs-2 mb-1"><%= @mature_tree_percentage %>%</p>
-            <p class="card-text fs-08 mb-1 fw-bold">Mature tree - Metas cumplidas</p>
-            <p class="card-text fs-08 m-0">40 de todas las goals son arboles adultos</p>
+            <p class="card-text fs-08 mb-1 fw-bold">Mature trees - metas realizadas</p>
+            <p class="card-text fs-08 m-0">12 de todas las goals aun estan en estado semilla</p>
             <%= link_to "Ver goals", "#", class: "text-decoration-none link-primary fs-08" %>
           </div>
         </div>
       </div>
+
     </div>
 
     <%# Aqui se renderizan las goals %>
@@ -49,7 +50,7 @@
       <div class="row" data-masonry='{"percentPosition": true }' data-refresh-list-target="list">
         <% @goals.each do |goal| %>
           <div class="col-6 col-sm-4">
-            <div class="">
+            <div class="d-flex align-items-stretch">
               <%= render "goals/partials/card_goal", goal: goal %>
             </div>
           </div>

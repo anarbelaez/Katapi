@@ -1,8 +1,13 @@
 class TasksController < ApplicationController
   before_action :set_goal, only: %i[new create index]
   before_action :set_task, only: %i[show edit update destroy update_task]
+
   def index
     @tasks = Task.all if current_user
+    @tasks = @goal.tasks
+    @todo = @tasks.not_started
+    @doing = @tasks.in_progress
+    @done = @tasks.done
   end
 
   def show
