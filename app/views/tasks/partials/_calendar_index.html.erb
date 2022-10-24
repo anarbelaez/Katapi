@@ -1,10 +1,27 @@
-<div class="row f-flex justify-content-center">
+<div class="row d-none d-md-block">
   <%= month_calendar events: @tasks do |date, tasks| %>
-    <%= date.day %>
+  <div class="d-flex justify-content-end">
+   <strong> <%= date.day %> </strong>
+    </div>
       <% tasks.each do |task| %>
-        <div class="">
+        <div class="bg-success mb-1 rounded-4">
           <%= link_to "#{task.name.capitalize}", task, class:"btn btn-white btn-sm " %>
         </div>
     <% end %>
   <% end %>
+</div>
+
+
+<div class="row d-block d-md-none d-flex justify-content-end">
+
+
+  <%= calendar number_of_days: 7, events: @tasks do |date, tasks| %>
+  <%= date.day %>
+  <% tasks.each do |task| %>
+  <div class="bg-success mb-1 rounded-4">
+    <%= link_to "#{task.name.capitalize}", task, class:"btn btn-white btn-sm " %>
+  </div>
+  <% end %>
+<% end %>
+
 </div>

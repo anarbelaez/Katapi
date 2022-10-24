@@ -1,7 +1,7 @@
   .simple-calendar .day {
     height: 15px;
     border: 2px solid secondary;
-    background-color: aliceblue;
+    background-color: white;
 }
 .table-striped > tbody > tr:nth-of-type(odd) > * {
     --bs-table-accent-bg: none;
@@ -12,10 +12,12 @@
   justify-content:space-between;
     a {
     text-decoration: none;
-    border: 0px solid white;
-    border-radius: 5px;
-    padding: 2px;
-    background-color: white;
+    color: rgb(170, 61, 237);
+    font-weight: bold;
+    // border: 0px solid white;
+    // border-radius: 5px;
+    // padding: 2px;
+    // background-color: rgb(209, 200, 200);
 
   }
 }
@@ -25,7 +27,24 @@
   text-decoration: none;
 }
 
+.index-calendar {
+  .simple-calendar table {
+    border: none;
+  }
 
+  .simple_calendar {
+    border-radius: 12px;
+  }
+  .simple-calendar .day {
+    border: none;
+  }
+
+
+  .simple-calendar th {
+  border: none;
+  border-bottom: 1px solid grey;
+  }
+}
 
 .simple-calendar {
   .day {
