@@ -9,6 +9,7 @@ class UsersController < ApplicationController
       @sapling_percentage = (@user.sapling_count.fdiv(@goals.count) * 100).round
       @mature_tree_percentage = (@user.mature_tree_count.fdiv(@goals.count) * 100).round
     end
+
     # def search
     #   if params[:query].present?
     #     @query = params[:query]

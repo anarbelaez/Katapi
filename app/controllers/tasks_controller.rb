@@ -3,6 +3,7 @@ class TasksController < ApplicationController
   before_action :set_task, only: %i[show edit update destroy update_task]
 
   def index
+    @tasks = Task.all if current_user
     @tasks = @goal.tasks
     @todo = @tasks.not_started
     @doing = @tasks.in_progress
@@ -51,7 +52,7 @@ class TasksController < ApplicationController
   private
 
   def task_params
-    params.require(:task).permit(:name, :status, :priority, :difficulty, :due_date, :goal_id, :review)
+    params.require(:task).permit(:name, :description, :status, :priority, :difficulty, :due_date, :goal_id, :review)
   end
 
   def set_goal
