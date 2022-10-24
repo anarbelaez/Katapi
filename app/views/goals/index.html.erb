@@ -1,5 +1,5 @@
 
-<%= link_to "New Goal", new_goal_path if policy(Goal).new? %>
+<%= link_to "New Goal", new_goal_path %>
 
 
 <div class="row g-4">
@@ -126,7 +126,7 @@
       <%= render 'goals/partials/card_goal', goal: goal %>
     <% end %>
   </div>
-  
+
   <%= link_to "New Goal", new_goal_path %>
    </div>
 

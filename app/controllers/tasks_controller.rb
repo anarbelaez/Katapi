@@ -1,8 +1,12 @@
 class TasksController < ApplicationController
-  before_action :set_goal, only: %i[new create index]
+  before_action :set_goal, only: %i[new create]
   before_action :set_task, only: %i[show edit update destroy update_task]
-def index
- @tasks = Task.all if current_user
+  def index
+    @tasks = Task.all if current_user
+    @todo = Task.where(status: "not_started")
+    @doing = Task.where(status: "in_progress")
+    @done = Task.where(status: "done")
+
   end
 
   def show
@@ -35,17 +39,12 @@ def index
     @task.update(task_params)
   end
 
-  def calendar
-    @tasks = Task.all
-  end
-
   def destroy
     @task.destroy
     redirect_to goal_tasks_path(@task.goal), status: :see_other
   end
 
   private
-
   def task_params
     params.require(:task).permit(:name, :status, :priority, :difficulty, :due_date, :goal_id, :review)
   end
