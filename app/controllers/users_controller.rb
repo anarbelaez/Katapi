@@ -4,9 +4,9 @@ class UsersController < ApplicationController
     @tasks = @user.tasks
     @goals = @user.goals
 
-    @seed_percentage = (@user.seed_count.fdiv(@goals.count) * 100).round
-    @sapling_percentage = (@user.sapling_count.fdiv(@goals.count) * 100).round
-    @mature_tree_percentage = (@user.mature_tree_count.fdiv(@goals.count) * 100).round
+    @seed_percentage = (@user.seed_count.fdiv(@goals.count) * 100).round || 0
+    @sapling_percentage = (@user.sapling_count.fdiv(@goals.count) * 100).round || 0
+    @mature_tree_percentage = (@user.mature_tree_count.fdiv(@goals.count) * 100).round || 0
 
     # def search
     #   if params[:query].present?
