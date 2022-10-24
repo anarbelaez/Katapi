@@ -1,0 +1,55 @@
+<style>
+  .img {
+    background-size: cover;
+  background-position: center;
+  height: 120px;
+  max-height: 120px;
+  }
+
+</style>
+
+<div class="modal-dialog modal-sm" style="max-width: 350px" style="">
+  <div class="modal-content shadow-sm border-0 bg-light rounded-4">
+    <div class="modal-header border-0 pb-1">
+      <button type="button" class="btn-close fs-08" data-bs-dismiss="modal" aria-label="Close"></button>
+    </div>
+    <div class="modal-body">
+      <div class="container-fluid">
+        <div class="row pt-1">
+          <div class="col-12 d-flex flex-column">
+            <div class="img rounded-4" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)"></div>
+            <h5 class="modal-title text-warning my-2 fw-bold" id="goalName">Preparar la demo para el lunes</h5>
+            <h6 class="fs-08 mb-3"><span class="text-bg-info rounded-4 px-2" id="goalCategory">programming</span></h6>
+            <h5 class="fs-08 fw-bold mb-3 text-muted">Due date: <span id="goalDate">2022-10-22</span></h5>
+            <h6 class="fw-bold text-warning">Description</h6>
+            <p class="fs-08" id="goalDescription">Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident molestiae perspiciatis harum praesentium earum iure et dolorem, ut maxime cupiditate.</p>
+            <h6 class="fw-bold mb-1 text-warning">Tasks</h6>
+            <div class="row mt-1 mb-3">
+              <div class="col-4">
+                <div class="d-flex flex-column text-center">
+                  <p class="m-0 p-0 fs-4" id="taskCountNotStarted">3</p>
+                  <p class="m-0 p-0 fs-08">Not started</p>
+                </div>
+              </div>
+              <div class="col-4">
+                <div class="d-flex flex-column text-center">
+                  <p class="m-0 p-0 fs-4" id="taskCountInProgress">3</p>
+                  <p class="m-0 p-0 fs-08">In progress</p>
+                </div>
+              </div>
+              <div class="col-4">
+                <div class="d-flex flex-column text-center">
+                  <p class="m-0 p-0 fs-4" id="taskCountCompleted">3</p>
+                  <p class="m-0 p-0 fs-08">Completed</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer border-0 my-0 pt-0">
+      <%# <a id="#goalLink" href="#" class="btn btn-warning bg-gradient col-6 mx-auto rounded-4 p-0"><span class="fs-08">See goal details</span></a> %>
+    </div>
+  </div>
+</div>

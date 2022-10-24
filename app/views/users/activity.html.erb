@@ -1,3 +1,16 @@
+<style>
+@media screen and (min-width: 800px) {
+  .modal-dialog {
+    margin-right: 0 !important;
+    margin-top: 0 !important;
+
+  }
+}
+
+
+</style>
+
+<% if @user.goals.count > 0 %>
 <div class="row g-4">
   <div class="col-md-8 order-1 order-md-0">
     <h5 class="pb-2 mb-3 border-bottom">Goals summary</h5>
@@ -44,14 +57,22 @@
       <%= link_to "See all", goals_path, class: "text-decoration-none" %>
     </div>
 
-    <div class="row" data-controller="refresh-goals-list">
+    <div class="row mt-2" data-controller="refresh-goals-list">
 
       <div class="col-12">
-      <div class="row" data-masonry='{"percentPosition": true }' data-refresh-list-target="list">
+      <div class="row" data-masonry='{"percentPosition": true }'>
         <% @goals.each do |goal| %>
           <div class="col-6 col-sm-4">
             <div class="d-flex align-items-stretch">
-              <%= render "goals/partials/card_goal", goal: goal %>
+              <a href="" class="text-decoration-none link-dark" data-bs-toggle="modal" data-bs-target="#modalGoal"
+                data-bs-goal-name="<%= goal.name %>" data-bs-goal-description="<%= goal.description %>" data-bs-goal-category="<%= goal.category %>"
+                data-bs-goal-date="<%= goal.completion_date %>" data-bs-goal-url="<%= request.base_url %>/goals/<%= goal.id %>">
+                <%= render "card_goal_board", goal: goal %>
+              </a>
+
+              <div class="modal fade" id="modalGoal" tabindex="-1" aria-labelledby="modalGoalLabel" aria-hidden="true">
+                <%= render "modal_for_goal", goal: goal %>
+              </div>
             </div>
           </div>
         <% end %>
@@ -80,3 +101,47 @@
     </div>
   </div>
 </div>
+
+<% else %>
+
+<div class="row justify-content-center" style="height: 80vh">
+  <div class="col-12">
+    <div class="card border-0 bg-transparent" style="">
+      <div class="card-body border-0 bg-transparent d-flex align-items-center">
+      <div class="w-25">
+        <%= image_tag "https://cdn.dribbble.com/userupload/3223957/file/original-7d1a606fab9ae5ddeed8e62d0e6a034c.png?compress=1&resize=1200x861",
+          class: "img-fluid", style: "border-radius: 30% 70% 70% 30% / 54% 50% 50% 46%" %>
+      </div>
+          <div class="ms-4">
+            <h5 class="card-title fs-4">Hmmm... nothing to see here! </h5>
+            <p class="card-text text-end"><%= link_to "Why don't you create a new goal?", new_goal_path, class: "text-decoration-none link-warning fw-bold" %></p>
+          </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<% end %>
+
+<script>
+  const modalGoal = document.getElementById('modalGoal')
+    modalGoal.addEventListener('show.bs.modal', event => {
+    const goal = event.relatedTarget
+    const goalName = goal.getAttribute('data-bs-goal-name')
+    const goalDescription = goal.getAttribute('data-bs-goal-description')
+    const goalCategory = goal.getAttribute('data-bs-goal-category')
+    const goalDate = goal.getAttribute('data-bs-goal-date')
+
+    const goalNameM = modalGoal.querySelector('#goalName')
+    const goalDescriptionM = modalGoal.querySelector('#goalDescription')
+    const goalCategoryM = modalGoal.querySelector('#goalCategory')
+    const goalDateM = modalGoal.querySelector('#goalDate')
+    const goalLinkM = modalGoal.querySelector('#goalLink')
+
+    goalNameM.textContent = `${ goalName }`
+    goalDescriptionM.textContent = `${ goalDescription }`
+    goalCategoryM.textContent = `${ goalCategory }`
+    goalDateM.textContent = `${ goalDate }`
+  })
+</script>
