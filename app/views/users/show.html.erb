@@ -1,10 +1,14 @@
 <%# User Banner %>
-<div class="ps-3 ps-md-5 pt-4 pb-3 text-white mb-3 bg-secondary rounded-bottom rounded-4">
+<div class="ps-3 ps-md-5 pt-4 pb-3 mb-3 text-muted bg-light shadow-sm rounded-bottom rounded-4">
   <div class="d-flex align-items-end">
-      <%= image_tag "pretty.png", class: "avatar avatar-xxl img-fluid"%>
-      <div class="px-2 py-3">
-        <p class="m-0 fs-4 fw-bold">Ana Maria</p>
-        <p class="m-0 opacity-75">@superkorita</p>
+      <%= image_tag get_avatar_url, class: "avatar avatar-xxl img-fluid"%>
+      <div class="px-3 py-3">
+        <% if user_has_name? %>
+          <p class="m-0 ms-1 fs-4 fw-bold"><%= @user.full_name %></p>
+          <p class="m-0 ms-1 opacity-75"><%= @user.nickname %></p>
+        <% else %>
+          <p class="m-0 ms-1 fs-4 fw-bold"><%= @user.email %></p>
+        <% end %>
       </div>
     </div>
 </div>
@@ -12,13 +16,22 @@
 <%# Tabs %>
 <ul class="nav nav-tabs border-0" id="myTab" role="tablist">
   <li class="nav-item" role="presentation">
-    <button class="nav-link active" id="overview-tab" data-bs-toggle="tab" data-bs-target="#overview-tab-pane" type="button" role="tab" aria-controls="overview-tab-pane" aria-selected="true">Overview</button>
+    <button class="nav-link active" id="overview-tab" data-bs-toggle="tab" data-bs-target="#overview-tab-pane" type="button" role="tab" aria-controls="overview-tab-pane" aria-selected="true">
+      <i class="bi bi-bar-chart-line d-md-none"></i>
+      <span class="d-none d-md-block">Overview</span>
+    </button>
   </li>
   <li class="nav-item" role="presentation">
-    <button class="nav-link" id="notifications-tab" data-bs-toggle="tab" data-bs-target="#notifications-tab-pane" type="button" role="tab" aria-controls="notifications-tab-pane" aria-selected="false">Activity</button>
+    <button class="nav-link" id="notifications-tab" data-bs-toggle="tab" data-bs-target="#notifications-tab-pane" type="button" role="tab" aria-controls="notifications-tab-pane" aria-selected="false">
+      <i class="bi bi-activity d-md-none"></i>
+      <span class="d-none d-md-block">Activity</span>
+    </button>
   </li>
   <li class="nav-item" role="presentation">
-    <button class="nav-link" id="edit-profile-tab" data-bs-toggle="tab" data-bs-target="#edit-profile-tab-pane" type="button" role="tab" aria-controls="edit-profile-tab-pane" aria-selected="false">Account settings</button>
+    <button class="nav-link" id="edit-profile-tab" data-bs-toggle="tab" data-bs-target="#edit-profile-tab-pane" type="button" role="tab" aria-controls="edit-profile-tab-pane" aria-selected="false">
+      <i class="bi bi-person d-md-none"></i>
+      <span class="d-none d-md-block">Account Settings</span>
+    </button>
   </li>
 </ul>
 

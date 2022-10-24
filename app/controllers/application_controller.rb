@@ -6,13 +6,17 @@ class ApplicationController < ActionController::Base
 
   def configure_permitted_parameters
     # For additional fields in app/views/devise/registrations/new.html.erb
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:first_name, :last_name])
+    # devise_parameter_sanitizer.permit(:sign_up, keys: [:nickname])
 
     # For additional in app/views/devise/registrations/edit.html.erb
-    devise_parameter_sanitizer.permit(:account_update, keys: [:first_name, :last_name, :nickname])
+    devise_parameter_sanitizer.permit(:account_update, keys: [:full_name, :nickname, :photo])
   end
 
   def after_sign_in_path_for(resource)
+    activity_path
+  end
+
+  def after_update_path_for(resource)
     activity_path
   end
 end

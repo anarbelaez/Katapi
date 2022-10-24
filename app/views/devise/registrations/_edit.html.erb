@@ -29,6 +29,8 @@
             <div class="col-12 col-sm-6 d-flex align-items-center pt-2">
               <%#= image_tag current_user.avatar_url, class: "img-fluid avatar-sm me-2" %>
               <%#= link_to "Edit your avatar TODO", "#", class: "text-decoration-none" %>
+              <%= f.input :photo, as: :file %>
+
             </div>
             <div class="col-12">
               <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
@@ -73,17 +75,11 @@
               <%= f.input :current_password,
                           required: true,
                           input_html: { autocomplete: "current-password", class: "rounded-3 shadow-sm border-0 rounded-4 px-3 bg-light p-2" } %>
-              <p class="fs-08 fw-bold text-muted">
-                Can't remember your current password?
-                <%= link_to "Reset your password", new_password_path(resource_name), class: "text-decoration-none"  %>
-              </p>
+              <div class="form-actions col-12">
+                <%= f.button :submit, "Update my settings", class: "btn btn-success w-100 rounded-4 my-2 p-2" %>
+              </div>
             </div>
           </div>
-        </div>
-
-
-        <div class="form-actions col-12">
-          <%= f.button :submit, "Update my settings", class: "btn btn-success w-100 rounded-4 my-2 p-2" %>
         </div>
 
       </div>
