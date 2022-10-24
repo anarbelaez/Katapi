@@ -21,8 +21,6 @@ puts "Creating Katapi Users 🎈🌿"
   user = User.new(
     email: Faker::Internet.email,
     password: "123456",
-    first_name: Faker::Name.female_first_name,
-    last_name: Faker::Name.last_name,
     nickname: nicknames[num]
   )
   file = URI.open(files[num])
