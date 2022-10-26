@@ -15,6 +15,8 @@ class TasksController < ApplicationController
 
   def all_tasks
     @tasks = current_user.tasks
+    @tasks = @tasks.search(params[:query]) if params[:query].present?
+    @pagy, @tasks = pagy @tasks.reorder(sort_column => sort_direction), items: params.fetch(:count, 10)
   end
 
   def show
