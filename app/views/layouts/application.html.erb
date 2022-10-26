@@ -13,13 +13,13 @@
 
   <body>
     <%= render "shared/navbars/navbar" %>
-    <%= render "shared/flashes" %>
 
     <div class="wrapper">
       <%= render "shared/navbars/sidebar" %>
       <main>
-        <div class="wrapper-inner container p-3">
+        <div class="wrapper-inner container-fluid p-3">
           <%= yield %>
+          <%= render "shared/flashes" %>
         </div>
       </main>
     </div>

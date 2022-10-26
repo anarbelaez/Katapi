@@ -1,13 +1,18 @@
 class TasksController < ApplicationController
   before_action :set_goal, only: %i[new create index]
   before_action :set_task, only: %i[show edit update destroy update_task]
+  before_action :goal_policy, only: %i[index new]
+  before_action :task_policy, only: %i[show edit delete]
 
   def index
-    @tasks = Task.all if current_user
     @tasks = @goal.tasks
     @todo = @tasks.not_started
     @doing = @tasks.in_progress
     @done = @tasks.done
+  end
+
+  def all_tasks
+    @tasks = current_user.tasks
   end
 
   def show
@@ -24,7 +29,7 @@ class TasksController < ApplicationController
     if @task.save
       redirect_to goal_tasks_path
     else
-      render :new, status: :unprocessable_entity
+      render :new, status: :unprocessable_entity, alert: "Change a few things and try submitting again"
     end
   end
 
@@ -33,7 +38,7 @@ class TasksController < ApplicationController
 
   def update
     @task.update(task_params)
-    redirect_to task_path(@task)
+    redirect_to task_path(@task), notice: "Your changes have been saved successfully"
   end
 
   def update_task
@@ -41,12 +46,12 @@ class TasksController < ApplicationController
   end
 
   def calendar
-    @tasks = Task.all
+    @tasks = current_user.tasks
   end
 
   def destroy
     @task.destroy
-    redirect_to goal_tasks_path(@task.goal), status: :see_other
+    redirect_to goal_tasks_path(@task.goal), status: :see_other, notice: "Your goal has been deleted"
   end
 
   private
@@ -61,5 +66,15 @@ class TasksController < ApplicationController
 
   def set_task
     @task = Task.find(params[:id])
+  end
+
+  def task_policy
+    set_task
+    redirect_to activity_path, alert: "You don't have permission to access this page" unless current_user == @task.user
+  end
+
+  def goal_policy
+    set_goal
+    redirect_to activity_path, alert: "You don't have permission to access this page" unless current_user == @goal.user
   end
 end
