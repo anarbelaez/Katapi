@@ -1,13 +1,18 @@
 class TasksController < ApplicationController
   before_action :set_goal, only: %i[new create index]
   before_action :set_task, only: %i[show edit update destroy update_task]
+  before_action :task_policy, only: %i[show edit delete]
+  before_action :goal_policy, only: %i[index new]
 
   def index
-    @tasks = Task.all if current_user
     @tasks = @goal.tasks
     @todo = @tasks.not_started
     @doing = @tasks.in_progress
     @done = @tasks.done
+  end
+
+  def all_tasks
+    @tasks = current_user.tasks
   end
 
   def show
@@ -41,7 +46,7 @@ class TasksController < ApplicationController
   end
 
   def calendar
-    @tasks = Task.all
+    @tasks = current_user.tasks
   end
 
   def destroy
@@ -61,5 +66,16 @@ class TasksController < ApplicationController
 
   def set_task
     @task = Task.find(params[:id])
+  end
+
+  def task_policy
+    set_task
+    user = @task.user
+    redirect_to activity_path unless current_user == user
+  end
+
+  def goal_policy
+    set_goal
+    redirect_to activity_path unless current_user == @goal.user
   end
 end
