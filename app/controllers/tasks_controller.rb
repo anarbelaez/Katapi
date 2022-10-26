@@ -9,10 +9,14 @@ class TasksController < ApplicationController
     @todo = @tasks.not_started
     @doing = @tasks.in_progress
     @done = @tasks.done
+    @tasks = @tasks.search(params[:query]) if params[:query].present?
+    @pagy, @tasks = pagy @tasks.reorder(sort_column => sort_direction), items: params.fetch(:count, 10)
   end
 
   def all_tasks
     @tasks = current_user.tasks
+    @tasks = @tasks.search(params[:query]) if params[:query].present?
+    @pagy, @tasks = pagy @tasks.reorder(sort_column => sort_direction), items: params.fetch(:count, 10)
   end
 
   def show
@@ -52,6 +56,16 @@ class TasksController < ApplicationController
   def destroy
     @task.destroy
     redirect_to goal_tasks_path(@task.goal), status: :see_other, notice: "Your goal has been deleted"
+  end
+
+  #Metodos de datatable
+
+  def sort_column
+    %w[name priority difficulty due_date].include?(params[:sort]) ? params[:sort] : "name"
+  end
+
+  def sort_direction
+    %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
   end
 
   private
