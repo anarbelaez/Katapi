@@ -15,5 +15,4 @@ class Goal < ApplicationRecord
   validates :description, length: { maximum: 200 }
 
   enum maturity: { seed: 0, sapling: 1, mature_tree: 2 }
-
 end

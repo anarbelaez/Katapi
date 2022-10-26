@@ -4,3 +4,10 @@
   right: 16px;
   z-index: 1000;
 }
+
+@media (max-width: 576px) {
+  .alert {
+    bottom: 80px;
+    z-index: 1000;
+  }
+}

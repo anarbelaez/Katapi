@@ -1,14 +1,28 @@
 <% if notice %>
-  <div class="alert alert-info alert-dismissible fade show m-1" role="alert">
-    <%= notice %>
-    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
-    </button>
+  <div class="alert bg-success rounded-4 d-flex align-items-center p-2 px-3 alert-dismissible fade show m-1" role="alert">
+    <div class="fancy-box bg-light px-2 me-3">
+      <i class="fs-2 fw-bold bi bi-check-circle text-success"></i>
+    </div>
+    <div class="text-light">
+      <p class="m-0">Well done!</p>
+    <p class="m-0 opacity-75 fs-09"><%= notice %></p>
+    </div>
+    <div class="mx-3">
+      <button type="button" class="btn-close btn-close-white fs-08" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
   </div>
 <% end %>
 <% if alert %>
-  <div class="alert alert-warning alert-dismissible fade show m-1" role="alert">
-    <%= alert %>
-    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
-    </button>
+  <div class="alert bg-warning rounded-4 d-flex align-items-center p-2 px-3 alert-dismissible fade show m-1" role="alert">
+    <div class="fancy-box bg-light px-2 me-3">
+      <i class="fs-2 fw-bold bi bi-exclamation-circle text-warning"></i>
+    </div>
+    <div class="text-light">
+      <p class="m-0">Oh, Snap!</p>
+    <p class="m-0 opacity-75 fs-09"><%= alert %></p>
+    </div>
+    <div class="mx-3">
+      <button type="button" class="btn-close btn-close-white fs-08" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
   </div>
 <% end %>
