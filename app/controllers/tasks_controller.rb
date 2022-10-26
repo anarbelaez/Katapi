@@ -31,7 +31,7 @@ class TasksController < ApplicationController
     @task.goal = @goal
     @task.save
     if @task.save
-      redirect_to goal_tasks_path
+      redirect_to task_path(@task), notice: "Ok!"
     else
       render :new, status: :unprocessable_entity, alert: "Change a few things and try submitting again"
     end

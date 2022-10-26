@@ -1,12 +1,12 @@
 
 <div class="row px-3">
   <div class="col-12 my-3 p-2 rounded-4 bg-light shadow-sm">
-    <h3><%= @task.name.capitalize%></h3>
-    <p class="border-bottom pb-2"><%= @task.description.capitalize%></p>
-    <p class="ff">Status: <span><%= @task.status%></span></p>
-    <p class="ff">Difficulty: <span><%= @task.difficulty%></span></p>
-    <p class="ff">Due date: <span><%= @task.due_date%></span></p>
-    <p class="ff">Completion date: <span class="text-muted"><%= @task.completion_date%></span></p>
+    <h3><%= @task.name&.capitalize%></h3>
+    <p class="border-bottom pb-2"><%= @task.description&.capitalize %></p>
+    <p class="ff">Status: <span><%= @task.status %></span></p>
+    <p class="ff">Difficulty: <span><%= @task.difficulty %></span></p>
+    <p class="ff">Due date: <span><%= @task.due_date %></span></p>
+    <p class="ff">Completion date: <span class="text-muted"><%= @task.completion_date %></span></p>
 
 
 
