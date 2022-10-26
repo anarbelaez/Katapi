@@ -1,22 +1,24 @@
-<div class="row">
+<div class="row px-3">
   <div class="col-12 my-3 p-2 rounded-4 bg-light shadow-sm">
-  <h3><%= @task.name%></h3>
-  <p class="border-bottom"><%= @task.description%></p>
-  <p>Status: <%= @task.status%></p>
-  <p>Difficulty: <%= @task.difficulty%></p>
-  <p>Due date: <%= @task.due_date%></p>
-  <p class="text-muted">Completion date:<%= @task.completion_date%></p>
-
+    <h3><%= @task.name.capitalize%></h3>
+    <p class="border-bottom pb-2"><%= @task.description.capitalize%></p>
+    <p class="ff">Status: <span><%= @task.status%></span></p>
+    <p class="ff">Difficulty: <span><%= @task.difficulty%></span></p>
+    <p class="ff">Due date: <span><%= @task.due_date%></span></p>
+    <p class="ff">Completion date: <span class="text-muted"><%= @task.completion_date%></span></p>
   </div>
 </div>
 
 <div class="row">
-  <div class="col-6">
-    <div class="col-6">
-      <%= link_to "Edit task", edit_task_path(@task), class: "btn btn-dark rounded-4" %>
+    <div class="col-12 d-flex">
+      <%= link_to "Edit task", edit_task_path(@task), class: "btn btn-dark rounded-pill me-2" %>
+      <button class="btn btn-dark rounded-pill text-white" type="button" data-bs-toggle="collapse" data-bs-target="#newComment" aria-expanded="false" aria-controls="collapseExample">
+        Add Notes
+      </button>
     </div>
-    <div class="col-6 my-2">
-      <%= render 'tasks/partials/richtext_task' %>
+    <div class="row">
+      <div class="col-6">
+        <%= render 'tasks/partials/richtext_task' %>
+      </div>
     </div>
-  </div>
 </div>

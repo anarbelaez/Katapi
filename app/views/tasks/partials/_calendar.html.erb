@@ -3,8 +3,9 @@
     <% tasks.each do |task| %>
       <button class="btn btn-sm btn-success rounded-circle d-flex justify-content-center" style="width:30px" type="button"
         id="dateTask" data-bs-toggle="dropdown" aria-expanded="false">
-            <%= date.day %>
+        <%= date.day %>
       </button>
+
       <div class="dropdown ">
         <ul class="dropdown-menu border border-5 rounded-5 text-center" aria-labelledby="dateTask">
           <li>
@@ -17,9 +18,10 @@
               <%= link_to "#{task.name.capitalize}" , task, class:"btn btn-white" %>
             </li>
           </ul>
-        <% end %>
-        <div class="d-flex justify-content-center">
-    <%= date.day %>
-        </div>
+        <%# </div> %>
+    <% end %>
+    <div class="d-flex justify-content-center">
+      <%= date.day %>
+    </div>
   <% end %>
 </div>
