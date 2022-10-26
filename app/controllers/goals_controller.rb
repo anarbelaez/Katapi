@@ -23,9 +23,9 @@ class GoalsController < ApplicationController
     @goal.user = current_user
     @goal.save
     if @goal.save
-      redirect_to goal_path(@goal), alert: "Go ahead, add new tasks to your goal"
+      redirect_to goal_path(@goal)
     else
-      render :new, status: :unprocessable_entity
+      render :new, status: :unprocessable_entity, alert: "Change a few things and try submitting again"
     end
   end
 
@@ -34,12 +34,12 @@ class GoalsController < ApplicationController
 
   def update
     @goal.update(goal_params)
-    redirect_to goal_path(@goal)
+    redirect_to goal_path(@goal), notice: "Your changes have been saved successfully"
   end
 
   def destroy
     @goal.destroy
-    redirect_to goals_path, status: :see_other
+    redirect_to goals_path, status: :see_other, notice: "Your goal has been deleted"
   end
 
   def by_category
@@ -62,6 +62,6 @@ class GoalsController < ApplicationController
 
   def goal_policy
     set_goal
-    redirect_to activity_path unless current_user == @goal.user
+    redirect_to activity_path, alert: "You don't have permission to access this page" unless current_user == @goal.user
   end
 end

@@ -29,7 +29,7 @@ class TasksController < ApplicationController
     if @task.save
       redirect_to goal_tasks_path
     else
-      render :new, status: :unprocessable_entity
+      render :new, status: :unprocessable_entity, alert: "Change a few things and try submitting again"
     end
   end
 
@@ -38,7 +38,7 @@ class TasksController < ApplicationController
 
   def update
     @task.update(task_params)
-    redirect_to task_path(@task)
+    redirect_to task_path(@task), notice: "Your changes have been saved successfully"
   end
 
   def update_task
@@ -51,7 +51,7 @@ class TasksController < ApplicationController
 
   def destroy
     @task.destroy
-    redirect_to goal_tasks_path(@task.goal), status: :see_other
+    redirect_to goal_tasks_path(@task.goal), status: :see_other, notice: "Your goal has been deleted"
   end
 
   private
@@ -70,12 +70,11 @@ class TasksController < ApplicationController
 
   def task_policy
     set_task
-    user = @task.user
-    redirect_to activity_path unless current_user == user
+    redirect_to activity_path, alert: "You don't have permission to access this page" unless current_user == @task.user
   end
 
   def goal_policy
     set_goal
-    redirect_to activity_path unless current_user == @goal.user
+    redirect_to activity_path, alert: "You don't have permission to access this page" unless current_user == @goal.user
   end
 end
