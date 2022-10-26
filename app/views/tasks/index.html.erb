@@ -1,6 +1,61 @@
-<div class="tab-content" id="myTabContent">
-  <div class="tab-pane fade show active" id="overview-tab-pane" role="tabpanel" aria-labelledby="overview-tab" tabindex="0">
-    <div class="p-3">
-         <%= render 'tasks/partials/list_all_tasks' %>
+<style>
+.page {
+  padding: 4px;
+  display: flex;
+  justify-content: end;
+}
+
+.pagy-nav {
+  display: flex;
+  justify-content: end;
+
+}
+</style>
+
+<div class="row">
+  <div class="col border border-1 mb-2">
+        <p>aaaaaaaaaaaaa</p>
+  </div>
+</div>
+
+
+<div class="row border border-1">
+  <div class="col-6">
+      <p>aaaaaaaaaaa</p>
+  </div>
+
+
+
+
+
+  <div class=" col-6 shadow p-4 bg-body rounded-5">
+    <div class="row d-flex justify-content-between">
+    <%= form_with url: "", method: :get, data: {turbo_frame: "tasks", turbo_action: "advance"} do |form| %>
+    <div class="row">
+      <div class="col">
+        Search <%= form.search_field :query, value: params[:query], oninput: "this.form.requestSubmit()", class:"shadow-sm border-0 bg-light p-2 px-2 rounded-pill" %>
+      </div>
+      <div class="col d-flex justify-content-end">
+        <p> Show <%= form.select :count, options_for_select([10, 25, 50, 100], class:"rounded-pill", selected: params[:count]), {}, { onchange: "this.form.requestSubmit()"} %> entries </p>
+      </div>
+      <% end%>
+    </div>
+    <%= turbo_frame_tag "tasks" do %>
+    <div class="table">
+      <div class="table-header-group d-flex ">
+        <%= sort_link_to "Name", ":name", class: "table-cell text-decoration-none", style:"width: 120%;", data: { turbo_action: "advance" } %>
+        <%= sort_link_to "Priority", ":priority", class: "table-cell text-decoration-none", style:"width: 60%;", data: { turbo_action: "advance" }  %>
+        <%= sort_link_to "Difficulty", ":difficulty", class: "table-cell text-decoration-none", style:"width: 60%;", data: { turbo_action: "advance" }  %>
+        <%= sort_link_to "Status", ":status", class: "table-cell text-decoration-none", style:"width: 60%;", data: { turbo_action: "advance" }  %>
+        <%= sort_link_to "Due Date", ":due_date", class: "table-cell text-decoration-none", style:"width: 60%;", data: { turbo_action: "advance" }  %>
+      </div>
+    <%= render @tasks %>
+    </div>
+
+  <div class="">
+    <%== pagy_nav @pagy, class:"d-flex justify-content-end" %>
+    <% end %>
+  </div>
     </div>
   </div>
+</div>

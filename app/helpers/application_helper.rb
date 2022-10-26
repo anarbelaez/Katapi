@@ -9,4 +9,15 @@ module ApplicationHelper
       "https://cdn.dribbble.com/userupload/3223956/file/original-a1ec1b680192b47fbed0b399d03cee62.png?compress=1&resize=400x400&vertical=top"
     end
   end
+
+  include Pagy::Frontend
+
+  def sort_link_to(name, column, **options)
+    if params[:sort] == column.to_s
+      direction = params[:direction] == "asc" ? "desc" : "asc"
+    else
+      direction = "asc"
+    end
+    link_to name, request.params.merge(sort: column, direction: direction), **options
+  end
 end

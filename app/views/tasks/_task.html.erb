@@ -1,0 +1,28 @@
+<div id="<%= dom_id task %>" class="table-row d-flex justify-content-start shadow-sm py-1">
+  <div class="table-cell d-inline-block text-truncate" style="width: 120%;">
+    <%= link_to "#{task.name.capitalize}" , task, class:"text-decoration-none text-dark" %>
+  </div>
+  <div class="table-cell" style="width: 60%;">
+    <%= task.priority %>
+  </div>
+
+  <div class="table-cell" style="width: 60%;">
+    <%= task.difficulty %>
+  </div>
+
+  <div class="table-cell" style="width: 60%;">
+
+    <% if task.not_started? %>
+      <span class="badge rounded-pill bg-danger text-dark py-1"> <%= task.status %></span>
+    <% elsif task.in_progress? %>
+      <span class="badge rounded-pill bg-info text-dark py-1"> <%= task.status %></span>
+    <% else %>
+      <span class="badge rounded-pill bg-success text-dark py-1"> <%= task.status %></span>
+    <% end %>
+  </div>
+
+  <div class="table-cell" style="width: 60%;">
+    <%= task.due_date.strftime("%d/%m/%y") %>
+  </div>
+
+</div>

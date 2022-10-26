@@ -59,6 +59,9 @@ gem "pg_search"
 
 gem 'better_errors', '~> 2.9', '>= 2.9.1'
 
+# Paginación
+gem 'pagy', '~> 5.10', '>= 5.10.1'
+
 # Oauth
 gem 'omniauth'
 gem 'omniauth-google-oauth2'
