@@ -1,8 +1,8 @@
 class TasksController < ApplicationController
   before_action :set_goal, only: %i[new create index]
   before_action :set_task, only: %i[show edit update destroy update_task]
-  before_action :task_policy, only: %i[show edit delete]
   before_action :goal_policy, only: %i[index new]
+  before_action :task_policy, only: %i[show edit delete]
 
   def index
     @tasks = @goal.tasks
