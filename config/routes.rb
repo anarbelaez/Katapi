@@ -17,7 +17,7 @@ Rails.application.routes.draw do
   get 'goals/category/:category', to: 'goals#by_category', as: :by_category
 
   # Tasks
-  resources :tasks, only: [:index]
+  get '/tasks', to: 'tasks#all_tasks'
   patch '/tasks_update/:id', to: 'tasks#update_task'
   get '/calendar', to: 'tasks#calendar'
 

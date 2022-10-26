@@ -1,6 +1,9 @@
 .fs-08 {
   font-size: 0.8rem;
 }
+.fs-09 {
+  font-size: 0.8rem;
+}
 .link-muted {
   color: #6C757D;
 
@@ -15,4 +18,7 @@
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(5px);
   border: 1px solid rgba(255, 255, 255, 0.3);
+}
+.fancy-box {
+  border-radius: 56% 44% 70% 30% / 30% 65% 35% 70% ;
 }
