@@ -1,15 +1,5 @@
 <div class="row d-none d-md-block">
-  <!-- <div class="mx-4 card rounded-4 bg-success bg-opacity-10 border-0  mb-3 col-sm-11 col-lg-11">
-    <div class="d-flex position-relative bg-opacity-10 d-flex justify-content-between px-3" >
-      <div class="mb-0">
-        <h3 class="m-0"> <%= @goal.name%> </h3>
-        <p class="my-0"><%= @goal.maturity.capitalize%> | <%= @goal.category.capitalize %> |  </p>
-      </div>
-      <div class="col-2">
-        <img src="https://i.pinimg.com/564x/f2/52/fa/f252fa96c51dd1cb0ac71f85858632db.jpg" style="width: 50px; height: 50px;" class="rounded-circle me-3" alt="...">
-      </div>
-    </div>
-  </div> -->
+
     <div class="row mb-0">
         <div class="col-11">
           <h3 class="m-0"> <%= @goal.name%> <%= link_to edit_goal_path(@goal) do %>
@@ -25,8 +15,8 @@
     </div>
   </div>
   <hr>
-  <div class="row row-cols-sm-1 row-cols-md-3 my-0 mx-0" data-controller="sortable"
-    data-action="onEnd->sortable#sortable" id="results">
+  <div class="row row-cols-sm-1 row-cols-md-3 my-0 mx-0 static-row" data-controller="sortable"
+    data-action="onEnd->sortable#sortable" id="results" >
     <div class="col">
       <div class="row rounded-4 g-2 mb-3 bg-success text-dark bg-opacity-10">
         <div class="col-1 my-auto mx-auto d-flex align-items-center">
@@ -36,7 +26,7 @@
           <p>TO-DO</p>
         </div>
       </div>
-        <ul class="row bg-success bg-opacity-10 p-0 rounded-4 g-2 mb-3  list-unstyled bar-goal" id="col-todo" data-status="not_started">
+        <ul class="row bg-success bg-opacity-10 p-0 rounded-4 g-2 mb-3  list-unstyled bar-goal scroll-col" id="col-todo" data-status="not_started">
           <% @todo.each do |task| %>
             <li class="pl-0 d-flex justify-content-center" data-task-id="<%=task.id %>">
                 <%= render 'tasks/partials/card_task' , task: task %>
@@ -50,10 +40,10 @@
           <i class="fa-solid fa-list-check"></i>
         </div>
         <div class="col-10">
-          <p>DOING</p>
+          <p>IN-PROGRESS</p>
         </div>
       </div>
-        <ul class="row bg-success bg-opacity-10 p-0 rounded-4 g-2 mb-3  list-unstyled bar-goal" id="col-doing" data-status="in_progress">
+        <ul class="row bg-success bg-opacity-10 p-0 rounded-4 g-2 mb-3  list-unstyled bar-goal scroll-col" id="col-doing" data-status="in_progress">
           <% @doing.each do |task| %>
             <li class="pl-0 d-flex justify-content-center" id="hover-card-board" data-task-id="<%=task.id %>">
                 <%= render 'tasks/partials/card_task' , task: task %>
@@ -70,7 +60,7 @@
           <p>DONE</p>
         </div>
       </div>
-        <ul class="row bg-success bg-opacity-10 p-0 rounded-4 g-2 mb-3  list-unstyled bar-goal" id="col-done" data-status="done">
+        <ul class="row bg-success bg-opacity-10 p-0 rounded-4 g-2 mb-3  list-unstyled bar-goal scroll-col" id="col-done" data-status="done">
           <% @done.each do |task| %>
             <li class="pl-0 d-flex justify-content-center" data-task-id="<%=task.id %>">
                 <%= render 'tasks/partials/card_task' , task: task %>

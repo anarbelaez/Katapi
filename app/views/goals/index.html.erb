@@ -108,7 +108,7 @@
 
     <div class="row">
       <div class="col-12 my-2">
-        <%= link_to "New Goal +", new_goal_path, class: "btn btn-dark text-white rounded-4" %>
+        <%= link_to "New Goal +", new_goal_path, class: "btn btn-dark text-white rounded-pill" %>
       </div>
     </div>
 
@@ -134,11 +134,11 @@
 
   <div class="col-md-4 order-0 order-md-1">
     <div class="position-sticky" style="top: 1rem;">
-      <div class="p-2 mb-3 bg-light rounded">
+      <div class="p-2 mb-3 bg-light rounded-4">
         <h3 class="text-center">Near the expiration date</h3>
       </div>
 
-      <div class="p-2 mb-3 bg-light rounded">
+      <div class="p-2 mb-3 bg-light rounded-4">
         <% @tasks.each do |task| %>
           <%= render 'tasks/partials/card_task' , task: task %>
         <% end %>

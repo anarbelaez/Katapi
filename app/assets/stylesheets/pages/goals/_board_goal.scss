@@ -13,3 +13,11 @@
   display: flex;
   align-items: flex-end;
 }
+
+.scroll-col{
+  overflow-y: scroll;
+}
+
+.static-row{
+  height: 100vh;
+}
