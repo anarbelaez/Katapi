@@ -22,4 +22,8 @@ class Task < ApplicationRecord
   def start_time
     due_date
   end
+
+  private
+
+
 end
