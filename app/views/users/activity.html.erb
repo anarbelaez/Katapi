@@ -14,9 +14,9 @@
 
     <div class="row g-3">
     <div class="col-12 col-sm-4 d-flex justify-content-center align-items-stretch">
-        <div class="card border-0 rounded-4 bg-light shadow-sm col-10" style="">
+        <div class="card border-0 rounded-4 bg-secondary shadow-sm col-10" style="">
           <div class="card-body">
-            <p class="fs-2 mb-1"><%= @seed_percentage %>%</p>
+            <p class="fs-2 mb-1">0%</p>
             <p class="card-text fs-08 mb-1 fw-bold">Seed - Not started</p>
             <p class="card-text fs-08 m-0 mb-3">Goals that are seeds</p>
             <h6><%= link_to "See goals...", "#", class: "text-decoration-none text-white bg-dark px-2 py-1 rounded-pill" %></h6>
@@ -25,9 +25,9 @@
       </div>
 
       <div class="col-12 col-sm-4 d-flex justify-content-center align-items-stretch">
-        <div class="card border-0 rounded-4 bg-light shadow-sm col-10" style="">
+        <div class="card border-0 rounded-4 bg-secondary shadow-sm col-10" style="">
           <div class="card-body">
-            <p class="fs-2 mb-1"><%= @sapling_percentage %>%</p>
+            <p class="fs-2 mb-1">0%</p>
             <p class="card-text fs-08 mb-1 fw-bold">Sapling - In progress</p>
             <p class="card-text fs-08 m-0 mb-3">Goals that are saplings</p>
             <h6><%= link_to "See goals...", "#", class: "text-decoration-none text-white bg-dark px-2 py-1 rounded-pill" %></h6>
@@ -36,9 +36,9 @@
       </div>
 
       <div class="col-12 col-sm-4 d-flex justify-content-center align-items-stretch">
-        <div class="card border-0 rounded-4 bg-light shadow-sm col-10" style="">
+        <div class="card border-0 rounded-4 bg-secondary shadow-sm col-10" style="">
           <div class="card-body">
-            <p class="fs-2 mb-1"><%= @mature_tree_percentage %>%</p>
+            <p class="fs-2 mb-1">0%</p>
             <p class="card-text fs-08 mb-1 fw-bold">Mature trees - Completed goals</p>
             <p class="card-text fs-08 m-0 mb-3">Goals that are</p>
             <h6><%= link_to "See goals...", "#", class: "text-decoration-none text-white bg-dark px-2 py-1 rounded-pill" %></h6>
@@ -59,7 +59,7 @@
       <div class="col-12">
       <div class="row" data-masonry='{"percentPosition": true }'>
         <% @goals.each do |goal| %>
-          <div class="col-6 col-sm-4">
+          <div class="col-6 col-sm-3">
             <div class="d-flex align-items-stretch">
               <a href="" class="text-decoration-none link-dark" data-bs-toggle="modal" data-bs-target="#modalGoal"
                 data-bs-goal-name="<%= goal.name %>" data-bs-goal-description="<%= goal.description %>" data-bs-goal-category="<%= goal.category %>"
@@ -84,14 +84,14 @@
 
   <div class="col-md-4 order-0 order-md-1">
     <div class="position-sticky" style="top: 1rem;">
-      <div class="p-2 mb-3 bg-light rounded-4">
+      <div class="p-2 mb-3 bg-secondary rounded-4">
         <h5 class="">Calendar</h5>
         TODO
       </div>
 
-      <div class="p-2 mb-3 bg-light rounded-4">
-        <h5 class="my-3">Monthly calendar</h5>
-        <div class="rounded-4">
+      <div class="p-2 mb-3 bg-secondary rounded-4">
+        <h5 class="mt-3 mb-2 px-2">Monthly calendar</h5>
+        <div class="rounded-4 text-light">
           <%= render 'tasks/partials/calendar' %>
         </div>
       </div>

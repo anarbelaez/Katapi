@@ -18,15 +18,15 @@ class User < ApplicationRecord
   end
 
   def seed_count
-    goals.seed.count
+    goals.baby.count
   end
 
   def sapling_count
-    goals.sapling.count
+    goals.young.count
   end
 
   def mature_tree_count
-    goals.mature_tree.count
+    goals.adult.count
   end
 
   def self.from_omniauth(auth)

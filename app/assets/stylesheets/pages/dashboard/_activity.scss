@@ -2,6 +2,7 @@
 body {
   overflow: hidden;
   height: 100vh;
+  color: $white-smoke;
 }
 
 // Solo el main tiene scroll
@@ -23,5 +24,3 @@ main {
     flex-direction: column-reverse;
   }
 }
-
-
