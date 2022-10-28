@@ -5,6 +5,7 @@ import "./bootstrap_js/modal_for_goal"
 import "bootstrap"
 import "trix"
 import "@rails/actiontext"
+import "./plugins/datatables"
 
 import { initSweetalert } from './plugins/init_sweetalert';
 
