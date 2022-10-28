@@ -56,8 +56,9 @@
     <div class="row mt-2" data-controller="refresh-goals-list">
 
       <div class="col-12">
-      <div class="row" data-masonry='{"percentPosition": true }'>
+      <div class="row" data-masonry='{"percentPosition": false }'>
         <% @goals.each do |goal| %>
+
           <div class="col-6 col-sm-3">
             <div class="d-flex align-items-stretch">
               <a href="" class="text-decoration-none link-dark" data-bs-toggle="modal" data-bs-target="#modalGoal"
