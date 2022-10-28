@@ -39,11 +39,11 @@ class Goal < ApplicationRecord
     return tasks.done.count.fdiv(tasks.count) if tasks.count.positive?
   end
 
-  def goal_maturity!
-    if done_tasks_fraction >= 0.25 && done_tasks_fraction <= 0.5
-      update_attribute(:maturity, 1)
-    else
-      update_attribute(:maturity, 2)
-    end
-  end
+  # def goal_maturity!
+  #   if done_tasks_fraction >= 0.25 && done_tasks_fraction <= 0.5
+  #     update_attribute(:maturity, 1)
+  #   else
+  #     update_attribute(:maturity, 2)
+  #   end
+  # end
 end

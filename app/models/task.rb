@@ -1,6 +1,9 @@
 class Task < ApplicationRecord
   include PgSearch::Model
 
+  # Callback
+  after_update :goal_maturity!
+
   belongs_to :goal
   has_one_attached :photo
   has_rich_text :rich_body
@@ -23,7 +26,15 @@ class Task < ApplicationRecord
     due_date
   end
 
-  private
+  def goal_maturity!
+    goal_tasks = goal.tasks
+    tasks_count = goal_tasks.count
+    done_tasks_fraction = goal_tasks.done.count.fdiv(tasks_count)
 
-
+    if done_tasks_fraction >= 0.25 && done_tasks_fraction <= 0.5
+      goal.update_attribute(:maturity, 1)
+    else
+      goal.update_attribute(:maturity, 2)
+    end
+  end
 end

@@ -1,8 +1,10 @@
-
-<div class="card rounded-4 border-0 p-2 bg-white mx-auto my-2 shadow-sm" style="width: 18rem; height: 70px;">
-  <div>
-    <h5 class="card-title"><%= task.name.capitalize %></h5>
-    <a href="#" class="stretched-link"></a>
-    <h6 class="card-subtitle mt-2 text-muted"><i class="fa-regular fa-calendar"></i>  <%= task.due_date %></h6>
-  </div>
+<div class="col-12 px-2">
+  <%= link_to task_path(task), class: "text-decoration-none" do %>
+    <div class="card bg-light rounded-4 border-0 p-2 mx-auto shadow-sm" style="cursor: grab;">
+      <div class="p-1">
+        <p class="card-title text-dark"><%= task.name %></p>
+        <h6 class="card-subtitle mt-2 text-muted fs-08"><i class="fa-regular fa-calendar"></i>  <%= task.due_date %></h6>
+      </div>
+    </div>
+  <% end %>
 </div>

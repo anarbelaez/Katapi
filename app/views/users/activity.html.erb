@@ -10,43 +10,42 @@
 <% if @user.goals.count > 0 %>
 <div class="row g-4">
   <div class="col-md-8 order-1 order-md-0">
-    <h4 class="pb-2 mb-3 border-bottom">Goals summary</h4>
+    <h5 class="pb-2 mb-3 border-bottom">Goals summary</h5>
 
     <div class="row g-3">
-    <div class="col-12 col-sm-4 d-flex justify-content-center align-items-stretch">
-        <div class="card border-0 rounded-4 bg-secondary shadow-sm col-10" style="">
+      <div class="col-12 col-sm-4 align-items-stretch">
+        <div class="card border-0 rounded-4 bg-secondary shadow-sm" style="">
           <div class="card-body">
-            <p class="fs-2 mb-1">0%</p>
-            <p class="card-text fs-08 mb-1 fw-bold">Seed - Not started</p>
-            <p class="card-text fs-08 m-0 mb-3">Goals that are seeds</p>
-            <h6><%= link_to "See goals...", "#", class: "text-decoration-none text-white bg-dark px-2 py-1 rounded-pill" %></h6>
+            <p class="card-text fs-08 mb-1 fw-bold text-muted">Not started</p>
+            <p class="fs-3 m-0 mb-1">0%</p>
+            <div class="text-end"><%= link_to "See goals", "#", class: "badge bg-danger rounded-pill text-decoration-none text-dark" %></div>
           </div>
         </div>
       </div>
 
-      <div class="col-12 col-sm-4 d-flex justify-content-center align-items-stretch">
-        <div class="card border-0 rounded-4 bg-secondary shadow-sm col-10" style="">
+      <div class="col-12 col-sm-4 align-items-stretch">
+        <div class="card border-0 rounded-4 bg-secondary shadow-sm" style="">
           <div class="card-body">
-            <p class="fs-2 mb-1">0%</p>
-            <p class="card-text fs-08 mb-1 fw-bold">Sapling - In progress</p>
-            <p class="card-text fs-08 m-0 mb-3">Goals that are saplings</p>
-            <h6><%= link_to "See goals...", "#", class: "text-decoration-none text-white bg-dark px-2 py-1 rounded-pill" %></h6>
+            <p class="card-text fs-08 mb-1 fw-bold text-muted">In progress</p>
+            <p class="fs-3 m-0 mb-1">0%</p>
+            <div class="text-end"><%= link_to "See goals", "#", class: "badge bg-primary rounded-pill text-decoration-none text-dark" %></div>
           </div>
         </div>
       </div>
 
-      <div class="col-12 col-sm-4 d-flex justify-content-center align-items-stretch">
-        <div class="card border-0 rounded-4 bg-secondary shadow-sm col-10" style="">
+      <div class="col-12 col-sm-4 align-items-stretch">
+        <div class="card border-0 rounded-4 bg-secondary shadow-sm" style="">
           <div class="card-body">
-            <p class="fs-2 mb-1">0%</p>
-            <p class="card-text fs-08 mb-1 fw-bold">Mature trees - Completed goals</p>
-            <p class="card-text fs-08 m-0 mb-3">Goals that are</p>
-            <h6><%= link_to "See goals...", "#", class: "text-decoration-none text-white bg-dark px-2 py-1 rounded-pill" %></h6>
+            <p class="card-text fs-08 mb-1 fw-bold text-muted">Completed</p>
+            <p class="fs-3 m-0 mb-1">0%</p>
+            <div class="text-end"><%= link_to "See goals", "#", class: "badge bg-success rounded-pill text-decoration-none text-dark" %></div>
           </div>
         </div>
       </div>
 
-    </div>
+
+
+      </div>
 
     <%# Aqui se renderizan las goals %>
     <div class="mt-5 pb-1 d-flex justify-content-between align-items-center border-bottom">
@@ -84,9 +83,15 @@
 
   <div class="col-md-4 order-0 order-md-1">
     <div class="position-sticky" style="top: 1rem;">
-      <div class="p-2 mb-3 bg-secondary rounded-4">
-        <h5 class="">Calendar</h5>
-        TODO
+      <div class="px-3 pt-3 pb-1 mb-3 bg-secondary rounded-4">
+        <h5 class="my-1 mb-3">Upcoming tasks</h5>
+          <p class="fs-08"><%= @upcoming_tasks_day %></p>
+          <% @upcoming_tasks&.each do |upcoming_task| %>
+          <div class="col-12">
+            <%= render 'tasks/partials/card_upcoming_task', task: upcoming_task %>
+
+          </div>
+          <% end %>
       </div>
 
       <div class="p-2 mb-3 bg-secondary rounded-4">

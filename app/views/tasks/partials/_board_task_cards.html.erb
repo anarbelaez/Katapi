@@ -1,15 +1,14 @@
 <div class="row d-none d-md-block">
-
     <div class="row mb-0">
         <div class="col-11">
-          <h3 class="m-0"> <%= @goal.name%> <%= link_to edit_goal_path(@goal) do %>
-            <i class="fa-regular fa-pen-to-square text-dark"></i>
+          <h3 class="m-0"> <%= @goal.name %> <%= link_to edit_goal_path(@goal) do %>
+            <i class="fa-regular fa-pen-to-square"></i>
             <% end %> </h3>
         </div>
         <div class="col-1 pl-0">
 
           <%= link_to new_goal_task_path(@goal) do %>
-          <i class="fa-solid fa-circle-plus fs-1 text-dark"></i>
+          <i class="fa-solid fa-circle-plus fs-1"></i>
             <% end %>
         </div>
     </div>
@@ -18,7 +17,7 @@
   <div class="row row-cols-sm-1 row-cols-md-3 my-0 mx-0 static-row" data-controller="sortable"
     data-action="onEnd->sortable#sortable" id="results" >
     <div class="col">
-      <div class="row rounded-4 g-2 mb-3 bg-success text-dark bg-opacity-10">
+      <div class="row rounded-4 g-2 mb-3 bg-secondary">
         <div class="col-1 my-auto mx-auto d-flex align-items-center">
           <i class="fa-solid fa-circle-exclamation"></i>
         </div>
@@ -26,7 +25,7 @@
           <p>TO-DO</p>
         </div>
       </div>
-        <ul class="row bg-success bg-opacity-10 p-0 rounded-4 g-2 mb-3  list-unstyled bar-goal scroll-col" id="col-todo" data-status="not_started">
+        <ul class="row bg-secondary p-0 rounded-4 g-2 mb-3  list-unstyled bar-goal scroll-col" id="col-todo" data-status="not_started">
           <% @todo.each do |task| %>
             <li class="pl-0 d-flex justify-content-center" data-task-id="<%=task.id %>">
                 <%= render 'tasks/partials/card_task' , task: task %>
@@ -35,7 +34,7 @@
         </ul>
     </div>
     <div class="col">
-      <div class="row rounded-4 g-2 mb-3 bg-success text-dark bg-opacity-10">
+      <div class="row rounded-4 g-2 mb-3 bg-secondary">
         <div class="col-1 my-auto mx-auto d-flex align-items-center">
           <i class="fa-solid fa-list-check"></i>
         </div>
@@ -43,7 +42,7 @@
           <p>IN-PROGRESS</p>
         </div>
       </div>
-        <ul class="row bg-success bg-opacity-10 p-0 rounded-4 g-2 mb-3  list-unstyled bar-goal scroll-col" id="col-doing" data-status="in_progress">
+        <ul class="row bg-secondary p-0 rounded-4 g-2 mb-3  list-unstyled bar-goal scroll-col" id="col-doing" data-status="in_progress">
           <% @doing.each do |task| %>
             <li class="pl-0 d-flex justify-content-center" id="hover-card-board" data-task-id="<%=task.id %>">
                 <%= render 'tasks/partials/card_task' , task: task %>
@@ -52,7 +51,7 @@
         </ul>
     </div>
     <div class="col">
-      <div class="row rounded-4 g-2 mb-3 bg-success text-dark bg-opacity-10">
+      <div class="row rounded-4 g-2 mb-3 bg-secondary">
         <div class="col-1 my-auto mx-auto d-flex align-items-center">
           <i class="fa-solid fa-circle-check"></i>
         </div>
@@ -60,7 +59,7 @@
           <p>DONE</p>
         </div>
       </div>
-        <ul class="row bg-success bg-opacity-10 p-0 rounded-4 g-2 mb-3  list-unstyled bar-goal scroll-col" id="col-done" data-status="done">
+        <ul class="row bg-secondary p-0 rounded-4 g-2 mb-3  list-unstyled bar-goal scroll-col" id="col-done" data-status="done">
           <% @done.each do |task| %>
             <li class="pl-0 d-flex justify-content-center" data-task-id="<%=task.id %>">
                 <%= render 'tasks/partials/card_task' , task: task %>
