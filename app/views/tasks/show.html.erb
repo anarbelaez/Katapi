@@ -1,6 +1,6 @@
 
 <div class="row px-3">
-  <div class="col-12 my-3 p-2 rounded-4 bg-light shadow-sm">
+  <div class="col-12 my-3 p-2 rounded-4 bg-secondary shadow-sm">
     <h3><%= @task.name&.capitalize%></h3>
     <p class="border-bottom pb-2"><%= @task.description&.capitalize %></p>
     <p class="ff">Status: <span><%= @task.status %></span></p>
@@ -12,10 +12,10 @@
 
 <div class="row">
     <div class="col-12 d-flex">
-      <%= link_to "Edit task", edit_task_path(@task), class: "btn btn-dark rounded-pill me-2" %>
-      <button class="btn btn-dark rounded-pill text-white" type="button" data-bs-toggle="collapse" data-bs-target="#newComment" aria-expanded="false" aria-controls="collapseExample">
+      <%= link_to "Edit task", edit_task_path(@task), class: "btn btn-primary rounded-pill me-2 text-dark" %>
+      <%# <button class="btn btn-primary rounded-pill text-dark" type="button" data-bs-toggle="collapse" data-bs-target="#newComment" aria-expanded="false" aria-controls="collapseExample">
         Add Notes
-      </button>
+      </button> %>
     </div>
     <div class="row">
       <div class="col-6">

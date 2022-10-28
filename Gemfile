@@ -27,8 +27,6 @@ gem "stimulus-rails"
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 gem "jbuilder"
 
-# Poppler
-gem 'poppler', '~> 3.0', '>= 3.0.7'
 
 # Use Redis adapter to run Action Cable in production
 gem "redis", "~> 4.0"

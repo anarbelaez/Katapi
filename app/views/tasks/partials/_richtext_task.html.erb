@@ -1,8 +1,8 @@
-<div class="card card-body rounded-4 my-3">
+<div class="card card-body rounded-4 my-3 notscale ">
   <%= simple_form_for @task do |f| %>
     <%= f.rich_text_area :review, as: :file, input_html: {class:"border-0 rounded-4"}  %>
     <div class="d-flex justify-content-end pt-2">
-      <%= f.submit class:"btn btn-dark rounded-pill"%>
+      <%= f.submit class:"btn btn-primary text-dark rounded-pill"%>
     </div>
   <% end %>
 </div>
