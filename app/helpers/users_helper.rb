@@ -17,4 +17,5 @@ module UsersHelper
   def user_has_name?
     current_user.full_name || current_user.nickname
   end
+
 end
