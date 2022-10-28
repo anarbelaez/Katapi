@@ -6,3 +6,13 @@ import "bootstrap"
 import "trix"
 import "@rails/actiontext"
 import "./plugins/datatables"
+
+import { initSweetalert } from './plugins/init_sweetalert';
+
+initSweetalert('#sweet-alert-demo', {
+  title: "A nice alert",
+  text: "This is a great alert, isn't it?",
+  icon: "success"
+}, (value) => {
+  console.log(value);
+});
