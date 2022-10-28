@@ -1,11 +1,10 @@
-<div class="row d-flex justify-content-end index-calendar p-2">
+<div class="row d-flex justify-content-end rounded-4 p-2">
   <%= month_calendar events: @tasks do |date, tasks| %>
     <% tasks.each do |task| %>
-      <button class="btn btn-sm btn-success rounded-circle d-flex justify-content-center" style="width:30px" type="button"
+      <button class="btn btn-sm btn-success bg-success p-1 d-flex justify-content-center text-$deep-cove" style="width:100%" type="button"
         id="dateTask" data-bs-toggle="dropdown" aria-expanded="false">
         <%= date.day %>
       </button>
-
       <div class="dropdown">
         <ul class="dropdown-menu border border-5 rounded-5 text-center" aria-labelledby="dateTask">
           <li>
@@ -13,7 +12,7 @@
           </li>
         </ul>
         <div class="dropdown d-none">
-          <ul class="dropdown-menu border border-5 rounded-5 text-center" aria-labelledby="dateTask">
+          <ul class="dropdown-menu border border-5 rounded-5 text-center bg-success" aria-labelledby="dateTask">
             <li>
               <%= link_to "#{task.name.capitalize}" , task, class:"btn btn-white" %>
             </li>

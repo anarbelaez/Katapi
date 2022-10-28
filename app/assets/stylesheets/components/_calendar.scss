@@ -25,27 +25,68 @@
   }
 }
 
+.simple-calendar table {
+  border: none;
+}
+
+.simple-calendar .day {
+  border: none;
+}
+
+.simple-calendar th {
+border: none;
+border-bottom: 1px solid grey;
+color: $white-smoke;
+padding-top: 5px;
+
+}
+
 .calendar-title a {
-  color: aliceblue;
+  color: $white-smoke;
   text-decoration: none;
+  color: $white-smoke;
 }
 
 .index-calendar {
   .simple-calendar table {
-    border: none;
+    border:2px solid white-smoke;
   }
 
   .simple_calendar {
     border-radius: 12px;
   }
   .simple-calendar .day {
-    border: none;
-  }
+    border: 1px solid whitesmoke;
+    border-radius: 10px;
 
+  }
 
   .simple-calendar th {
   border: none;
-  border-bottom: 1px solid grey;
+  // border-bottom: 1px solid grey;
+  color: $white-smoke;
+  text-align: center;
+  }
+  .justify-content-center {
+    background-color: $deep-cove;
+    border-radius: 10px;
+    padding: 4px;
+  }
+
+  .calendar-heading {
+    padding-top: 10px;
+    padding-bottom: 16px;
+  }
+
+}
+
+
+.justify-content-center {
+  background-color: $deep-cove;
+  border-radius: 10px;
+  padding: 4px;
+  :hover {
+    background-color: white-smoke;
   }
 }
 
