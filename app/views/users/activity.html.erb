@@ -18,8 +18,8 @@
           <div class="card-body">
             <p class="fs-2 mb-1">0%</p>
             <p class="card-text fs-08 mb-1 fw-bold">Seed - Not started</p>
-            <p class="card-text fs-08 m-0 mb-3">Goals that are seeds</p>
-            <h6><%= link_to "See goals...", "#", class: "text-decoration-none text-white bg-dark px-2 py-1 rounded-pill" %></h6>
+            <p class="card-text fs-08 m-0 mb-4">Goals that are seeds</p>
+            <p class="m-0"><%= link_to "See goals", "#", class: "text-decoration-none" %></p>
           </div>
         </div>
       </div>
@@ -30,7 +30,7 @@
             <p class="fs-2 mb-1">0%</p>
             <p class="card-text fs-08 mb-1 fw-bold">Sapling - In progress</p>
             <p class="card-text fs-08 m-0 mb-3">Goals that are saplings</p>
-            <h6><%= link_to "See goals...", "#", class: "text-decoration-none text-white bg-dark px-2 py-1 rounded-pill" %></h6>
+            <p class="m-0"><%= link_to "See goals", "#", class: "text-decoration-none" %></p>
           </div>
         </div>
       </div>
@@ -41,7 +41,7 @@
             <p class="fs-2 mb-1">0%</p>
             <p class="card-text fs-08 mb-1 fw-bold">Mature trees - Completed goals</p>
             <p class="card-text fs-08 m-0 mb-3">Goals that are</p>
-            <h6><%= link_to "See goals...", "#", class: "text-decoration-none text-white bg-dark px-2 py-1 rounded-pill" %></h6>
+            <p class="m-0"><%= link_to "See goals", "#", class: "text-decoration-none" %></p>
           </div>
         </div>
       </div>
@@ -57,8 +57,9 @@
     <div class="row mt-2" data-controller="refresh-goals-list">
 
       <div class="col-12">
-      <div class="row" data-masonry='{"percentPosition": true }'>
+      <div class="row" data-masonry='{"percentPosition": false }'>
         <% @goals.each do |goal| %>
+
           <div class="col-6 col-sm-3">
             <div class="d-flex align-items-stretch">
               <a href="" class="text-decoration-none link-dark" data-bs-toggle="modal" data-bs-target="#modalGoal"
