@@ -1,7 +1,11 @@
 class Task < ApplicationRecord
+  include PgSearch::Model
+
   belongs_to :goal
   has_one_attached :photo
   has_rich_text :rich_body
+
+  pg_search_scope :search, against: %i[name description priority difficulty], using: { tsearch: { prefix: true } }
 
   validates :name, :status, :priority, :difficulty, :goal, presence: true
   validates :name, length: { minimum: 5 }
@@ -16,6 +20,10 @@ class Task < ApplicationRecord
   end
 
   def start_time
-    self.due_date
+    due_date
   end
+
+  private
+
+
 end
