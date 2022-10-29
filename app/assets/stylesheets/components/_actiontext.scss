@@ -161,4 +161,11 @@ trix-toolbar .trix-dialog {
   line-height: 1.2;
 }
 
+.trix-content .attachment--file {
+  color: $dark !important;
+  background-color: $success !important;
+  border: 1px solid $success !important;
+  border-radius: 5px;
+}
+
 @import "trix/dist/trix";
