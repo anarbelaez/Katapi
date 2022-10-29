@@ -1,8 +1,11 @@
+.fs-07 {
+  font-size: 0.7rem;
+}
 .fs-08 {
   font-size: 0.8rem;
 }
 .fs-09 {
-  font-size: 0.8rem;
+  font-size: 0.9rem;
 }
 .link-muted {
   color: #6C757D;
@@ -28,6 +31,14 @@
 .text-body {
   color: white;
 }
+
 .text-white-smoke{
   color: whitesmoke;
+}
+.clip-rich-text {
+  height: 1.7rem;
+  width: 3.2rem;
+  transform: rotate(15deg);
+  top: -15px;
+  right: 40px;
 }

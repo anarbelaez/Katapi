@@ -30,4 +30,135 @@
   max-width: 100% !important;
 }
 
+trix-editor {
+  &.form-control {
+    min-height: 800px;
+    height: auto;
+  }
+}
+
+trix-editor {
+  height: 150px !important;
+  max-height: 150px !important;
+    overflow-y: auto !important;
+}
+
+.trix-content {
+  height: 50vh !important;
+  max-height: 100% !important;
+  overflow-y: auto !important;
+}
+
+trix-toolbar .trix-button-row {
+  display: flex;
+  flex-wrap: wrap !important;
+  justify-content: space-between;
+}
+
+trix-toolbar .trix-button-group:not(:first-child) {
+  margin-left: 2px !important;
+}
+
+trix-button .trix-button--icon::before {
+  color: white !important;
+}
+
+trix-toolbar .trix-button-group {
+  display: flex;
+  margin-bottom: 10px;
+  border: 0px transparent solid !important;
+  border-top-color: transparent !important;
+  border-bottom-color: transparent !important;
+  border-radius: 0px !important;
+}
+
+trix-toolbar .trix-button:not(:first-child) {
+  /* border-left: 1px solid #ccc; */
+}
+
+trix-toolbar .trix-button {
+  position: relative;
+  float: left;
+  color: rgba(0, 0, 0, 0.6);
+  font-size: 0.75em;
+  font-weight: 600;
+  white-space: nowrap;
+  padding: 0 0.5em;
+  margin: 0;
+  outline: none;
+  border: none;
+  border-bottom: 0px solid transparent !important;
+  border-radius: 0;
+  background: transparent;
+}
+
+trix-toolbar .trix-button.trix-active {
+  background: transparent !important;
+  color: black;
+}
+
+trix-toolbar .trix-button--icon::before {
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: $primary;
+  opacity: 0.6;
+  content: "";
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  border-radius: 15px;
+  margin-right: 1px;
+}
+
+trix-toolbar .trix-button-row {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  overflow-x: auto;
+  border: 0;
+  margin-bottom: 25px;
+}
+
+trix-toolbar .trix-button:not(:first-child) {
+  border-left: 0px solid transparent !important;
+}
+
+trix-editor {
+  border: 1px solid transparent !important;
+  border-radius: 15px;
+  margin: 0;
+  padding: 0.8em 0.8em;
+  min-height: 5em;
+  color: white;
+  background-color: $body-color !important;
+  outline: none;
+  overflow-y: auto !important;
+}
+
+.trix-content {
+  height: 50vh !important;
+  max-height: 100% !important;
+  overflow-y: auto !important;
+
+  /* color: rgba(0, 0, 0, 0.8); */
+}
+
+trix-toolbar .trix-dialog {
+  background: $primary !important;
+  box-shadow: 0 0em 1em transparent !important;
+  border-top: 2px solid transparent !important;
+  border-radius: 5px;
+  z-index: 5;
+}
+
+.trix-content .attachment--preview .attachment__caption {
+  font-size: 0.9em;
+  display: none !important;
+  line-height: 1.2;
+}
+
 @import "trix/dist/trix";
