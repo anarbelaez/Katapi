@@ -1,28 +1,21 @@
 <div class="row d-flex justify-content-end rounded-4 p-2">
   <%= month_calendar events: @tasks do |date, tasks| %>
     <% tasks.each do |task| %>
-<<<<<<< HEAD
-      <button class="btn btn-sm btn-success bg-success p-1 d-flex justify-content-center text-$deep-cove" style="width:100%" type="button"
-=======
-      <button class="btn btn-sm btn-success rounded-circle d-flex justify-content-center mx-auto" style="width:30px" type="button"
->>>>>>> c2b7872401587ed9baab54a4283ed2fccd31e3df
+    <button class="btn btn-sm btn-success rounded-circle d-flex justify-content-center mx-auto bg-success text-center" style="width:30px" type="button"
         id="dateTask" data-bs-toggle="dropdown" aria-expanded="false">
         <%= date.day %>
       </button>
       <div class="dropdown">
-        <ul class="dropdown-menu border border-5 rounded-5 text-center" aria-labelledby="dateTask">
-          <li>
-            <%= link_to "#{task.name.capitalize}" , task, class:"btn btn-white" %>
-          </li>
+        <ul class="dropdown-menu shadow-lg bg-gradient fs-08  rounded-4 bg-body" aria-labelledby="dateTask">
+          <% tasks.each do |task| %>
+            <li>
+             <%= link_to "• #{title_stylized(task.name)}" , task, class:"btn btn-white text-primary" %>
+            </li>
+          <% end %>
         </ul>
         <div class="dropdown d-none">
-          <ul class="dropdown-menu border border-5 rounded-5 text-center bg-success" aria-labelledby="dateTask">
-            <li>
-              <%= link_to "#{task.name.capitalize}" , task, class:"btn btn-white" %>
-            </li>
-          </ul>
     <% end %>
-    <div class="d-flex justify-content-center">
+    <div class="d-flex justify-content-center dash-calendar">
       <%= date.day %>
     </div>
   <% end %>
