@@ -21,7 +21,7 @@ module ApplicationHelper
     link_to name, request.params.merge(sort: column, direction: direction), **options
   end
 
-  def title_stylized(name_goal)
-    name_goal.length >= 30 ? name_goal.first(27) + "..." : name_goal
+  def title_stylized(title)
+    title.length >= 30 ? title.first(27) + "..." : title
   end
 end

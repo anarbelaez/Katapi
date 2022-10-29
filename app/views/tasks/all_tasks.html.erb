@@ -13,14 +13,14 @@
   </style>
 
   <div class="row">
-    <div class="col border border-1 mb-2">
-          <p>aaaaaaaaaaaaa</p>
+    <div class="col bg-secondary rounded-4 mb-2">
+          <h3>Tasks summary</h3>
     </div>
   </div>
 
 
-  <div class="row border border-1">
-    <div class="col-6">
+  <div class="row">
+    <div class="col-5 bg-secondary rounded-4 mb-2">
         <p>aaaaaaaaaaa</p>
     </div>
 
@@ -28,12 +28,12 @@
 
 
 
-    <div class=" col-6 shadow p-4 bg-body rounded-5">
-      <div class="row d-flex justify-content-between">
+    <div class=" col-sm-12 col-md-6 shadow-sm mx-auto my-auto bg-body rounded-5 bg-secondary">
+      <div class="row d-flex justify-content-between bg-secondary rounded-5 p-md-4">
       <%= form_with url: "", method: :get, data: {turbo_frame: "tasks", turbo_action: "advance"} do |form| %>
       <div class="row">
         <div class="col">
-          Search <%= form.search_field :query, value: params[:query], oninput: "this.form.requestSubmit()", class:"shadow-sm border-0 bg-light p-2 px-2 rounded-pill" %>
+          <i class="fa-solid fa-magnifying-glass"></i> <%= form.search_field :query, value: params[:query], oninput: "this.form.requestSubmit()", placeholder: "Search a task...", class:"shadow-sm p-1 px-2 rounded-pill" %>
         </div>
         <div class="col d-flex justify-content-end">
           <p> Show <%= form.select :count, options_for_select([10, 25, 50, 100], class:"rounded-pill", selected: params[:count]), {}, { onchange: "this.form.requestSubmit()"} %> entries </p>
