@@ -17,16 +17,24 @@ class User < ApplicationRecord
     goals.distinct.pluck(:category)
   end
 
-  def seed_count
+  def baby_goals_count
     goals.baby.count
   end
 
-  def sapling_count
+  def young_goals_count
     goals.young.count
   end
 
-  def mature_tree_count
+  def adult_goals_count
     goals.adult.count
+  end
+
+  def upcoming_tasks
+    tasks.not_done.where('due_date >= ?', Date.today)
+  end
+
+  def tasks_grouped_by_day
+    upcoming_tasks.order(:due_date).group_by { |t| t.due_date.strftime("%e %B") }
   end
 
   def self.from_omniauth(auth)
