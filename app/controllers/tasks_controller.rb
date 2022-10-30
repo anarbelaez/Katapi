@@ -47,7 +47,6 @@ class TasksController < ApplicationController
 
   def update_task
     @task.update(task_params)
-
   end
 
   def calendar
