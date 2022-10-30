@@ -10,19 +10,20 @@
     <%= task.difficulty %>
   </div>
 
-  <div class="table-cell text-white-smoke" style="width: 60%;">
+  <div class="table-cell text-white-smoke d-flex" style="width: 60%;">
 
     <% if task.not_started? %>
-      <span class="badge rounded-pill bg-danger text-dark py-1"> <%= task.status %></span>
+      <span class="badge rounded-pill bg-danger text-dark py-1" style="width: 70px;"> <%= task.status %></span>
     <% elsif task.in_progress? %>
-      <span class="badge rounded-pill bg-info text-dark py-1"> <%= task.status %></span>
+      <span class="badge rounded-pill bg-info text-dark py-1" style="width: 70px;"> <%= task.status %></span>
     <% else %>
-      <span class="badge rounded-pill bg-success text-dark py-1"> <%= task.status %></span>
+      <span class="badge rounded-pill bg-success text-dark py-1" style="width: 70px;"> <%= task.status %></span>
     <% end %>
+
   </div>
 
   <div class="table-cell text-white-smoke" style="width: 60%;">
-    <%= task.due_date&.strftime("%d/%m/%y") %>
+  <small> <%= task.due_date&.strftime("%d/%m/%y") %> </small>
   </div>
 
 </div>
