@@ -4,7 +4,7 @@ class GoalsController < ApplicationController
   before_action :goal_policy, only: %i[show edit destroy]
 
   def index
-    @goals = current_user.goals
+    @pagy, @goals = pagy(current_user.goals)
     @tasks = current_user.tasks
   end
 
