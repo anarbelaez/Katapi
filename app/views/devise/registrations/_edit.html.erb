@@ -4,7 +4,7 @@
   <div class="form-group row">
     <div class="col-12 col-md-8">
 
-      <div class="card shadow-sm border-0 rounded-4 p-2 my-1" style="">
+      <div class="card shadow-sm border-0 rounded-4 p-2 my-1 bg-body notscale" style="">
         <div class="card-body">
           <h5 class="card-title fw-bold mb-3">Profile details</h5>
           <div class="row">
@@ -45,7 +45,7 @@
 
     <div class="col-12 col-md-4">
 
-      <div class="card shadow-sm border-0 rounded-4 p-2 my-2" style="">
+      <div class="card shadow-sm border-0 rounded-4 p-2 my-2 bg-body notscale" style="">
         <div class="card-body">
           <h5 class="card-title fw-bold mb-3">Change password</h5>
           <h6 class="text-muted mb-3 fs-08">Leave it blank if you don't want to change it</h6>
@@ -67,17 +67,17 @@
     </div>
 
     <div class="col-12 col-md-8">
-      <div class="card shadow-sm border-2 border-top-0 border-start-0 rounded-4 p-2 my-1" style="">
+      <div class="card shadow-sm border-2 border-top-0 border-start-0 rounded-4 p-2 my-1 bg-body notscale" style="">
         <div class="card-body">
           <h5 class="card-title fw-bold mb-3">We need your current password to confirm your changes</h5>
-          <div class="row">
-            <div class="col-12">
+          <div class="row align-items-center">
+            <div class="col-12 col-md-8">
               <%= f.input :current_password,
                           required: true,
-                          input_html: { autocomplete: "current-password", class: "rounded-3 shadow-sm border-0 rounded-4 px-3 bg-light p-2" } %>
-              <div class="form-actions col-12">
-                <%= f.button :submit, "Update my settings", class: "btn btn-success w-100 rounded-4 my-2 p-2" %>
-              </div>
+                          input_html: { autocomplete: "current-password", class: "rounded-3 shadow-sm border-0 rounded-4 bg-light col-7" } %>
+            </div>
+            <div class="form-actions col-12 col-md-4 mt-1 mt-md-3">
+              <%= f.button :submit, "Update my settings", class: "btn btn-success w-100 rounded-4" %>
             </div>
           </div>
         </div>
@@ -86,10 +86,10 @@
     </div>
 <% end %>
     <div class="col-12 col-md-4">
-      <div class="card shadow-sm border rounded-4 p-2 my-2" style="">
+      <div class="card shadow-sm rounded-4 p-2 my-2 bg-body notscale" style="">
         <div class="card-body">
           <h5 class="card-title fw-bold mb-3 text-danger">Close account</h5>
-          <h6 class="text-muted mb-3 fs-08">You can permanently delete your account</h6>
+          <h6 class="mb-3 fs-08">You can permanently delete your account</h6>
           <div class="text-center">
             <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: "btn btn-link border-danger link-danger text-decoration-none w-100 rounded-4" %>
           </div>
