@@ -15,3 +15,19 @@
   <% end %>
 </div>
 </div>
+
+
+
+<%= calendar number_of_days: 1, events: @tasks do |date, tasks| %>
+  <%  date %>
+    <% tasks.each do |task| %>
+      <div>
+      <%= link_to "Show this task", task %>
+      <%= task.start_time %>
+       <%= task.name %>
+        <%= task.goal.name %>
+
+
+      </div>
+    <% end %>
+<% end %>

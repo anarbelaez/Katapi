@@ -1,3 +1,15 @@
+<style>
+.upload-photo {
+  border: 1px solid #badc58;
+  padding: 8px 16px;
+  cursor: pointer;
+  font-weight: 500;
+  background: dark;
+  border-radius: 24px;
+  margin-top: 22px;
+}
+</style>
+
 <div class="row">
   <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= f.error_notification %>
@@ -29,7 +41,7 @@
             <div class="col-12 col-sm-6 d-flex align-items-center pt-2">
               <%#= image_tag current_user.avatar_url, class: "img-fluid avatar-sm me-2" %>
               <%#= link_to "Edit your avatar TODO", "#", class: "text-decoration-none" %>
-              <%= f.input :photo, as: :file %>
+              <%= f.input :photo, input_html: { class: 'd-none' }, label_html: { class: 'upload-photo'}, label: '📷 Upload a photo' %>
 
             </div>
             <div class="col-12">
