@@ -3,37 +3,91 @@
 <ul class="nav nav-tabs border-0 bg-transparent" id="myTab" role="tablist">
 
   <li class="nav-item" role="presentation">
-    <button class="nav-link active" id="board-goal-tab" data-bs-toggle="tab" data-bs-target="#board-goal-tab-pane" type="button" role="tab" aria-controls="board-goal-tab-pane" aria-selected="true"><i class="fa-solid fa-grip"></i></button>
+    <button class="nav-link active" id="board-goal-tab" data-bs-toggle="tab" data-bs-target="#board-goal-tab-pane" type="button" role="tab" aria-controls="board-goal-tab-pane" aria-selected="true"><i class="fa-solid fa-grip"></i>Board</button>
   </li>
 
   <li class="nav-item" role="presentation">
-    <button class="nav-link" id="details-goals-tab" data-bs-toggle="tab" data-bs-target="#details-goals-tab-pane" type="button" role="tab" aria-controls="details-goals-tab-pane" aria-selected="false"><i class="opacity-75 bi bi-compass"></i></button>
+    <button class="nav-link" id="details-goals-tab" data-bs-toggle="tab" data-bs-target="#details-goals-tab-pane" type="button" role="tab" aria-controls="details-goals-tab-pane" aria-selected="false"><i class="opacity-75 bi bi-compass"></i>Notes</button>
   </li>
 </ul>
 </div>
 
-<%# Tabs Content %>
-<div class="tab-content" id="myTabContent">
-  <div class="tab-pane fade show active" id="board-goal-tab-pane" role="tabpanel" aria-labelledby="board-goal-tab" tabindex="0">
-    <div class="p-3">
-      <%= render 'tasks/partials/board_task_cards' %>
+
+<%# Banner goal %>
+<div class="row my-4 px-3">
+  <div class="col-12 col-sm-7 col-md-9 rounded-4 px-3">
+    <div class="pe-md-3">
+      <h2 class="text-light fw-bold"><%= @goal.name %></h2>
+      <h5 class="display-6 px-2 badge fs-09 bg-success rounded-pill text-dark"><%= @goal.category %></h5>
+      <p class="text-muted mt-1"><%= @goal.description || "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec qu" %></p>
+      <div class="d-flex justify-content-end align-items-center">
+        <%= link_to edit_goal_path(@goal), class: "text-decoration-none link-dark circle-icon me-2" do %>
+          <i class="bi bi-pencil-square rounded-circle p-2 bg-primary fw-bold fs-5 shadow-sm bg-gradient"></i>
+        <% end %>
+        <%= link_to edit_goal_path(@goal), class: "text-decoration-none link-dark circle-icon" do %>
+          <i class="bi bi-trash3 rounded-circle p-2 bg-danger fw-bold fs-5 shadow-sm bg-gradient"></i>
+        <% end %>
+      </div>
     </div>
+  </div>
+  <div class="col-12 col-sm-5 col-md-3 rounded-4 px-3 py-2 py-md-0 mt-3 mt-md-0 bg-secondary d-flex align-items-center justify-content-center">
+    <div class="row gx-2 gx-sm-3 text-center">
+      <%# Hours %>
+      <div class="col-4">
+        <div class="card notscale border-0 bg-transparent">
+          <div class="card-body p-0">
+            <div class="bg-info p-1 rounded-4"><span class="fs-2">5</span></div>
+            <p class="my-1 fst-italic">Days</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-4">
+        <div class="card notscale border-0 bg-transparent">
+          <div class="card-body p-0">
+            <div class="bg-info p-1 rounded-4"><span class="fs-2">5</span></div>
+            <p class="my-1 fst-italic">Hours</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-4">
+        <div class="card notscale border-0 bg-transparent">
+          <div class="card-body p-0">
+            <div class="bg-info p-1 rounded-4"><span class="fs-2">5</span></div>
+            <p class="my-1 fst-italic">Minutes</p>
+          </div>
+        </div>
+      </div>
+      <h3 class="m-0 p-0 mt-3 fs-6 text-light fw fw-bold text-center"><%= @goal.completion_date || "November 11, 2022" %></h3>
+    </div>
+  </div>
+</div>
+
+<%# Tabs Content %>
+<div class="tab-content mb-5 pb-3" id="myTabContent">
+  <div class="tab-pane fade show active" id="board-goal-tab-pane" role="tabpanel" aria-labelledby="board-goal-tab" tabindex="0">
+    <div class="pt-3 px-3">
+      <div class="d-flex align-items-center">
+        <h4 class="m-0 me-3 ps-1">Tasks</h4>
+        <%= link_to new_goal_task_path(@goal) do %>
+          <i class="fa-solid fa-circle-plus fs-5"></i>
+        <% end %>
+      </div>
+      <hr>
+    </div>
+
+    <%= render 'tasks/partials/board_task_cards' %>
   </div>
 
   <div class="tab-pane fade" id="details-goals-tab-pane" role="tabpanel" aria-labelledby="details-goals-tab" tabindex="0">
-    <div class="p-3">
-
-    <%# Izquierda %>
-    <div class="row g-3">
+    <div class="row ps-3">
       <div class="col-12">
-
-      <div class="rounded-4">
-      </div>
-        <div class="position-relative bg-secondary text-center border-0 p-3">
-          <h6 class="fs-2 fst-italic">Notes</h6>
+        <div class="position-relative bg-secondary text-center border-0 p-3 rounded-4 rounded-bottom">
+          <h6 class="fs-2 mt-2">Notes</h6>
           <%# <div class="position-absolute clip-rich-text"><i class="bi bi-paperclip display-4 text-success"></i></div> %>
         </div>
-        <div class="card border-0 bg-secondary text-light px-4 py-3 notscale">
+        <div class="card border-0 bg-secondary text-light px-4 py-3 notscale rounded-4 rounded-top">
           <%= simple_form_for @goal, class: "" do |f| %>
             <%= f.rich_text_area :review, as: :file, input_html: { class: "shadow-sm customized-min-height" } %>
             <div class="d-flex justify-content-end pt-2">
@@ -41,10 +95,8 @@
             </div>
           <% end %>
         </div>
-
       </div>
     </div>
-
-    </div>
   </div>
+
 </div>

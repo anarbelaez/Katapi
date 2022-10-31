@@ -6,6 +6,7 @@ import "bootstrap"
 import "trix"
 import "@rails/actiontext"
 import "./plugins/datatables"
+import "./plugins/trix-editor-overrides"
 
 import { initSweetalert } from './plugins/init_sweetalert';
 
