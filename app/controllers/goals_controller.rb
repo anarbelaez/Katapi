@@ -4,8 +4,17 @@ class GoalsController < ApplicationController
   before_action :goal_policy, only: %i[show edit destroy]
 
   def index
-    @pagy, @goals = pagy(current_user.goals)
-    @tasks = current_user.tasks
+    if params[:query].present?
+      @pagy, @goals = pagy(current_user.goals.where("name like ?", "%#{params[:query]}%"))
+    else
+      @pagy, @goals = pagy(current_user.goals)
+    end
+
+    if turbo_frame_request?
+      render partial: "goals", locals: { goals: @goals }
+    else
+      render :index
+    end
   end
 
   def show
