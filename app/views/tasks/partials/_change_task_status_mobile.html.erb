@@ -1,0 +1,33 @@
+<div class="row justify-content-center">
+  <div class="col-sm-12 col-md-8">
+    <div class="row justify-content-center mx-auto bg-secondary p-4 rounded-5">
+
+      <div class="d-flex justify-content-center">
+        <h5>Change Task Status</h5>
+      </div>
+
+      <%= simple_form_for [@goal, @task] do |f| %>
+
+        <div class="col">
+          <div class="row p-1 rounded-5 g-2 mb-3 text-white-smoke bg-body">
+
+              <div>
+                <%= f.input :status,
+                            as: :radio_buttons,
+                            collection_wrapper_tag: 'div',
+                            collection_wrapper_class: 'category-wrapper',
+                            item_wrapper_class: 'category-item',
+                            input_html: {class: 'category-selector'},
+                            collection: Task.statuses.keys %>
+              </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <%= f.submit class:"btn btn-success rounded-4 p-1"%>
+        </div>
+
+      <% end %>
+    </div>
+  </div>
+</div>

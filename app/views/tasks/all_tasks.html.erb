@@ -1,61 +1,43 @@
-<style>
-  .page {
-    padding: 4px;
-    display: flex;
-    justify-content: end;
-  }
+<div class="row">
+  <div class="col rounded-4">
+    <h5>Tasks summary</h5>
+  </div>
+</div>
+<hr>
 
-  .pagy-nav {
-    display: flex;
-    justify-content: end;
-
-  }
-  </style>
-
-  <div class="row">
-    <div class="col bg-secondary rounded-4 mb-2">
-          <h3>Tasks summary</h3>
-    </div>
+<div class="row">
+  <div class="col-5 bg-secondary rounded-4 mb-2">
+      <!-- <p>aaaaaaaaaaa</p> -->
   </div>
 
-
-  <div class="row">
-    <div class="col-5 bg-secondary rounded-4 mb-2">
-        <p>aaaaaaaaaaa</p>
-    </div>
-
-
-
-
-
-    <div class=" col-sm-12 col-md-6 shadow-sm mx-auto my-auto bg-body rounded-5 bg-secondary">
-      <div class="row d-flex justify-content-between bg-secondary rounded-5 p-md-4">
+  <div class="col-sm-12 col-md-6 shadow-sm mx-auto my-auto bg-body rounded-5 bg-secondary">
+    <div class="row d-flex justify-content-between bg-secondary rounded-5 p-md-4">
       <%= form_with url: "", method: :get, data: {turbo_frame: "tasks", turbo_action: "advance"} do |form| %>
-      <div class="row">
-        <div class="col">
-          <i class="fa-solid fa-magnifying-glass"></i> <%= form.search_field :query, value: params[:query], oninput: "this.form.requestSubmit()", placeholder: "Search a task...", class:"shadow-sm p-1 px-2 rounded-pill" %>
+        <div class="row">
+          <div class="col">
+            <i class="fa-solid fa-magnifying-glass"></i> <%= form.search_field :query, value: params[:query], oninput: "this.form.requestSubmit()", placeholder: "Search a task...", class:"shadow-sm p-1 px-2 rounded-pill" %>
+          </div>
+          <div class="col d-flex justify-content-end">
+            <p> Show <%= form.select :count, options_for_select([10, 25, 50, 100], class:"rounded-pill", selected: params[:count]), {}, { onchange: "this.form.requestSubmit()"} %> entries </p>
+          </div>
         </div>
-        <div class="col d-flex justify-content-end">
-          <p> Show <%= form.select :count, options_for_select([10, 25, 50, 100], class:"rounded-pill", selected: params[:count]), {}, { onchange: "this.form.requestSubmit()"} %> entries </p>
-        </div>
-        <% end%>
-      </div>
+      <% end%>
       <%= turbo_frame_tag "tasks" do %>
-      <div class="table">
-        <div class="table-header-group d-flex ">
-          <%= sort_link_to "Name", ":name", class: "table-cell text-decoration-none", style:"width: 120%;", data: { turbo_action: "advance" } %>
-          <%= sort_link_to "Priority", ":priority", class: "table-cell text-decoration-none", style:"width: 60%;", data: { turbo_action: "advance" }  %>
-          <%= sort_link_to "Difficulty", ":difficulty", class: "table-cell text-decoration-none", style:"width: 60%;", data: { turbo_action: "advance" }  %>
-          <%= sort_link_to "Status", ":status", class: "table-cell text-decoration-none", style:"width: 60%;", data: { turbo_action: "advance" }  %>
-          <%= sort_link_to "Due Date", ":due_date", class: "table-cell text-decoration-none", style:"width: 60%;", data: { turbo_action: "advance" }  %>
+        <div class="table">
+          <div class="table-header-group d-flex">
+            <%= sort_link_to "Name", ":name", class: "table-cell text-decoration-none", style:"width: 120%;", data: { turbo_action: "advance" } %>
+            <%= sort_link_to "Priority", ":priority", class: "table-cell text-decoration-none", style:"width: 60%;", data: { turbo_action: "advance" }  %>
+            <%= sort_link_to "Difficulty", ":difficulty", class: "table-cell text-decoration-none", style:"width: 60%;", data: { turbo_action: "advance" }  %>
+            <%= sort_link_to "Status", ":status", class: "table-cell text-decoration-none", style:"width: 60%;", data: { turbo_action: "advance" }  %>
+            <%= sort_link_to "Due Date", ":due_date", class: "table-cell text-decoration-none", style:"width: 60%;", data: { turbo_action: "advance" }  %>
+          </div>
+           <%= render @tasks %>
         </div>
-      <%= render @tasks %>
-      </div>
 
-    <div class="">
-      <%== pagy_nav @pagy, class:"d-flex justify-content-end" %>
-      <% end %>
-    </div>
+        <div class="">
+          <%== pagy_nav @pagy, class:"d-flex justify-content-end" %>
+          <% end %>
+        </div>
       </div>
-    </div>
   </div>
+</div>
