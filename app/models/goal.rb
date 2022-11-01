@@ -1,8 +1,5 @@
 class Goal < ApplicationRecord
   include PgSearch::Model
-  attr_accessor :done
-
-  @done = 0
 
   belongs_to :user
   has_many :tasks, dependent: :destroy
@@ -21,10 +18,6 @@ class Goal < ApplicationRecord
 
   # pockie_maturity = pockie.goals.group(:maturity).count
   # pockie_maturity.key(pockie_maturity.values.max)
-
-  def done
-    @done += 1
-  end
 
   # Fractions
   def not_started_tasks_fraction
