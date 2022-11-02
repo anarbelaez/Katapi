@@ -58,6 +58,14 @@ class TasksController < ApplicationController
     redirect_to goal_tasks_path(@task.goal), status: :see_other, notice: "Your goal has been deleted"
   end
 
+  def stats
+    @tasks = current_user.tasks
+    @task = Task.new
+    @tasks = Task.all
+    @goals= Goal.all
+    @goal = Goal.new
+  end
+
   #Metodos de datatable
 
   def sort_column

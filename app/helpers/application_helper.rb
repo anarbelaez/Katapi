@@ -25,4 +25,25 @@ module ApplicationHelper
   def title_stylized(title)
     title.length >= 30 ? title.first(27) + "..." : title
   end
+
+  def porcentaje(total_tareas, total_terminadas)
+   total_terminadas / total_tareas
+  end
+
+  def percentage_not_started
+    all_tasks = @tasks.all.count
+    (@tasks.not_started.count.fdiv(all_tasks)*100).to_i
+  end
+
+  def percentage_in_progress
+    all_tasks = @tasks.all.count
+    (@tasks.in_progress.count.fdiv(all_tasks)*100).to_i
+  end
+
+  def percentage_done
+    all_tasks = @tasks.all.count
+    (@tasks.done.count.fdiv(all_tasks)*100).to_i
+  end
+
+
 end

@@ -17,3 +17,6 @@ initSweetalert('#sweet-alert-demo', {
 }, (value) => {
   console.log(value);
 });
+
+import "chartkick/chart.js"
+import "chartkick"
