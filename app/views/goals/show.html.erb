@@ -71,10 +71,19 @@
 <div class="tab-content mb-5 pb-3" id="myTabContent">
 
   <div class="tab-pane fade show active" id="tree-goal-tab-pane" role="tabpanel" aria-labelledby="tree-goal-tab" tabindex="0">
-    <div class="" id="canvasTree">
-      <h2>Hello!</h2>
-      <%= render "goals/tree/goal_tree" %>
+<div class="row">
+    <div class="col-6 bg-info">
+      <div class="" id="canvasTree">
+        <%= render "goals/tree/goal_tree", locals: { goal_tree: @goal_tree } %>
+      </div>
     </div>
+    <div class="col-6 bg-warning">
+      <div class="" id="">
+        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptate provident et cumque expedita ad deserunt corrupti culpa rerum voluptatibus ut fuga, tempora dolorem nobis molestias quia asperiores exercitationem? Sunt, magnam.</p>
+      </div>
+    </div>
+
+</div>
   </div>
 
   <div class="tab-pane fade" id="board-goal-tab-pane" role="tabpanel" aria-labelledby="board-goal-tab" tabindex="0">

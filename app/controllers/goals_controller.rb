@@ -22,6 +22,14 @@ class GoalsController < ApplicationController
     @todo = @goal.tasks.not_started
     @doing = @goal.tasks.in_progress
     @done = @goal.tasks.done
+
+    time = (0..19).include?(Time.now.hour) ? "day" : "night"
+    @goal_tree = {
+      maturity: "baby",
+      status: "alive",
+      landscape_type: time,
+      completed: true
+    }.to_json
   end
 
   def new

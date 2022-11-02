@@ -1,31 +1,90 @@
+
 <script>
-var canvasDiv = document.getElementById("canvasTree");
+let goal;
+let canvasDiv = document.getElementById("canvasTree");
+let gradientBegin;
+let gradientEnd;
+let mountain1;
+let mountain2;
+let celestial;
+let grass;
+let growth;
+let depth;
+let branchWeight;
+let leafShape;
+let bloom;
+
 // Setup: controla el tamano del canvas y el background (sun-moon, gradient, mountains)
-function setup() {
-  // var canvas = createCanvas(600, 500);
-  var width = canvasDiv.offsetWidth;
-  var height = canvasDiv.offsetHeight;
-  let render = createCanvas(width, 500);
-  render.parent("canvasTree");
-  // render.style('margin-left', '-15px');
-  noLoop();
-  gradient([15, 188, 249],[5, 196, 107]);
-  drawSun();
-  let xOff = random(0, 1000);
-  mountains(56, 250, 0.015, [55,66,66],xOff);
-  mountains(135, 250, 0.015, 0,xOff);
-  // mountains(50, 110, 0.006,50,xOff);
-  // mountains(15, 65, 0.1,68,xOff);
-  mountains(15, 45, 0.6,[196, 229, 56],xOff);
+
+function preload(){
+  goal = <%= @goal_tree.html_safe %>;
 }
 
+function setup() {
+  let width = canvasDiv.offsetWidth;
+  let height = canvasDiv.offsetHeight;
+  let render = createCanvas(width, width + 100);
+  render.parent("canvasTree");
+  noLoop();
+  landscape();
+}
+
+function landscape(){
+  if (goal.status === "alive") {
+    if (goal.landscape_type === "day") {
+      gradientBegin = [90,190,203];
+      gradientEnd = 255;
+      mountain1 = [0, 98, 102];
+      mountain2 = [0, 98, 102];
+      celestial = [255,217,86];
+      grass = [186, 220, 88];
+    } else {
+      gradientBegin = [56,10,203];
+      gradientEnd = [56,99,88];
+      mountain1 = [0, 98, 102];
+      mountain2 = [0, 98, 102];
+      celestial = [255,217,86];
+      grass = [186, 220, 88];
+    }
+  } else {
+    gradientBegin = 0;
+    gradientEnd = 60;
+    mountain1 = 20;
+    mountain2 = 20;
+    celestial = 156;
+    grass = 25;
+  }
+
+  gradient(gradientBegin, gradientEnd);
+  drawCelestial(celestial);
+  let xOff = random(0, 1000);
+  mountains(56, 250, 0.015, mountain1, xOff);
+  mountains(135, 250, 0.015, mountain2, xOff);
+  mountains(15, 45, 0.6, grass, xOff);
+}
 
 // Draw: Controla el arbol
 function draw(){
-  stroke(25,20,23);
-  strokeWeight(13);
+  if (goal.maturity === "baby") {
+    growth = 45;
+    depth = 10;
+    branchWeight = 4;
+  } else if (goal.maturity === "young") {
+    growth = 17;
+    depth = 9;
+    branchWeight = 10;
+    leafShape = [0,0,65,65];
+  } else {
+    growth = 10;
+    depth = 12;
+    branchWeight = 13;
+    leafShape = [56,46,65,65];
+  }
+
+  stroke(55,36,22);
+  strokeWeight(branchWeight);
   translate(width/2,height-2);
-  branch(0);
+  branch(0, depth, growth);
 }
 
 function gradient(begin, end) {
@@ -37,17 +96,17 @@ function gradient(begin, end) {
   }
 }
 
-function drawSun() {
+function drawCelestial(col) {
   noStroke();
   // Los dos primeros param. de la elipse se refieren a x, y donde inicia la forma
-  fill(223, 249, 251, 50);
-  ellipse(200, 130, 170, 170);
-  fill(223, 249, 251, 150);
-  ellipse(200, 130, 130, 130);
-  fill(223, 249, 251, 200);
-  ellipse(200, 130, 110, 110);
-  fill(223, 249, 251);
-  ellipse(200, 130, 70, 70);
+  fill(`rgba(${col}, 0.35)`);
+  ellipse(130, 130, 170, 170);
+  fill(`rgba(${col}, 0.55)`);
+  ellipse(130, 130, 130, 130);
+  fill(`rgba(${col}, 0.75)`);
+  ellipse(130, 130, 110, 110);
+  fill(col);
+  ellipse(130, 130, 70, 70);
 }
 
 function mountains(hMin, hMax, inc, col, xOff) {
@@ -68,12 +127,11 @@ function mountains(hMin, hMax, inc, col, xOff) {
   endShape();
 }
 
-
-function branch(depth){
-  if (depth < 11) {
-    line(0,0,0,-height/15); // Linea madre, original 10
+function branch(d, depth, growth){
+  if (d < depth) {
+    line(0,0,0,-height/growth); // Linea madre, original 10
     {
-      translate(0,-height/15); // Extiende el arbol, original 10
+      translate(0,-height/growth); // Extiende el arbol, original 10
       rotate(random(-0.2,0.2));  // Ramas mas deformes a valores mas altos, original 0.05
 
       if (random(1) < 0.6){ // Tamaño y dispersion de las hojas, original 0.6. Valores pequeños, arbol mas grande. 1 arbol en cono
@@ -81,27 +139,55 @@ function branch(depth){
         scale(0.8);
 
         push(); // salvar el estado actual
-        branch(depth + 1); // inicia una nueva branch
+        branch(d + 1, depth, growth); // inicia una nueva branch
         pop(); // reiniciar el estado de la branch
 
         rotate(-0.6); // rotar a la izquieda
         push(); // salvar
-        branch(depth + 1); // crear una segunda branch
+        branch(d + 1, depth, growth); // crear una segunda branch
         pop(); // reiniciar
      }
       else { // si no se crea una branch, entonces vuelva a llamarse (recursion)
-        branch(depth);
+        branch(d, depth, growth);
       }
     }
   } else
   {
     // Una vez terminado el arbol se crean las flores
     noStroke();
+    if (goal.status === "alive") {
+      if (goal.maturity === "baby") {
+        fill(random(179),180,71)
+        ellipse(0,0,25,25);
+      } else if (goal.maturity === "young") {
+        fill(random(179),180,71)
+        ellipse(0,0,55,55);
+      } else {
+        fill(106, 176, 76)
+        ellipse(56,56,65,65);
+      }
+    }
+
+    if (goal.completed === true) {
+      for (let i = 0; i < 10; i ++) {
+        noStroke()
+        // Glow
+        drawingContext.shadowBlur = 5;
+        drawingContext.shadowColor = color(255,65);
+        // fill(255,141,199)
+        fill(255,214,66)
+        ellipse(0, 30, 20, 80);
+        rotate(PI/5); // Angulo de rotacion, si el denominador cambia, cambia la forma de la flor
+      }
+    }
+
+
+
 
     // Colores random
     // fill(random(188,255), 226, 158, 250)
-    // fill(28, 103, 88) // Verde bonito
-    fill(0, 141, 158) // Verde bonito 2
+     // Verde bonito
+    // fill(0, 141, 158) // Verde bonito 2
     // fill(238,54,126) // Pink
     // fill(255,141,199) // Light pink
     // let colores = [[255,116,177], [255,161,207]]
@@ -118,20 +204,11 @@ function branch(depth){
     // drawingContext.shadowColor = color(200,255,138);
 
     // Forma de las hojas
-    ellipse(56, 46, 55, 55)
-
+    // ellipse(0,0,55,55)
     // bezier(131,225,109,48,291,202,131,225);
     // bezier(143,279,0,0,400,181,143,279);
 
-    for (let i = 0; i < 10; i ++) {
-      noStroke()
-      // Glow
-      drawingContext.shadowBlur = 5;
-      drawingContext.shadowColor = color(255,65);
-      fill(255,141,199)
-      ellipse(0, 30, 20, 80);
-      rotate(PI/5); // Angulo de rotacion, si el denominador cambia, cambia la forma de la flor
-    }
+
   }
 }
 </script>
