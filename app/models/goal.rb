@@ -32,6 +32,15 @@ class Goal < ApplicationRecord
     return tasks.done.count.fdiv(tasks.count) if tasks.count.positive?
   end
 
+  def dead?
+    if tasks.present?
+      last_task_date = tasks.order(:due_date).last.due_date
+      done_tasks_fraction.to_d != 1.0.to_d && last_task_date < Time.now
+    else
+      false
+    end
+  end
+
   # def goal_maturity!
   #   if done_tasks_fraction >= 0.25 && done_tasks_fraction <= 0.5
   #     update_attribute(:maturity, 1)

@@ -39,7 +39,7 @@ class Task < ApplicationRecord
       goal.update_attribute(:maturity, 1)
     else
       goal.update_attribute(:maturity, 2)
-      goal.update_attribute(:completion_date, Time.now) if done_tasks_fraction == 1.0
+      goal.update_attribute(:completion_date, Time.now) if done_tasks_fraction.to_d == 1.0.to_d
     end
   end
 end
