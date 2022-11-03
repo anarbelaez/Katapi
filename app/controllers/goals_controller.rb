@@ -23,13 +23,18 @@ class GoalsController < ApplicationController
     @doing = @goal.tasks.in_progress
     @done = @goal.tasks.done
 
-    time = (0..19).include?(Time.now.hour) ? "day" : "night"
+    time = (0..17).include?(Time.now.hour) ? "day" : "night"
     @goal_tree = {
-      maturity: "baby",
+      maturity: @goal.maturity,
       status: "alive",
       landscape_type: time,
-      completed: true
+      completed: false
     }.to_json
+
+    # respond_to do |format|
+    #   format.html { render "goals/show" }
+    #   format.json { render json: @goal_tree }
+    # end
   end
 
   def new

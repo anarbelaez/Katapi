@@ -13,17 +13,28 @@ let depth;
 let branchWeight;
 let leafShape;
 let bloom;
+let url = document.getElementById("urlTree").value;
 
 // Setup: controla el tamano del canvas y el background (sun-moon, gradient, mountains)
 
 function preload(){
   goal = <%= @goal_tree.html_safe %>;
+  // getData();
 }
+
+// function getData(){
+//   event.preventDefault()
+//   fetch(url, { headers: { 'Accept': 'text/plain' } })
+//     .then(response => response.json())
+//     .then((data) => {
+//       console.log(data)
+//     })
+// }
 
 function setup() {
   let width = canvasDiv.offsetWidth;
   let height = canvasDiv.offsetHeight;
-  let render = createCanvas(width, width + 100);
+  let render = createCanvas(width, width);
   render.parent("canvasTree");
   noLoop();
   landscape();
@@ -164,7 +175,7 @@ function branch(d, depth, growth){
         ellipse(0,0,55,55);
       } else {
         fill(106, 176, 76)
-        ellipse(56,56,65,65);
+        ellipse(46,56,105,105);
       }
     }
 
