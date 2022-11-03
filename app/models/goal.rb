@@ -1,6 +1,8 @@
 class Goal < ApplicationRecord
   include PgSearch::Model
 
+  after_create_commit :notify_user
+
   belongs_to :user
   has_many :tasks, dependent: :destroy
   has_one_attached :photo
@@ -39,6 +41,10 @@ class Goal < ApplicationRecord
     else
       false
     end
+  end
+
+  def notify_user
+    GoalNotification.with(goal: self).deliver_later(user)
   end
 
   # def goal_maturity!

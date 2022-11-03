@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :notifications, only: [:index]
+
   root to: 'pages#home', as: :home
   devise_for :users, controllers: {
     omniauth_callbacks: 'users/omniauth_callbacks',
