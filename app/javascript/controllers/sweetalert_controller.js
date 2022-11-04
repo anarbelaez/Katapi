@@ -1,6 +1,6 @@
 import Swal from 'sweetalert2'
 import { Controller } from "@hotwired/stimulus"
-// import 'animate.css';
+
 // Connects to data-controller="sweetalert"
 export default class extends Controller {
   static values = { title: String }
