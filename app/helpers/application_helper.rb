@@ -31,18 +31,15 @@ module ApplicationHelper
   end
 
   def percentage_not_started
-    all_tasks = @tasks.all.count
-    (@tasks.not_started.count.fdiv(all_tasks)*100).to_i
+    (current_user.not_started_tasks_fraction * 100) || 0
   end
 
   def percentage_in_progress
-    all_tasks = @tasks.all.count
-    (@tasks.in_progress.count.fdiv(all_tasks)*100).to_i
+    current_user.in_progress_tasks_fraction * 100 || 0
   end
 
   def percentage_done
-    all_tasks = @tasks.all.count
-    (@tasks.done.count.fdiv(all_tasks)*100).to_i
+    current_user.done_tasks_fraction * 100 || 0
   end
 
 
