@@ -24,7 +24,9 @@
         <%= link_to edit_goal_path(@goal), class: "text-decoration-none link-dark circle-icon me-2" do %>
           <i class="bi bi-pencil-square rounded-circle p-2 bg-primary fw-bold fs-5 shadow-sm bg-gradient"></i>
         <% end %>
-        <%= link_to edit_goal_path(@goal), class: "text-decoration-none link-dark circle-icon" do %>
+        <%= link_to goal_path(@goal),
+        class: "text-decoration-none link-dark circle-icon",
+        data: { turbo_method: :delete, controller: 'sweetalert', action: "click->sweetalert#show", sweetalert_title_value: @goal.name } do %>
           <i class="bi bi-trash3 rounded-circle p-2 bg-danger fw-bold fs-5 shadow-sm bg-gradient"></i>
         <% end %>
       </div>
