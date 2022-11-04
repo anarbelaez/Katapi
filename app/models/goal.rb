@@ -1,8 +1,7 @@
 class Goal < ApplicationRecord
   include PgSearch::Model
-  attr_accessor :done
 
-  @done = 0
+  # after_create_commit :notify_user
 
   belongs_to :user
   has_many :tasks, dependent: :destroy
@@ -22,10 +21,6 @@ class Goal < ApplicationRecord
   # pockie_maturity = pockie.goals.group(:maturity).count
   # pockie_maturity.key(pockie_maturity.values.max)
 
-  def done
-    @done += 1
-  end
-
   # Fractions
   def not_started_tasks_fraction
     return tasks.not_started.count.fdiv(tasks.count) if tasks.count.positive?
@@ -39,11 +34,29 @@ class Goal < ApplicationRecord
     return tasks.done.count.fdiv(tasks.count) if tasks.count.positive?
   end
 
-  # def goal_maturity!
-  #   if done_tasks_fraction >= 0.25 && done_tasks_fraction <= 0.5
-  #     update_attribute(:maturity, 1)
-  #   else
-  #     update_attribute(:maturity, 2)
-  #   end
-  # end
+  def completed?
+    done_tasks_fraction == 1.0
+  end
+
+  def dead?
+    if tasks.present?
+      last_task_date = tasks.order(:due_date).last.due_date
+      done_tasks_fraction.to_d != 1.0.to_d && last_task_date.to_datetime < DateTime.current
+    else
+      false
+    end
+  end
+
+  def dying?
+    if tasks.present?
+      last_task_date = tasks.order(:due_date).last.due_date
+      done_tasks_fraction.to_d < 1.0.to_d && (DateTime.current - last_task_date.to_datetime).to_i <= 5
+    else
+      false
+    end
+  end
+
+  def notify_user
+    GoalNotification.with(goal: self).deliver_later(user)
+  end
 end

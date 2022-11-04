@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :notifications, only: [:index]
+
   root to: 'pages#home', as: :home
   devise_for :users, controllers: {
     omniauth_callbacks: 'users/omniauth_callbacks',
@@ -8,6 +10,8 @@ Rails.application.routes.draw do
 
   # Users
   get 'board', to: 'users#activity', as: :activity
+
+  get 'get_json', to: 'goals#get_json'
 
   # Goals
   resources :goals, shallow: true do

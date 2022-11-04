@@ -24,6 +24,14 @@ class UsersController < ApplicationController
     # end
   end
 
+  # def send_notification
+  #   current_user.goals.each do |goal|
+  #     if goal.dying? || goal.dead?
+  #       goal.notify_user
+  #     end
+  #   end
+  # end
+
   def show
     @user = current_user
   end

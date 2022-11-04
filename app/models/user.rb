@@ -8,6 +8,7 @@ class User < ApplicationRecord
   has_many :goals, dependent: :destroy
   has_many :tasks, through: :goals
   has_one_attached :photo
+  has_many :notifications, as: :recipient
 
   # validates :first_name, :last_name, presence: true, length: { minimum: 2 }
   # validates :nickname, uniqueness: true

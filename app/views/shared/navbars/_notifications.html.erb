@@ -4,5 +4,6 @@
 
 <ul class="bg-body text-light dropdown-menu dropdown-menu-end position-absolute mt-1 me-4 border-0 rounded-4 shadow-sm p-3" style="max-width: 20rem;">
   <li><h6 class="dropdown-header px-0 text-light">Notifications</h6></li>
-  <p class="m-0 text-light">TODO: Notification card</p>
+  <%= turbo_frame_tag "notifications", src: notifications_path %>
+  <%= turbo_stream_from current_user, :notifications %>
 </ul>

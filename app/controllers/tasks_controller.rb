@@ -47,6 +47,7 @@ class TasksController < ApplicationController
 
   def update_task
     @task.update(task_params)
+    @task.completion_date! if task_params["status"] == "done"
   end
 
   def calendar
@@ -66,8 +67,7 @@ class TasksController < ApplicationController
     @goal = Goal.new
   end
 
-  #Metodos de datatable
-
+  # Metodos de datatable
   def sort_column
     %w[name priority difficulty due_date].include?(params[:sort]) ? params[:sort] : "name"
   end
@@ -76,6 +76,7 @@ class TasksController < ApplicationController
     %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
   end
 
+  # Metodos privados
   private
 
   def task_params
