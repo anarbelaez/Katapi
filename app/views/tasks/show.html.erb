@@ -12,7 +12,18 @@
 
 <div class="row">
     <div class="col-12 d-flex">
-      <%= link_to "Edit task", edit_task_path(@task), class: "btn btn-primary rounded-pill me-2 text-dark" %>
+      <div class="d-flex justify-content-end align-items-center">
+        <%= link_to edit_task_path(@task), class: "text-decoration-none link-dark circle-icon me-2" do %>
+          <i class="bi bi-pencil-square rounded-circle p-2 bg-primary fw-bold fs-5 shadow-sm bg-gradient"></i>
+        <% end %>
+        <%= link_to task_path(@task),
+        class: "text-decoration-none link-dark circle-icon",
+        data: { turbo_method: :delete, controller: 'sweetalert', action: "click->sweetalert#show" } do %>
+          <i class="bi bi-trash3 rounded-circle p-2 bg-danger fw-bold fs-5 shadow-sm bg-gradient"></i>
+        <% end %>
+
+      </div>
+      <%= link_to "Back to board", goal_path(@task.goal), class: "btn btn-primary rounded-pill me-2 text-dark" %>
       <%# <button class="btn btn-primary rounded-pill text-dark" type="button" data-bs-toggle="collapse" data-bs-target="#newComment" aria-expanded="false" aria-controls="collapseExample">
         Add Notes
       </button> %>
