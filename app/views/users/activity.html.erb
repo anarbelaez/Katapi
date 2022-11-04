@@ -17,7 +17,7 @@
         <div onclick="anaMaria()" class="card border-0 rounded-4 bg-secondary shadow-sm notscale" style="">
           <div class="card-body">
             <p class="card-text fs-08 mb-1 fw-bold text-muted">Not started</p>
-            <p class="fs-3 m-0 mb-1">0%</p>
+            <p class="fs-3 m-0 mb-1"><%= @baby_percentage %>%</p>
             <div class="text-end"><%= link_to "See goals", "#", class: "badge bg-danger rounded-pill text-decoration-none text-dark" %></div>
           </div>
         </div>
@@ -27,7 +27,7 @@
         <div class="card border-0 rounded-4 bg-secondary shadow-sm notscale" style="">
           <div class="card-body">
             <p class="card-text fs-08 mb-1 fw-bold text-muted">In progress</p>
-            <p class="fs-3 m-0 mb-1">0%</p>
+            <p class="fs-3 m-0 mb-1"><%= @young_percentage %>%</p>
             <div class="text-end"><%= link_to "See goals", "#", class: "badge bg-primary rounded-pill text-decoration-none text-dark" %></div>
           </div>
         </div>
@@ -37,7 +37,7 @@
         <div class="card border-0 rounded-4 bg-secondary shadow-sm notscale" style="">
           <div class="card-body">
             <p class="card-text fs-08 mb-1 fw-bold text-muted">Completed</p>
-            <p class="fs-3 m-0 mb-1">0%</p>
+            <p class="fs-3 m-0 mb-1"><%= @adult_percentage %>%</p>
             <div class="text-end"><%= link_to "See goals", "#", class: "badge bg-success rounded-pill text-decoration-none text-dark" %></div>
           </div>
         </div>
