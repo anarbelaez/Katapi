@@ -20,6 +20,7 @@ Rails.application.routes.draw do
   get '/tasks', to: 'tasks#all_tasks'
   patch '/tasks_update/:id', to: 'tasks#update_task'
   get '/calendar', to: 'tasks#calendar'
+  get '/stats', to: 'tasks#stats'
 
   # Users - El nickname es unico para cada usuario
   resources :users, only: %i[show]
