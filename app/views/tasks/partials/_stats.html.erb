@@ -1,0 +1,17 @@
+<%= pie_chart Task.group(:status).count %>
+
+
+<%= line_chart Task.group_by_day(:due_date).count %>
+
+
+
+<%= column_chart Task.group_by_day_of_week(:due_date, format: "%a").count %>
+
+
+
+<%=column_chart  Task.group_by_day(:completion_date).count%>
+<%= line_chart Task.group_by_day(:completion_date).count %>
+
+
+
+<%= line_chart Task.group(:goal_id).group_by_day(:due_date).count %>
