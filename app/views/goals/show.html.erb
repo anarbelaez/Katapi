@@ -2,7 +2,7 @@
 <div class="">
 <ul class="nav nav-tabs border-0 bg-transparent" id="myTab" role="tablist">
   <li class="nav-item" role="presentation" data-controller="get-goal-information">
-    <button class="nav-link active" onclick="preload()" id="tree-goal-tab" data-bs-toggle="tab" data-bs-target="#tree-goal-tab-pane" type="button" role="tab" aria-controls="tree-goal-tab-pane" aria-selected="true"><i class="opacity-75 bi bi-compass"></i>Tree</button>
+    <button class="nav-link active" onclick="location.reload()" id="tree-goal-tab" data-bs-toggle="tab" data-bs-target="#tree-goal-tab-pane" type="button" role="tab" aria-controls="tree-goal-tab-pane" aria-selected="true"><i class="opacity-75 bi bi-compass"></i>Tree</button>
     <input type="text" hidden value="<%= @goal.id %>" data-get-goal-information-target="goalId">
   </li>
 
@@ -76,7 +76,7 @@
       <div class="col-12 col-md-6">
         <input type="text" hidden value="<%= request.url %>" id="urlTree">
         <div class="mx-auto" id="canvasTree">
-          <%= render "goals/tree/goal_tree", locals: { goal_tree: @goal_tree, goal: @goal } %>
+          <%= render "goals/tree/goal_tree", locals: { goal_tree: @goal_tree } %>
         </div>
       </div>
     </div>

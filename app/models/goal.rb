@@ -34,6 +34,10 @@ class Goal < ApplicationRecord
     return tasks.done.count.fdiv(tasks.count) if tasks.count.positive?
   end
 
+  def completed?
+    done_tasks_fraction == 1.0
+  end
+
   def dead?
     if tasks.present?
       last_task_date = tasks.order(:due_date).last.due_date

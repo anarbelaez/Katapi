@@ -13,14 +13,14 @@ class GoalNotification < Noticed::Base
 
   # Add required params
   #
-  param :goal
+  # param :goal
 
   # Define helper methods to make rendering easier.
-  def message
-    params[:goal].name
-  end
+  # def message
+  #   params[:goal].name
+  # end
 
-  def url
-    goal_path(params[:goal])
-  end
+  # def url
+  #   goal_path(params[:goal])
+  # end
 end

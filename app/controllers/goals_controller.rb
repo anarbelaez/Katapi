@@ -25,25 +25,25 @@ class GoalsController < ApplicationController
 
     time = (0..17).include?(Time.now.hour) ? "day" : "night"
     @goal_tree = {
+      id: @goal.id,
       maturity: @goal.maturity,
-      status: "alive",
+      status: @goal.dead? ? "dead" : "alive",
       landscape_type: time,
-      completed: false
+      completed: @goal.completed?
     }.to_json
   end
 
   def get_json
     @goal = Goal.find(params[:goal_id])
-    time = (0..17).include?(Time.now.hour) ? "day" : "night"
-    goal_tree = {
-      maturity: @goal.maturity,
-      status: "dead",
-      landscape_type: time,
-      completed: false
-    }.to_json
-    render json: goal_tree
+    # time = (0..17).include?(Time.now.hour) ? "day" : "night"
+    # goal_tree = {
+    #   maturity: @goal.maturity,
+    #   status: "dead",
+    #   landscape_type: time,
+    #   completed: false
+    # }.to_json
+    # render json: goal_tree
   end
-
 
   def new
   end
