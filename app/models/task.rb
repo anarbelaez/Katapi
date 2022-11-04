@@ -26,17 +26,20 @@ class Task < ApplicationRecord
     due_date
   end
 
-  def goal_maturity!
-    goal_tasks = goal.tasks
-    tasks_count = goal_tasks.count
-    done_tasks_fraction = goal_tasks.done.count.fdiv(tasks_count)
+  def completion_date!
+    update_attribute(:completion_date, Time.now)
+  end
 
+  def goal_maturity!
+    tasks_count = goal.tasks.count
+    done_tasks_fraction = goal.tasks.done.count.fdiv(tasks_count)
     if done_tasks_fraction < 0.25
       goal.update_attribute(:maturity, 0)
     elsif done_tasks_fraction >= 0.25 && done_tasks_fraction <= 0.75
       goal.update_attribute(:maturity, 1)
     else
       goal.update_attribute(:maturity, 2)
+      goal.update_attribute(:completion_date, DateTime.current) if done_tasks_fraction.to_d == 1.0.to_d
     end
   end
 end
