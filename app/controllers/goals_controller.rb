@@ -35,7 +35,9 @@ class GoalsController < ApplicationController
     #   format.html { render "goals/show" }
     #   format.json { render json: @goal_tree }
     # end
+
   end
+
 
   def new
   end

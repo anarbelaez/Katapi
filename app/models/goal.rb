@@ -1,7 +1,7 @@
 class Goal < ApplicationRecord
   include PgSearch::Model
 
-  after_create_commit :notify_user
+  # after_create_commit :notify_user
 
   belongs_to :user
   has_many :tasks, dependent: :destroy
@@ -37,7 +37,16 @@ class Goal < ApplicationRecord
   def dead?
     if tasks.present?
       last_task_date = tasks.order(:due_date).last.due_date
-      done_tasks_fraction.to_d != 1.0.to_d && last_task_date < Time.now
+      done_tasks_fraction.to_d != 1.0.to_d && last_task_date.to_datetime < DateTime.current
+    else
+      false
+    end
+  end
+
+  def dying?
+    if tasks.present?
+      last_task_date = tasks.order(:due_date).last.due_date
+      done_tasks_fraction.to_d < 1.0.to_d && (DateTime.current - last_task_date.to_datetime).to_i <= 5
     else
       false
     end
@@ -46,12 +55,4 @@ class Goal < ApplicationRecord
   def notify_user
     GoalNotification.with(goal: self).deliver_later(user)
   end
-
-  # def goal_maturity!
-  #   if done_tasks_fraction >= 0.25 && done_tasks_fraction <= 0.5
-  #     update_attribute(:maturity, 1)
-  #   else
-  #     update_attribute(:maturity, 2)
-  #   end
-  # end
 end
