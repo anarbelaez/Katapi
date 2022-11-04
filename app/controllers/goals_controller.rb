@@ -30,12 +30,18 @@ class GoalsController < ApplicationController
       landscape_type: time,
       completed: false
     }.to_json
+  end
 
-    # respond_to do |format|
-    #   format.html { render "goals/show" }
-    #   format.json { render json: @goal_tree }
-    # end
-
+  def get_json
+    @goal = Goal.find(params[:goal_id])
+    time = (0..17).include?(Time.now.hour) ? "day" : "night"
+    goal_tree = {
+      maturity: @goal.maturity,
+      status: "dead",
+      landscape_type: time,
+      completed: false
+    }.to_json
+    render json: goal_tree
   end
 
 

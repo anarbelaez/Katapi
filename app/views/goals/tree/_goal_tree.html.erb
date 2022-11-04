@@ -2,6 +2,7 @@
 <script>
 let goal;
 let canvasDiv = document.getElementById("canvasTree");
+let treeButton = document.getElementById("tree-goal-tab");
 let gradientBegin;
 let gradientEnd;
 let mountain1;
@@ -13,23 +14,50 @@ let depth;
 let branchWeight;
 let leafShape;
 let bloom;
-let url = document.getElementById("urlTree").value;
 
 // Setup: controla el tamano del canvas y el background (sun-moon, gradient, mountains)
 
 function preload(){
   goal = <%= @goal_tree.html_safe %>;
+  // getData().then(response =>
+  //       response.json().then(data => ({
+  //           data: data,
+  //           status: response.status
+  //       })
+  //   ).then(res => {
+  //       // console.log(res.status, res.data)
+  //       goal = res.data
+  // console.log(goal)
+  //   }));; //promise
+  // goal = getData();
   // getData();
+  // goal = githubUsers();
+  // console.log(goal)
 }
 
-// function getData(){
-//   event.preventDefault()
-//   fetch(url, { headers: { 'Accept': 'text/plain' } })
-//     .then(response => response.json())
-//     .then((data) => {
-//       console.log(data)
-//     })
-// }
+function getData1(){
+  let id = <%= @goal.id %>
+  // fetch(`http://localhost:3000/get_json?goal_id=${id}`, {
+  //     method: 'GET',
+  //     headers: {
+  //         'Accept': 'application/json',
+  //     },
+  //     })
+  //     .then(response => response.json())
+  //     .then(response => data = JSON.stringify(response))
+  // fetch(`http://localhost:3000/get_json?goal_id=${id}`).then(
+  //   function(u) { return u.json(); }
+  // ).then(function(json){
+  //   data_function(json);
+  // })
+
+}
+async function githubUsers() {
+    let id = <%= @goal.id %>
+    let response = await fetch(`http://localhost:3000/get_json?goal_id=${id}`)
+    return await response.json()
+  }
+
 
 function setup() {
   let width = canvasDiv.offsetWidth;
