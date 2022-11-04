@@ -38,6 +38,18 @@ class User < ApplicationRecord
     upcoming_tasks.order(:due_date).group_by { |t| t.due_date.strftime("%e %B") }
   end
 
+  def not_started_tasks_fraction
+    tasks.present? ? tasks.not_started.count.fdiv(tasks.count) : 0
+  end
+
+  def in_progress_tasks_fraction
+    tasks.present? ? tasks.in_progress.count.fdiv(tasks.count) : 0
+  end
+
+  def done_tasks_fraction
+    tasks.present? ? tasks.done.count.fdiv(tasks.count) : 0
+  end
+
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
       user.email = auth.info.email
