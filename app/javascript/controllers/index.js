@@ -10,11 +10,14 @@ application.register("get-goal-information", GetGoalInformationController)
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
 
-import RefreshGoalsListController from "./refresh_goals_list_controller"
-application.register("refresh-goals-list", RefreshGoalsListController)
+// import RefreshGoalsListController from "./refresh_goals_list_controller"
+// application.register("refresh-goals-list", RefreshGoalsListController)
 
 import SearchFormController from "./search_form_controller"
 application.register("search-form", SearchFormController)
 
 import SortableController from "./sortable_controller"
 application.register("sortable", SortableController)
+
+import SweetalertController from "./sweetalert_controller"
+application.register("sweetalert", SweetalertController)

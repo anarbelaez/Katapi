@@ -2,7 +2,7 @@
   <%= link_to task_path(task), class: "text-decoration-none" do %>
     <div class="card bg-body rounded-4 border-0 p-2 mx-auto shadow-sm notscale" style="cursor: grab;">
       <div class="p-1">
-        <p class="card-title text-light"><%= task.name %></p>
+        <p class="card-title text-light"><%= task.name.capitalize %></p>
         <h6 class="card-subtitle mt-2 text-primary fs-07"><i class="fa-regular fa-calendar"></i>  <%= task.due_date %></h6>
       </div>
     </div>

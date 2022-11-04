@@ -1,0 +1,326 @@
+<div class="row bg-red order border-2">
+  <div class="col-7">
+
+    <div class="row my-auto align-items-center">
+      <h3>Stats</h3>
+      <hr>
+
+<!-- de camilo -->
+
+        <div class="row g-3 my-2">
+
+          <div class="col-sm-12 col-xl-4 mb-1 mt-3">
+            <div class="rounded-4 bg-secondary">
+              <div class="row g-0 justify-content-between">
+                <div class="col-6 d-flex align-items-center">
+                  <div class="card-body text-center">
+                    <h5 class="card-title text-light">Not started</h5>
+                    <p class="card-text text-light">Number of tasks</p>
+                  </div>
+                </div>
+
+                <div class="col-6 containerpb">
+                  <div class="card notscale rounded-4 border-0 p-1">
+                    <div class="percent" style="--clr:#7ed6df;--num:<%= percentage_not_started %>">
+                      <div class="dot"></div>
+                      <svg>
+                          <circle cx="50" cy="50" r="50"></circle>
+                          <circle cx="50" cy="50" r="50"></circle>
+                      </svg>
+                      <div class="number">
+                      <h2> <%= percentage_not_started %> <span>%</span></h2>
+
+                          <p>HTML</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+          <div class="col-sm-12 col-xl-4 mb-1 mt-3">
+            <div class="rounded-4 bg-secondary p-1">
+              <div class="row g-0 justify-content-between">
+                <div class="col-6 d-flex align-items-center">
+                  <div class="card-body text-center">
+                    <h5 class="card-title text-light">In progress</h5>
+                    <p class="card-text text-light">Number of tasks</p>
+                  </div>
+                </div>
+
+                <div class="col-6 containerpb">
+                  <div class="card notscale rounded-4 border-0">
+                    <div class="percent" style="--clr:#686de0;--num:<%= percentage_in_progress %>">
+                      <div class="dot"></div>
+                      <svg>
+                          <circle cx="50" cy="50" r="50"></circle>
+                          <circle cx="50" cy="50" r="50"></circle>
+                      </svg>
+                      <div class="number">
+                          <h2> <%= percentage_in_progress %> <span>%</span></h2>
+                          <p>HTML</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+          <div class="col-sm-12 col-xl-4 mb-1 mt-3">
+            <div class="rounded-4 bg-secondary p-1">
+              <div class="row g-0 justify-content-between">
+                <div class="col-6 d-flex align-items-center">
+                  <div class="card-body text-center">
+                    <h5 class="card-title text-light">Done</h5>
+                    <p class="card-text text-light">Number of tasks</p>
+                  </div>
+                </div>
+
+                <div class="col-6 containerpb">
+                  <div class="card notscale rounded-4 border-0">
+                    <div class="percent" style="--clr:#badc58;--num:<%= percentage_done %>">
+                      <div class="dot"></div>
+                      <svg>
+                          <circle cx="50" cy="50" r="50"></circle>
+                          <circle cx="50" cy="50" r="50"></circle>
+                      </svg>
+                      <div class="number">
+                          <h2> <%= percentage_done %> <span>%</span></h2>
+                          <p>HTML</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+<!-- fin de camilo -->
+
+
+
+
+      <div class="col bg-secondary rounded-4 m-2 fs-1 p-2 my-4">
+        <div class="row">
+          <div class="col-6 px-4 align-items-center">
+          <h5>Total Completed Tasks</h5>
+          </div>
+            <div class="col-6 d-flex justify-content-end px-5 align-items-center">
+
+              <div class="class text-primary px-2">
+                <%= @tasks.count {|t| t.done?} %>
+              </div>
+              <i class="fa-solid fa-trophy  text-warning p-2"></i>
+            </div>
+        </div>
+      </div>
+
+      <div class="col bg-secondary rounded-4 m-2 fs-1 p-2 my-4">
+        <div class="row">
+          <div class="col-6 px-4 align-items-center">
+          <h5>Total Completed Goals</h5>
+          </div>
+            <div class="col-6 d-flex justify-content-end px-5 align-items-center">
+
+              <div class="class text-primary px-2">
+                <%= @goals.count {|t| t.adult?} %>
+              </div>
+              <i class="fa-solid fa-trophy  text-warning p-2"></i>
+            </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <div class="col-5 p-2">
+
+    <h3>All your tasks by status</h3>
+      <div class="col bg-secondary rounded-4 p-2">
+      <%= pie_chart Task.group(:status).count, download: true, colors: ["#ff7979", "#badc58","#7ed6df"], empty: "Oops you haven't any task to see here!" %>
+      </div>
+
+  </div>
+
+
+
+</div>
+
+
+
+    <div class="row my-3">
+      <div class="col-6">
+        <h3>All your goals by category</h3>
+        <div class="col bg-secondary rounded-4">
+        <%= column_chart Goal.group(:category).count, download: true, colors: ["#7ed6df"], empty: "Oops you haven't any goal to see here!"%>
+        </div>
+
+      </div>
+
+
+
+      <div class="col-6">
+
+        <h3>Tasks Completed in this month</h3>
+          <div class="col bg-secondary rounded-4">
+          <%= line_chart Task.group_by_day(:completion_date, range: 1.month.ago).count,  download: true, colors: ["#686de0"], library: {backgroundColor: "#262638"}, empty: "Oops you aren't completed any task this month!"  %>
+          </div>
+
+      </div>
+    </div>
+
+
+
+
+
+
+
+
+
+<div class="row my-3">
+  <div class="col-4 p-2">
+    <h3> Goals by Maturity level</h3>
+    <div class="col bg-secondary rounded-4 p-2">
+      <%= pie_chart Goal.group(:maturity).count, donut: true, download: true, colors: ["#686de0", "#f6e58d","#7ed6df"], empty: "Oops you haven't any goal to see here!" %>
+    </div>
+
+  </div>
+
+
+
+  <div class="col-3 p-2 mx-5">
+    <h3> Tasks by Difficulty level</h3>
+      <div class="col bg-secondary rounded-4 p-2">
+        <%= column_chart Task.group(:difficulty).count, download: true, colors: ["#badc58"], empty: "Oops you haven't any goal to see here!"%>
+      </div>
+  </div>
+
+
+  <div class="col-4 p-2">
+    <h3> Tasks by Priority level</h3>
+      <div class="col bg-secondary rounded-4 p-2">
+        <%= line_chart Task.group(:priority).count, download: true, colors: ["#7ed6df"], empty: "Oops you haven't any goal to see here!" %>
+      </div>
+  </div>
+
+
+</div>
+
+
+
+<!--
+
+<%= line_chart Task.group_by_day(:due_date).count %>
+
+<hr>
+
+
+
+
+<%= column_chart Task.group_by_day_of_week(:completion_date, format: "%a").count %>
+
+<%= column_chart Task.group_by_day_of_week(:due_date, format: "%a").count %>
+
+
+
+<%=column_chart  Task.group_by_day(:completion_date).count%>
+<hr>
+<%= line_chart Task.group_by_day(:completion_date).count %>
+
+<hr>
+
+<%= pie_chart Task.group(:goal_id).group_by_day(:completion_date).count %>
+
+<hr> -->
+
+<!-- <%= column_chart Goal.group(:maturity).count %> -->
+
+
+
+
+
+
+  <!-- <h3>All your tasks by status</h3>
+  <div class="col bg-secondary rounded-4">
+  <%= pie_chart Task.group(:status).count, download: true, colors: ["#ff7979", "#badc58","#7ed6df"] %>
+  </div> -->
+
+
+        <!-- <div class="col-10 mx-2">
+        <div class="">
+        <h3>Tasks Completed in the last month</h3>
+        </div>
+        <div class=" bg-secondary rounded-4">
+        <%= line_chart Task.group_by_day(:completion_date, range: 1.month.ago).count,  download: true, colors: ["#686de0"], library: {backgroundColor: "#262638"}  %>
+        </div>
+      </div> -->
+
+
+
+      <!--
+
+       <div class="row my-auto">
+
+      <div class="col bg-secondary rounded-4 m-2 fs-1 p-2">
+        <div class="row">
+          <div class="col-6 px-4 align-items-cente">
+          <h5>Total In progress Tasks</h5>
+          </div>
+            <div class="col-6 d-flex justify-content-end px-5 align-items-center">
+
+              <div class="class text-primary">
+                <%= @tasks.count {|t| t.in_progress?} %>
+              </div>
+              <i class="fa-solid fa-spinner text-success p-2"></i>
+            </div>
+        </div>
+      </div>
+
+      <div class="col bg-secondary rounded-4 m-2 fs-1 p-2">
+        <div class="row">
+          <div class="col-6 px-4 align-items-cente">
+          <h5>Total Completed Goals</h5>
+          </div>
+            <div class="col-6 d-flex justify-content-end px-5 align-items-center">
+
+              <div class="class text-primary">
+                <%= @goals.count {|t| t.adult?} %>
+              </div>
+              <i class="fa-solid fa-trophy  text-warning p-2"></i>
+            </div>
+        </div>
+      </div>
+
+     </div>
+ -->
+
+
+ <!-- <h3>All your tasks by status</h3>
+<div class="col-6 bg-secondary rounded-4">
+<%= pie_chart Task.group(:status).count, download: true, colors: ["#ff7979", "#badc58","#7ed6df"] %>
+</div>
+<hr> -->
+
+
+
+
+
+<!--
+
+<%a =Goal.all.where(user_id: :current_user) %>
+<%= a.name %>
+
+<% Goal.all do |goal| %>
+
+<h3><%= goal.current_user %> </h3>
+<% end %>
+ -->

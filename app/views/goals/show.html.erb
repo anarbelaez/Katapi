@@ -21,14 +21,16 @@
 <div class="row my-4 px-3">
   <div class="col-12 col-sm-7 col-md-9 rounded-4 px-3">
     <div class="pe-md-3">
-      <h2 class="text-light fw-bold"><%= @goal.name %></h2>
+      <h2 class="text-light fw-bold"><%= @goal.name&.capitalize %></h2>
       <h5 class="display-6 px-2 badge fs-09 bg-success rounded-pill text-dark"><%= @goal.category %></h5>
-      <p class="text-muted mt-1"><%= @goal.description || "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec qu" %></p>
+      <p class="text-muted mt-1"><%= @goal.description&.capitalize || "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec qu" %></p>
       <div class="d-flex justify-content-end align-items-center">
         <%= link_to edit_goal_path(@goal), class: "text-decoration-none link-dark circle-icon me-2" do %>
           <i class="bi bi-pencil-square rounded-circle p-2 bg-primary fw-bold fs-5 shadow-sm bg-gradient"></i>
         <% end %>
-        <%= link_to edit_goal_path(@goal), class: "text-decoration-none link-dark circle-icon" do %>
+        <%= link_to goal_path(@goal),
+        class: "text-decoration-none link-dark circle-icon",
+        data: { turbo_method: :delete, controller: 'sweetalert', action: "click->sweetalert#show", sweetalert_title_value: @goal.name } do %>
           <i class="bi bi-trash3 rounded-circle p-2 bg-danger fw-bold fs-5 shadow-sm bg-gradient"></i>
         <% end %>
       </div>

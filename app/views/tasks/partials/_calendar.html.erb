@@ -1,7 +1,7 @@
 <div class="row d-flex justify-content-end rounded-4 p-2">
   <%= month_calendar events: @tasks do |date, tasks| %>
     <% tasks.each do |task| %>
-    <button class="btn btn-sm btn-success rounded-circle d-flex justify-content-center mx-auto bg-success text-center" style="width:30px" type="button"
+    <button class="btn btn-sm btn-success rounded-circle bg-success text-center" style="width:30px" type="button"
         id="dateTask" data-bs-toggle="dropdown" aria-expanded="false">
         <%= date.day %>
       </button>
