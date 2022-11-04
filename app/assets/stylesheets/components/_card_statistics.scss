@@ -117,14 +117,3 @@
 }
 
 
-.notscale{
-  transform: scale(1) !important;
-}
-
-.card{
-  transition: transform 0.7s;
-}
-
-.card:hover{
-  transform: scale(1.05);
-}

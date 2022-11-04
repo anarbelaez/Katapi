@@ -1,13 +1,17 @@
 <%# Tabs %>
 <div class="">
 <ul class="nav nav-tabs border-0 bg-transparent" id="myTab" role="tablist">
-
-  <li class="nav-item" role="presentation">
-    <button class="nav-link active" id="board-goal-tab" data-bs-toggle="tab" data-bs-target="#board-goal-tab-pane" type="button" role="tab" aria-controls="board-goal-tab-pane" aria-selected="true"><i class="fa-solid fa-grip"></i>Board</button>
+  <li class="nav-item" role="presentation" data-controller="get-goal-information">
+    <button class="nav-link active" onclick="location.reload()" id="tree-goal-tab" data-bs-toggle="tab" data-bs-target="#tree-goal-tab-pane" type="button" role="tab" aria-controls="tree-goal-tab-pane" aria-selected="true"><i class="opacity-75 bi bi-compass"></i>Tree</button>
+    <input type="text" hidden value="<%= @goal.id %>" data-get-goal-information-target="goalId">
   </li>
 
   <li class="nav-item" role="presentation">
-    <button class="nav-link" id="details-goals-tab" data-bs-toggle="tab" data-bs-target="#details-goals-tab-pane" type="button" role="tab" aria-controls="details-goals-tab-pane" aria-selected="false"><i class="opacity-75 bi bi-compass"></i>Notes</button>
+    <button class="nav-link" id="board-goal-tab" data-bs-toggle="tab" data-bs-target="#board-goal-tab-pane" type="button" role="tab" aria-controls="board-goal-tab-pane" aria-selected="false"><i class="fa-solid fa-grip"></i>Board</button>
+  </li>
+
+  <li class="nav-item" role="presentation">
+    <button class="nav-link" id="details-goal-tab" data-bs-toggle="tab" data-bs-target="#details-goal-tab-pane" type="button" role="tab" aria-controls="details-goal-tab-pane" aria-selected="false"><i class="opacity-75 bi bi-compass"></i>Notes</button>
   </li>
 </ul>
 </div>
@@ -17,14 +21,16 @@
 <div class="row my-4 px-3">
   <div class="col-12 col-sm-7 col-md-9 rounded-4 px-3">
     <div class="pe-md-3">
-      <h2 class="text-light fw-bold"><%= @goal.name %></h2>
+      <h2 class="text-light fw-bold"><%= @goal.name&.capitalize %></h2>
       <h5 class="display-6 px-2 badge fs-09 bg-success rounded-pill text-dark"><%= @goal.category %></h5>
-      <p class="text-muted mt-1"><%= @goal.description || "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec qu" %></p>
+      <p class="text-muted mt-1"><%= @goal.description&.capitalize || "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec qu" %></p>
       <div class="d-flex justify-content-end align-items-center">
         <%= link_to edit_goal_path(@goal), class: "text-decoration-none link-dark circle-icon me-2" do %>
           <i class="bi bi-pencil-square rounded-circle p-2 bg-primary fw-bold fs-5 shadow-sm bg-gradient"></i>
         <% end %>
-        <%= link_to edit_goal_path(@goal), class: "text-decoration-none link-dark circle-icon" do %>
+        <%= link_to goal_path(@goal),
+        class: "text-decoration-none link-dark circle-icon",
+        data: { turbo_method: :delete, controller: 'sweetalert', action: "click->sweetalert#show", sweetalert_title_value: @goal.name } do %>
           <i class="bi bi-trash3 rounded-circle p-2 bg-danger fw-bold fs-5 shadow-sm bg-gradient"></i>
         <% end %>
       </div>
@@ -65,8 +71,20 @@
 </div>
 
 <%# Tabs Content %>
-<div class="tab-content mb-5 pb-3" id="myTabContent">
-  <div class="tab-pane fade show active" id="board-goal-tab-pane" role="tabpanel" aria-labelledby="board-goal-tab" tabindex="0">
+<div class="tab-content mb-3 pb-3" id="myTabContent">
+
+  <div class="tab-pane fade show active" id="tree-goal-tab-pane" role="tabpanel" aria-labelledby="tree-goal-tab" tabindex="0">
+    <div class="row">
+      <div class="col-12 col-md-6">
+        <input type="text" hidden value="<%= request.url %>" id="urlTree">
+        <div class="mx-auto" id="canvasTree">
+          <%= render "goals/tree/goal_tree", locals: { goal_tree: @goal_tree } %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="tab-pane fade" id="board-goal-tab-pane" role="tabpanel" aria-labelledby="board-goal-tab" tabindex="0">
     <div class="pt-3 px-3">
       <div class="d-flex align-items-center">
         <h4 class="m-0 me-3 ps-1">Tasks</h4>
@@ -80,7 +98,7 @@
     <%= render 'tasks/partials/board_task_cards' %>
   </div>
 
-  <div class="tab-pane fade" id="details-goals-tab-pane" role="tabpanel" aria-labelledby="details-goals-tab" tabindex="0">
+  <div class="tab-pane fade" id="details-goal-tab-pane" role="tabpanel" aria-labelledby="details-goal-tab" tabindex="0">
     <div class="row ps-3">
       <div class="col-12">
         <div class="position-relative bg-secondary text-center border-0 p-3 rounded-4 rounded-bottom">
