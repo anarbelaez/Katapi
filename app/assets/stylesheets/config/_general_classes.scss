@@ -1,3 +1,4 @@
+
 .fs-07 {
   font-size: 0.7rem;
 }
@@ -28,6 +29,11 @@
 .bg-body {
   background-color: $body-color;
 }
+
+.bg-sweet{
+  background-color: #dff9fb;
+}
+
 .text-body {
   color: white;
 }
@@ -41,4 +47,28 @@
   transform: rotate(15deg);
   top: -15px;
   right: 40px;
+}
+
+.color-bottom-cancel{
+  background-color: #889097 !important;
+}
+
+.color-bg-sweet{
+  background: #dff9fb !important;
+}
+
+.notscale{
+  transform: scale(1) !important;
+}
+
+.card{
+  transition: transform 0.5s;
+}
+
+.card:hover{
+  transform: scale(1.05);
+}
+
+.round-4{
+  border-radius: 20px !important;
 }

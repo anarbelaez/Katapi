@@ -55,7 +55,7 @@ class TasksController < ApplicationController
 
   def destroy
     @task.destroy
-    redirect_to goal_tasks_path(@task.goal), status: :see_other, notice: "Your goal has been deleted"
+    redirect_to goal_path(@task.goal), status: :see_other, notice: "Your tasks has been deleted"
   end
 
   def stats
