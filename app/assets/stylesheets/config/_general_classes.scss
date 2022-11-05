@@ -48,3 +48,12 @@ canvas {
   top: -15px;
   right: 40px;
 }
+.flickity-prev-next-button {
+  width: 1.25rem !important;
+  height: 1.25rem !important;
+}
+@media (max-width: 576px) {
+  .flickity-prev-next-button {
+    display: none;
+  }
+}

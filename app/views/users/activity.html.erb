@@ -1,20 +1,12 @@
-<style>
-@media screen and (min-width: 800px) {
-  .modal-dialog {
-    margin-right: 0 !important;
-    margin-top: 0 !important;
-  }
-}
-</style>
 
-<% if @user.goals.count > 0 %>
+<% if @user.goals.present? %>
 <div class="row g-4">
   <div class="col-md-8 order-1 order-md-0">
     <h5 class="pb-2 mb-3 border-bottom">Goals summary</h5>
 
-    <div class="row g-3">
+    <div class="row gx-3">
       <div class="col-12 col-sm-4 align-items-stretch">
-        <div onclick="anaMaria()" class="card border-0 rounded-4 bg-secondary shadow-sm notscale" style="">
+        <div class="card border-0 rounded-4 bg-secondary shadow-sm notscale" style="">
           <div class="card-body">
             <p class="card-text fs-08 mb-1 fw-bold text-muted">Not started</p>
             <p class="fs-3 m-0 mb-1"><%= @baby_percentage %>%</p>
@@ -42,43 +34,26 @@
           </div>
         </div>
       </div>
-
-
-
-      </div>
+    </div>
 
     <%# Aqui se renderizan las goals %>
     <div class="mt-5 pb-1 d-flex justify-content-between align-items-center border-bottom">
       <h4 class="m-0 p-0">Goals</h4>
-      <h6><%= link_to "All goals", goals_path, class: "text-decoration-none text-white bg-dark px-2 py-1 rounded-pill" %></h6>
+      <%= link_to "All goals", goals_path, class: "text-decoration-none link-info fs-07" %>
     </div>
 
-    <div class="row mt-2" data-controller="refresh-goals-list">
-
-      <div class="col-12">
-      <div class="row" data-masonry='{"percentPosition": false }'>
+    <%# Carousel %>
+    <div class="row">
+      <div class="main-carousel bg-body" data-flickity='{ "draggable": false, "cellAlign": "left", "contain": true, "freeScroll": false, "wrapAround": true, "pageDots": false }'>
         <% @goals.each do |goal| %>
-
-          <div class="col-6 col-sm-3">
-            <div class="d-flex align-items-stretch">
-              <a href="" class="text-decoration-none link-dark" data-bs-toggle="modal" data-bs-target="#modalGoal"
-                data-bs-goal-name="<%= goal.name %>" data-bs-goal-description="<%= goal.description %>" data-bs-goal-category="<%= goal.category %>"
-                data-bs-goal-date="<%= goal.completion_date %>" data-bs-goal-url="<%= request.base_url %>/goals/<%= goal.id %>">
-                <%= render "card_goal_board", goal: goal %>
-              </a>
-
-              <div class="modal fade mt-5" id="modalGoal" tabindex="-1" aria-labelledby="modalGoalLabel" aria-hidden="true">
-                <%= render "modal_for_goal", goal: goal %>
-              </div>
-            </div>
+          <div class="carousel-cell col-5 col-md-3 me-3">
+            <%= render "card_goal_board", goal: goal %>
           </div>
         <% end %>
+        <div class="carousel-cell col-5 col-md-3 me-3">
+          <%= render "ghost_card" %>
+        </div>
       </div>
-
-
-      </div>
-
-
     </div>
   </div>
 
@@ -126,40 +101,4 @@
 </div>
 
 <% end %>
-
-
-<%# <button id="sweet-alert-demo" class="btn btn-primary">Click me!</button>
-
-<button id="sweet-alert-demo" class="btn btn-primary">Click me!</button>
-
-<div id="example_wrapper" class="dataTables_wrapper"><div class="dataTables_length" id="example_length"><label>Show <select name="example_length" aria-controls="example" class=""><option value="10">10</option><option value="25">25</option><option value="50">50</option><option value="100">100</option></select> entries</label></div><div id="example_filter" class="dataTables_filter"><label>Search:<input type="search" class="" placeholder="" aria-controls="example"></label></div><table id="example" class="display dataTable" style="width:100%" aria-describedby="example_info">
-        <thead>
-            <tr><th class="sorting sorting_asc" tabindex="0" aria-controls="example" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 131.188px;">Name</th><th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" style="width: 218.192px;">Position</th><th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1" aria-label="Office: activate to sort column ascending" style="width: 96.9835px;">Office</th><th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1" aria-label="Age: activate to sort column ascending" style="width: 39.0083px;">Age</th><th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1" aria-label="Start date: activate to sort column ascending" style="width: 85.5475px;">Start date</th><th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1" aria-label="Salary: activate to sort column ascending" style="width: 73.3161px;">Salary</th></tr>
-        </thead>
-        <tbody> %>
-
 </div>
-
-<script>
-  const modalGoal = document.getElementById('modalGoal')
-    modalGoal.addEventListener('show.bs.modal', event => {
-    const goal = event.relatedTarget
-    const goalName = goal.getAttribute('data-bs-goal-name')
-    const goalDescription = goal.getAttribute('data-bs-goal-description')
-    const goalCategory = goal.getAttribute('data-bs-goal-category')
-    const goalDate = goal.getAttribute('data-bs-goal-date')
-    const goalUrl = goal.getAttribute('data-bs-goal-url')
-
-    const goalNameM = modalGoal.querySelector('#goalName')
-    const goalDescriptionM = modalGoal.querySelector('#goalDescription')
-    const goalCategoryM = modalGoal.querySelector('#goalCategory')
-    const goalDateM = modalGoal.querySelector('#goalDate')
-    const goalLinkM = modalGoal.querySelector('#goalLink')
-
-    goalNameM.textContent = `${ goalName }`
-    goalDescriptionM.textContent = `${ goalDescription }`
-    goalCategoryM.textContent = `${ goalCategory }`
-    goalDateM.textContent = `${ goalDate }`
-
-  })
-</script>

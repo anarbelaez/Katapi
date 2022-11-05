@@ -41,7 +41,7 @@ class Goal < ApplicationRecord
   def dead?
     if tasks.present?
       last_task_date = tasks.order(:due_date).last.due_date
-      done_tasks_fraction.to_d != 1.0.to_d && last_task_date.to_datetime < DateTime.current
+      done_tasks_fraction.to_d != 1.0.to_d && last_task_date < Date.today
     else
       false
     end
@@ -50,7 +50,9 @@ class Goal < ApplicationRecord
   def dying?
     if tasks.present?
       last_task_date = tasks.order(:due_date).last.due_date
-      done_tasks_fraction.to_d < 1.0.to_d && (DateTime.current - last_task_date.to_datetime).to_i <= 5
+      done_tasks_fraction.to_d < 1.0.to_d && (last_task_date - Date.today).to_i <= 5
+      p "AQUIIIIIIIIIIIIII"
+      p (last_task_date - Date.today).to_i
     else
       false
     end
