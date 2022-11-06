@@ -16,8 +16,14 @@ Rails.application.routes.draw do
   # Goals
   resources :goals, shallow: true do
     resources :tasks
+      # member do
+      #   patch :mark_as_done
+      # end
   end
 
+  resources :goals do
+    resources :tasks, only: :show
+  end
   get 'goals/category/:category', to: 'goals#by_category', as: :by_category
 
   # Tasks
@@ -29,4 +35,6 @@ Rails.application.routes.draw do
   # Users - El nickname es unico para cada usuario
   resources :users, only: %i[show]
   # get 'u/:nickname', to: 'users#show'
+
+  patch "goals/:goal_id/:task_id/mark", to: "tasks#done_task"
 end
