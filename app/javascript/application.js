@@ -5,10 +5,13 @@ import "./bootstrap_js/modal_for_goal"
 import "bootstrap"
 import "trix"
 import "@rails/actiontext"
-import "./plugins/datatables"
 import "./plugins/trix-editor-overrides"
 
 import { initSweetalert } from './plugins/init_sweetalert';
+
+document.addEventListener('DOMContentLoaded', function () {
+  let table = new DataTable('#example');
+});
 
 initSweetalert('#sweet-alert-demo', {
   title: "A nice alert",

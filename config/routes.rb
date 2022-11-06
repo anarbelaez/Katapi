@@ -19,7 +19,7 @@ Rails.application.routes.draw do
   end
 
   get 'goals/category/:category', to: 'goals#by_category', as: :by_category
-
+  get 'goals/status/:maturity', to: 'goals#by_status', as: :by_status
   # Tasks
   get '/tasks', to: 'tasks#all_tasks'
   patch '/tasks_update/:id', to: 'tasks#update_task'

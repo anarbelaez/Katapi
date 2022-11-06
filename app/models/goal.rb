@@ -21,6 +21,8 @@ class Goal < ApplicationRecord
   # pockie_maturity = pockie.goals.group(:maturity).count
   # pockie_maturity.key(pockie_maturity.values.max)
 
+  scope :by_status, ->(maturity) { where('maturity = ?', maturity) }
+
   # Fractions
   def not_started_tasks_fraction
     return tasks.not_started.count.fdiv(tasks.count) if tasks.count.positive?

@@ -1,0 +1,53 @@
+<div class="row mb-5">
+  <%# Banner %>
+  <div class="col-12 mb-4 bg-body sticky-top">
+    <div class="d-flex align-items-end">
+      <%= image_tag "tree_art.svg", class: "img-fluid", width: "150px" %>
+      <div class="ms-4">
+        <h2 class="fw-bold"><%= goal_status(params[:maturity]).capitalize %></h2>
+        <p class="">Here you can find all your <%= goal_status(params[:maturity]) %>, which are represented by <%= @goals.first&.maturity %> trees.</p>
+      </div>
+    </div>
+  </div>
+
+
+
+  <%# Cards %>
+  <div class="col-12 text-light" style="">
+    <%# Datatable %>
+    <div class="bg-secondary p-3 rounded-4">
+        <table id="example" class="pt-3 table rounded-4 table-striped text-light display dataTable" style="width:100%" aria-describedby="example_info">
+      <thead>
+        <tr>
+          <th class="sorting sorting_asc" tabindex="0" aria-controls="example" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending">Goal</th>
+          <th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending">Tasks</th>
+          <th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1" aria-label="Office: activate to sort column ascending">Category</th>
+          <th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1" aria-label="Age: activate to sort column ascending">Created at</th>
+          <th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1" aria-label="Start date: activate to sort column ascending">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+      <% @goals.each do |goal| %>
+        <tr class="">
+          <td class=""><%= link_to goal.name, goal_path(goal), class: "text-decoration-none" %></td>
+          <td><%= goal.tasks.count %></td>
+          <td><%= goal.category %></td>
+          <td><%= date_stylized(goal.created_at) %></td>
+          <td class="">
+            <%= link_to edit_goal_path(goal), class: "text-decoration-none link-dark" do %>
+              <i class="bi bi-pencil-square rounded-3 p-1 bg-primary shadow-sm"></i>
+            <% end %>
+            <%= link_to edit_goal_path(goal), class: "text-decoration-none link-dark" do %>
+              <i class="bi bi-trash3 rounded-3 p-1 bg-danger shadow-sm"></i>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+      </tbody>
+
+    </table>
+
+    </div>
+
+  </div>
+</div>

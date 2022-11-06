@@ -28,6 +28,10 @@ canvas {
   -webkit-backdrop-filter: blur(5px);
   border: 1px solid rgba(255, 255, 255, 0.3);
 }
+.bg-cover {
+  background-size: cover;
+  background-position: center;
+}
 .fancy-box {
   border-radius: 56% 44% 70% 30% / 30% 65% 35% 70% ;
 }
@@ -51,6 +55,31 @@ canvas {
 .flickity-prev-next-button {
   width: 1.25rem !important;
   height: 1.25rem !important;
+}
+.dataTables_wrapper .dataTables_length, .dataTables_wrapper .dataTables_filter, .dataTables_wrapper .dataTables_info, .dataTables_wrapper .dataTables_processing, .dataTables_wrapper .dataTables_paginate {
+  color: $text-color !important;
+}
+.dataTables_wrapper .dataTables_paginate .paginate_button.current, .dataTables_wrapper .dataTables_paginate .paginate_button.current:hover {
+  color: $text-color !important;
+  border: 1px solid transparent !important;
+  border-radius: 6px !important;
+  background: rgb(0,0,54) !important;
+  background: radial-gradient(circle, rgba($body-color,1) 39%, rgba($body-color,1) 100%) !important;
+}
+.dataTables_filter input {
+  border-radius: 15px !important;
+  padding: 1px 15px !important;
+  background-color: $white-smoke !important;
+  color: $body-color !important;
+}
+.dataTables_wrapper .dataTables_length select {
+  color: $text-color !important;
+  border: 1px solid transparent !important;
+  border-radius: 6px !important;
+  background-color: $body-color!important;
+}
+table.dataTable.display>tbody>tr.odd>.sorting_1, table.dataTable.order-column.stripe>tbody>tr.odd>.sorting_1 {
+  box-shadow: 0 !important;
 }
 @media (max-width: 576px) {
   .flickity-prev-next-button {
