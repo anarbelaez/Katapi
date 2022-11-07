@@ -18,16 +18,28 @@ class User < ApplicationRecord
     goals.distinct.pluck(:category)
   end
 
-  def baby_goals_count
-    goals.baby.count
+  # def baby_goals_count
+  #   goals.baby.count
+  # end
+
+  # def young_goals_count
+  #   goals.young.count
+  # end
+
+  # def adult_goals_count
+  #   goals.adult.count
+  # end
+
+  def baby_goals_fraction
+    goals.present? ? goals.baby.count.fdiv(goals.count) : 0
   end
 
-  def young_goals_count
-    goals.young.count
+  def young_goals_fraction
+    goals.present? ? goals.young.count.fdiv(goals.count) : 0
   end
 
-  def adult_goals_count
-    goals.adult.count
+  def adult_goals_fraction
+    goals.present? ? goals.adult.count.fdiv(goals.count) : 0
   end
 
   def upcoming_tasks

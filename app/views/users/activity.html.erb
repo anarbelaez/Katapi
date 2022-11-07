@@ -1,3 +1,5 @@
+
+<% if @user.goals.present? %>
 <style>
 @media screen and (min-width: 800px) {
   .modal-dialog {
@@ -14,73 +16,141 @@
 <div class="row g-4">
   <div class="col-md-8 order-1 order-md-0">
 
-    <div class="row g-3">
-      <div class="col-12 col-sm-4 align-items-stretch">
-        <div onclick="anaMaria()" class="card border-0 rounded-4 bg-secondary shadow-sm notscale" style="">
-          <div class="card-body">
-            <p class="card-text fs-08 mb-1 fw-bold text-muted">Not started</p>
-            <p class="fs-3 m-0 mb-1">0%</p>
-            <div class="text-end"><%= link_to "See goals", "#", class: "badge bg-danger rounded-pill text-decoration-none text-dark" %></div>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-12 col-sm-4 align-items-stretch">
+    <div class="row gx-3">
+      <div class="col-4 col-sm-4 align-items-stretch mb-2">
         <div class="card border-0 rounded-4 bg-secondary shadow-sm notscale" style="">
-          <div class="card-body">
-            <p class="card-text fs-08 mb-1 fw-bold text-muted">In progress</p>
-            <p class="fs-3 m-0 mb-1">0%</p>
-            <div class="text-end"><%= link_to "See goals", "#", class: "badge bg-primary rounded-pill text-decoration-none text-dark" %></div>
+          <div class="card-body d-flex justify-content-between">
+            <%= image_tag "babytree2.svg", class: "img-fluid d-none d-md-block", width: "90px" %>
+            <div class="text-end">
+              <p class="fs-3 m-0 mb-1"><%= @baby_percentage %>%</p>
+              <p class="card-text fs-08 mb-1 fw-bold text-muted ">Baby trees</p>
+              <div class=""><%= link_to "See goals", by_status_path(0), class: "rounded-pill text-decoration-none link-danger fs-07" %></div>
+            </div>
           </div>
         </div>
       </div>
 
-      <div class="col-12 col-sm-4 align-items-stretch">
+      <div class="col-4 col-sm-4 align-items-stretch mb-2">
         <div class="card border-0 rounded-4 bg-secondary shadow-sm notscale" style="">
-          <div class="card-body">
-            <p class="card-text fs-08 mb-1 fw-bold text-muted">Completed</p>
-            <p class="fs-3 m-0 mb-1">0%</p>
-            <div class="text-end"><%= link_to "See goals", "#", class: "badge bg-success rounded-pill text-decoration-none text-dark" %></div>
+          <div class="card-body d-flex justify-content-between">
+            <%= image_tag "babytree1.svg", class: "img-fluid d-none d-lg-block ms-2", width: "80px" %>
+
+            <div class="text-end">
+              <p class="fs-3 m-0 mb-1"><%= @young_percentage %>%</p>
+              <p class="card-text fs-08 mb-1 fw-bold text-muted">Young trees</p>
+              <div class=""><%= link_to "See goals", by_status_path(1), class: "rounded-pill text-decoration-none link-primary fs-07" %></div>
+            </div>
           </div>
         </div>
       </div>
 
-
-
+      <div class="col-4 col-sm-4 align-items-stretch mb-2">
+        <div class="card border-0 rounded-4 bg-secondary shadow-sm notscale" style="">
+          <div class="card-body d-flex justify-content-between">
+            <%= image_tag "japantree1.svg", class: "img-fluid d-none d-lg-block", width: "120px" %>
+            <div class="text-end">
+              <p class="fs-3 m-0 mb-1"><%= @adult_percentage %>%</p>
+              <p class="card-text fs-08 mb-1 fw-bold text-muted">Adult trees</p>
+              <div class=""><%= link_to "See goals", by_status_path(2), class: "rounded-pill text-decoration-none link-success fs-07" %></div>
+            </div>
+          </div>
+        </div>
       </div>
+    </div>
+
+
+    <h5 class="pt-3 pb-2 mb-3 border-bottom">General activity</h5>
+    <div class="row gx-3">
+      <div class="col-4">
+        <div class="mx-0 card rounded-4 border-0 bg-secondary notscale bg-cover" style="height: 100%; background-image: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0)), url(https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/4b37e17d-1ebb-4caa-90c6-fabbb17caf51/df5k96c-d2c2009e-d9f7-4cd9-8b6d-61d0c4f23d93.png/v1/fill/w_946,h_797,q_80,strp/fractal_tree_in_the_fall_by_bucbowie_df5k96c-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9Nzk3IiwicGF0aCI6IlwvZlwvNGIzN2UxN2QtMWViYi00Y2FhLTkwYzYtZmFiYmIxN2NhZjUxXC9kZjVrOTZjLWQyYzIwMDllLWQ5ZjctNGNkOS04YjZkLTYxZDBjNGYyM2Q5My5wbmciLCJ3aWR0aCI6Ijw9OTQ2In1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmltYWdlLm9wZXJhdGlvbnMiXX0.qqKTKEMvpcEknE3b2bd46_IPbMoy_K6CTihADQH_ugM)">
+        </div>
+      </div>
+      <div class="mx-0 col-8">
+        <div class="card notscale rounded-4 border-0 bg-secondary">
+          <div class="card-body">
+            <div>
+            <div class="pb-3 d-flex justify-content-between align-items-center">
+              <p class="m-0 fw-bold">Goals</p>
+              <%= link_to "Add a new goal", new_goal_path, class: "bg-gradient badge bg-primary p-1 px-2 link-dark rounded-pill text-decoration-none" %>
+            </div>
+                <div class="progress rounded-4 mb-2">
+                  <div class="progress-bar" role="progressbar" aria-label="Segment one" style="width: 15%" aria-valuenow="15" aria-valuemin="0" aria-valuemax="100"><span class="fw-bold fst-italic text-dark px-2">Alive trees</span></div>
+                  <div class="progress-bar bg-info" role="progressbar" aria-label="Segment two" style="width: 30%" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"><span class="fw-bold fst-italic text-dark px-2">Dying trees</span></div>
+                </div>
+                <div class="d-flex mt-3 mb-2">
+                  <table class="table text-light fs-08 w-50">
+                    <tbody>
+                      <tr>
+                        <td class="fst-italic fw-bold">• Alive trees</td>
+                        <td>56</td>
+                      </tr>
+                      <tr>
+                        <td class="fst-italic fw-bold">• Dead trees</td>
+                        <td>78</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <div class="card border-end border-bottom border-primary border-2 notscale rounded-4 bg-body ms-3 w-50">
+                    <div class="card-body text-center fst-italic ">
+                      <span><%= message(74, 56)%></span>
+                    </div>
+                  </div>
+                </div>
+            </div>
+            <div>
+              <p class="m-0 fw-bold fst-italic">Tasks</p>
+                <div class="d-flex mt-2">
+                  <table class="table text-light fs-08 w-50">
+                    <tbody>
+                      <tr>
+                        <td class="fst-italic fw-bold">• No started</td>
+                        <td><%= @not_started_tasks %></td>
+                      </tr>
+                      <tr>
+                        <td class="fst-italic fw-bold">• In progress</td>
+                        <td><%= @in_progress_tasks %></td>
+                      </tr>
+                      <tr>
+                        <td class="fst-italic fw-bold">• Completed</td>
+                        <td><%= @done_tasks %></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <div class="card border-0 notscale rounded-4 bg-body ms-3 w-50">
+                    <div class="card-body fs-07">
+                      Soy un grafico!
+                    </div>
+                  </div>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
 
     <%# Aqui se renderizan las goals %>
+    <div class="mt-4 pb-1 d-flex justify-content-between align-items-center border-bottom">
+      <h5 class="m-0 p-0">Goals</h5>
+      <%= link_to "All goals", goals_path, class: "text-decoration-none link-info fs-07" %>
     <div class="mt-5 pb-1 d-flex justify-content-between align-items-center border-bottom">
       <h4 class="p-0">Goals</h4>
       <h6><%= link_to "All goals", goals_path, class: "text-decoration-none text-dark bg-primary m-0 px-2 rounded-pill fs-6" %></h6>
     </div>
 
-    <div class="row mt-2" data-controller="refresh-goals-list">
 
-      <div class="col-12">
-      <div class="row" data-masonry='{"percentPosition": false }'>
+    <%# Carousel %>
+    <div class="row">
+      <div class="main-carousel bg-body" data-flickity='{ "draggable": false, "cellAlign": "left", "contain": true, "freeScroll": false, "wrapAround": true, "pageDots": false }'>
         <% @goals.each do |goal| %>
-
-          <div class="col-6 col-sm-3">
-            <div class="d-flex align-items-stretch">
-              <a href="" class="text-decoration-none link-dark" data-bs-toggle="modal" data-bs-target="#modalGoal"
-                data-bs-goal-name="<%= goal.name %>" data-bs-goal-description="<%= goal.description %>" data-bs-goal-category="<%= goal.category %>"
-                data-bs-goal-date="<%= goal.completion_date %>" data-bs-goal-url="<%= request.base_url %>/goals/<%= goal.id %>">
-                <%= render "card_goal_board", goal: goal %>
-              </a>
-
-              <div class="modal fade mt-5" id="modalGoal" tabindex="-1" aria-labelledby="modalGoalLabel" aria-hidden="true">
-                <%= render "modal_for_goal", goal: goal %>
-              </div>
-            </div>
+          <div class="carousel-cell col-5 col-lg-3 me-3">
+            <%= render "card_goal_board", goal: goal %>
           </div>
         <% end %>
+        <div class="carousel-cell col-5 col-md-3 me-3">
+          <%= render "ghost_card" %>
+        </div>
       </div>
-
-
-      </div>
-
-
     </div>
   </div>
 
@@ -128,40 +198,4 @@
 </div>
 
 <% end %>
-
-
-<%# <button id="sweet-alert-demo" class="btn btn-primary">Click me!</button>
-
-<button id="sweet-alert-demo" class="btn btn-primary">Click me!</button>
-
-<div id="example_wrapper" class="dataTables_wrapper"><div class="dataTables_length" id="example_length"><label>Show <select name="example_length" aria-controls="example" class=""><option value="10">10</option><option value="25">25</option><option value="50">50</option><option value="100">100</option></select> entries</label></div><div id="example_filter" class="dataTables_filter"><label>Search:<input type="search" class="" placeholder="" aria-controls="example"></label></div><table id="example" class="display dataTable" style="width:100%" aria-describedby="example_info">
-        <thead>
-            <tr><th class="sorting sorting_asc" tabindex="0" aria-controls="example" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 131.188px;">Name</th><th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" style="width: 218.192px;">Position</th><th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1" aria-label="Office: activate to sort column ascending" style="width: 96.9835px;">Office</th><th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1" aria-label="Age: activate to sort column ascending" style="width: 39.0083px;">Age</th><th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1" aria-label="Start date: activate to sort column ascending" style="width: 85.5475px;">Start date</th><th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1" aria-label="Salary: activate to sort column ascending" style="width: 73.3161px;">Salary</th></tr>
-        </thead>
-        <tbody> %>
-
 </div>
-
-<script>
-  const modalGoal = document.getElementById('modalGoal')
-    modalGoal.addEventListener('show.bs.modal', event => {
-    const goal = event.relatedTarget
-    const goalName = goal.getAttribute('data-bs-goal-name')
-    const goalDescription = goal.getAttribute('data-bs-goal-description')
-    const goalCategory = goal.getAttribute('data-bs-goal-category')
-    const goalDate = goal.getAttribute('data-bs-goal-date')
-    const goalUrl = goal.getAttribute('data-bs-goal-url')
-
-    const goalNameM = modalGoal.querySelector('#goalName')
-    const goalDescriptionM = modalGoal.querySelector('#goalDescription')
-    const goalCategoryM = modalGoal.querySelector('#goalCategory')
-    const goalDateM = modalGoal.querySelector('#goalDate')
-    const goalLinkM = modalGoal.querySelector('#goalLink')
-
-    goalNameM.textContent = `${ goalName }`
-    goalDescriptionM.textContent = `${ goalDescription }`
-    goalCategoryM.textContent = `${ goalCategory }`
-    goalDateM.textContent = `${ goalDate }`
-
-  })
-</script>

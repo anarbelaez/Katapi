@@ -26,6 +26,28 @@ module ApplicationHelper
     title.length >= 30 ? title.first(27) + "..." : title
   end
 
+  def goal_status(maturity)
+    if maturity == "0"
+      "very young goals"
+    elsif maturity == "1"
+      "young goals"
+    else
+      "adult goals"
+    end
+  end
+
+  def date_stylized(datetime)
+    datetime.strftime('%b %d, %Y')
+  end
+
+  def message(alive, dead)
+    if alive > dead
+      "Yay! Most of your trees are alive!"
+    else
+      "Oh no! Most of your trees are dead!"
+    end
+  end
+
   def porcentaje(total_tareas, total_terminadas)
    total_terminadas / total_tareas
   end
