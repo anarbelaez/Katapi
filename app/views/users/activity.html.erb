@@ -5,52 +5,130 @@
     <h5 class="pb-2 mb-3 border-bottom">Goals summary</h5>
 
     <div class="row gx-3">
-      <div class="col-12 col-sm-4 align-items-stretch">
+      <div class="col-4 col-sm-4 align-items-stretch mb-2">
         <div class="card border-0 rounded-4 bg-secondary shadow-sm notscale" style="">
           <div class="card-body d-flex justify-content-between">
-            <%= image_tag "babytree.svg", class: "img-fluid", width: "50px" %>
-            <div>
-            <p class="card-text fs-08 mb-1 fw-bold text-muted">Not started</p>
-            <p class="fs-3 m-0 mb-1"><%= @baby_percentage %>%</p>
-            <div class="text-end"><%= link_to "See goals", by_status_path(0), class: "badge bg-danger rounded-pill text-decoration-none text-dark" %></div>
-
+            <%= image_tag "babytree2.svg", class: "img-fluid d-none d-md-block", width: "90px" %>
+            <div class="text-end">
+              <p class="fs-3 m-0 mb-1"><%= @baby_percentage %>%</p>
+              <p class="card-text fs-08 mb-1 fw-bold text-muted ">Baby trees</p>
+              <div class=""><%= link_to "See goals", by_status_path(0), class: "rounded-pill text-decoration-none link-danger fs-07" %></div>
             </div>
           </div>
         </div>
       </div>
 
-      <div class="col-12 col-sm-4 align-items-stretch">
+      <div class="col-4 col-sm-4 align-items-stretch mb-2">
         <div class="card border-0 rounded-4 bg-secondary shadow-sm notscale" style="">
-          <div class="card-body">
-            <p class="card-text fs-08 mb-1 fw-bold text-muted">In progress</p>
-            <p class="fs-3 m-0 mb-1"><%= @young_percentage %>%</p>
-            <div class="text-end"><%= link_to "See goals", by_status_path(1), class: "badge bg-primary rounded-pill text-decoration-none text-dark" %></div>
+          <div class="card-body d-flex justify-content-between">
+            <%= image_tag "babytree1.svg", class: "img-fluid d-none d-lg-block ms-2", width: "80px" %>
+
+            <div class="text-end">
+              <p class="fs-3 m-0 mb-1"><%= @young_percentage %>%</p>
+              <p class="card-text fs-08 mb-1 fw-bold text-muted">Young trees</p>
+              <div class=""><%= link_to "See goals", by_status_path(1), class: "rounded-pill text-decoration-none link-primary fs-07" %></div>
+            </div>
           </div>
         </div>
       </div>
 
-      <div class="col-12 col-sm-4 align-items-stretch">
+      <div class="col-4 col-sm-4 align-items-stretch mb-2">
         <div class="card border-0 rounded-4 bg-secondary shadow-sm notscale" style="">
-          <div class="card-body">
-            <p class="card-text fs-08 mb-1 fw-bold text-muted">Completed</p>
-            <p class="fs-3 m-0 mb-1"><%= @adult_percentage %>%</p>
-            <div class="text-end"><%= link_to "See goals", by_status_path(2), class: "badge bg-success rounded-pill text-decoration-none text-dark" %></div>
+          <div class="card-body d-flex justify-content-between">
+            <%= image_tag "japantree1.svg", class: "img-fluid d-none d-lg-block", width: "120px" %>
+            <div class="text-end">
+              <p class="fs-3 m-0 mb-1"><%= @adult_percentage %>%</p>
+              <p class="card-text fs-08 mb-1 fw-bold text-muted">Adult trees</p>
+              <div class=""><%= link_to "See goals", by_status_path(2), class: "rounded-pill text-decoration-none link-success fs-07" %></div>
+            </div>
           </div>
         </div>
       </div>
     </div>
+
+
+    <h5 class="pt-3 pb-2 mb-3 border-bottom">General activity</h5>
+    <div class="row gx-3">
+      <div class="col-4">
+        <div class="mx-0 card rounded-4 border-0 bg-secondary notscale bg-cover" style="height: 100%; background-image: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0)), url(https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/4b37e17d-1ebb-4caa-90c6-fabbb17caf51/df5k96c-d2c2009e-d9f7-4cd9-8b6d-61d0c4f23d93.png/v1/fill/w_946,h_797,q_80,strp/fractal_tree_in_the_fall_by_bucbowie_df5k96c-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9Nzk3IiwicGF0aCI6IlwvZlwvNGIzN2UxN2QtMWViYi00Y2FhLTkwYzYtZmFiYmIxN2NhZjUxXC9kZjVrOTZjLWQyYzIwMDllLWQ5ZjctNGNkOS04YjZkLTYxZDBjNGYyM2Q5My5wbmciLCJ3aWR0aCI6Ijw9OTQ2In1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmltYWdlLm9wZXJhdGlvbnMiXX0.qqKTKEMvpcEknE3b2bd46_IPbMoy_K6CTihADQH_ugM)">
+        </div>
+      </div>
+      <div class="mx-0 col-8">
+        <div class="card notscale rounded-4 border-0 bg-secondary">
+          <div class="card-body">
+            <div>
+            <div class="pb-3 d-flex justify-content-between align-items-center">
+              <p class="m-0 fw-bold">Goals</p>
+              <%= link_to "Add a new goal", new_goal_path, class: "bg-gradient badge bg-primary p-1 px-2 link-dark rounded-pill text-decoration-none" %>
+            </div>
+                <div class="progress rounded-4 mb-2">
+                  <div class="progress-bar" role="progressbar" aria-label="Segment one" style="width: 15%" aria-valuenow="15" aria-valuemin="0" aria-valuemax="100"><span class="fw-bold fst-italic text-dark px-2">Alive trees</span></div>
+                  <div class="progress-bar bg-info" role="progressbar" aria-label="Segment two" style="width: 30%" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"><span class="fw-bold fst-italic text-dark px-2">Dying trees</span></div>
+                </div>
+                <div class="d-flex mt-3 mb-2">
+                  <table class="table text-light fs-08 w-50">
+                    <tbody>
+                      <tr>
+                        <td class="fst-italic fw-bold">• Alive trees</td>
+                        <td>56</td>
+                      </tr>
+                      <tr>
+                        <td class="fst-italic fw-bold">• Dead trees</td>
+                        <td>78</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <div class="card border-end border-bottom border-primary border-2 notscale rounded-4 bg-body ms-3 w-50">
+                    <div class="card-body text-center fst-italic ">
+                      <span><%= message(74, 56)%></span>
+                    </div>
+                  </div>
+                </div>
+            </div>
+            <div>
+              <p class="m-0 fw-bold fst-italic">Tasks</p>
+                <div class="d-flex mt-2">
+                  <table class="table text-light fs-08 w-50">
+                    <tbody>
+                      <tr>
+                        <td class="fst-italic fw-bold">• No started</td>
+                        <td><%= @not_started_tasks %></td>
+                      </tr>
+                      <tr>
+                        <td class="fst-italic fw-bold">• In progress</td>
+                        <td><%= @in_progress_tasks %></td>
+                      </tr>
+                      <tr>
+                        <td class="fst-italic fw-bold">• Completed</td>
+                        <td><%= @done_tasks %></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <div class="card border-0 notscale rounded-4 bg-body ms-3 w-50">
+                    <div class="card-body fs-07">
+                      Soy un grafico!
+                    </div>
+                  </div>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
 
     <%# Aqui se renderizan las goals %>
-    <div class="mt-5 pb-1 d-flex justify-content-between align-items-center border-bottom">
-      <h4 class="m-0 p-0">Goals</h4>
+    <div class="mt-4 pb-1 d-flex justify-content-between align-items-center border-bottom">
+      <h5 class="m-0 p-0">Goals</h5>
       <%= link_to "All goals", goals_path, class: "text-decoration-none link-info fs-07" %>
     </div>
+
 
     <%# Carousel %>
     <div class="row">
       <div class="main-carousel bg-body" data-flickity='{ "draggable": false, "cellAlign": "left", "contain": true, "freeScroll": false, "wrapAround": true, "pageDots": false }'>
         <% @goals.each do |goal| %>
-          <div class="carousel-cell col-5 col-md-3 me-3">
+          <div class="carousel-cell col-5 col-lg-3 me-3">
             <%= render "card_goal_board", goal: goal %>
           </div>
         <% end %>

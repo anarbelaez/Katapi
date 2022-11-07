@@ -39,4 +39,12 @@ module ApplicationHelper
   def date_stylized(datetime)
     datetime.strftime('%b %d, %Y')
   end
+
+  def message(alive, dead)
+    if alive > dead
+      "Yay! Most of your trees are alive!"
+    else
+      "Oh no! Most of your trees are dead!"
+    end
+  end
 end
