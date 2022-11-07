@@ -1,8 +1,25 @@
-<div class="card card-body rounded-4 my-3 notscale ">
+<!-- <div class="card card-body rounded-4 my-3 notscale ">
   <%= simple_form_for @task do |f| %>
     <%= f.rich_text_area :review, as: :file, input_html: {class:"border-0 rounded-4"}  %>
     <div class="d-flex justify-content-end pt-2">
       <%= f.submit class:"btn btn-primary text-dark rounded-pill"%>
     </div>
   <% end %>
-</div>
+</div> -->
+
+  <div class="row ps-lg-3">
+    <div class="col-12">
+      <div class="position-relative bg-secondary text-center border-0 p-3 rounded-4 rounded-bottom">
+        <h6 class="fs-2 mt-2">Notes</h6>
+        <%# <div class="position-absolute clip-rich-text"><i class="bi bi-paperclip display-4 text-success"></i></div> %>
+      </div>
+      <div class="card border-0 bg-secondary text-light px-4 py-3 notscale rounded-4 rounded-top">
+        <%= simple_form_for @task, class: "" do |f| %>
+          <%= f.rich_text_area :review, as: :file, input_html: { class: "shadow-sm customized-min-height" } %>
+          <div class="d-flex justify-content-end pt-2">
+            <%= f.submit "Save note", class:"btn btn-link link-light border-bottom border-2 text-decoration-none p-1"%>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>

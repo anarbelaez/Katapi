@@ -31,16 +31,14 @@ module ApplicationHelper
   end
 
   def percentage_not_started
-    (current_user.not_started_tasks_fraction * 100) || 0
+    (current_user.not_started_tasks_fraction * 100).to_i || 0
   end
 
   def percentage_in_progress
-    current_user.in_progress_tasks_fraction * 100 || 0
+    (current_user.in_progress_tasks_fraction * 100).to_i || 0
   end
 
   def percentage_done
-    current_user.done_tasks_fraction * 100 || 0
+    (current_user.done_tasks_fraction * 100).to_i || 0
   end
-
-
 end
