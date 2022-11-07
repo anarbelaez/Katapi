@@ -10,8 +10,6 @@
     </div>
   </div>
 
-
-
   <%# Cards %>
   <div class="col-12 text-light" style="">
     <%# Datatable %>
@@ -31,10 +29,10 @@
         <tr class="">
           <td class=""><%= link_to goal.name, goal_path(goal), class: "text-decoration-none" %></td>
           <td><%= goal.tasks.count %></td>
-          <td><%= goal.category %></td>
+          <td><span class="badge bg-info rounded-pill"><%= goal.category %></span></td>
           <td><%= date_stylized(goal.created_at) %></td>
           <td class="">
-            <%= link_to edit_goal_path(goal), class: "text-decoration-none link-dark" do %>
+            <%= link_to edit_goal_path(goal), class: "text-decoration-none link-dark me-1" do %>
               <i class="bi bi-pencil-square rounded-3 p-1 bg-primary shadow-sm"></i>
             <% end %>
             <%= link_to edit_goal_path(goal), class: "text-decoration-none link-dark" do %>

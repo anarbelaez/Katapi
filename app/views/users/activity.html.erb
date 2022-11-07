@@ -7,10 +7,14 @@
     <div class="row gx-3">
       <div class="col-12 col-sm-4 align-items-stretch">
         <div class="card border-0 rounded-4 bg-secondary shadow-sm notscale" style="">
-          <div class="card-body">
+          <div class="card-body d-flex justify-content-between">
+            <%= image_tag "babytree.svg", class: "img-fluid", width: "50px" %>
+            <div>
             <p class="card-text fs-08 mb-1 fw-bold text-muted">Not started</p>
             <p class="fs-3 m-0 mb-1"><%= @baby_percentage %>%</p>
             <div class="text-end"><%= link_to "See goals", by_status_path(0), class: "badge bg-danger rounded-pill text-decoration-none text-dark" %></div>
+
+            </div>
           </div>
         </div>
       </div>
