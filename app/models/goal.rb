@@ -37,7 +37,7 @@ class Goal < ApplicationRecord
   end
 
   def completed?
-    done_tasks_fraction == 1.0
+    done_tasks_fraction.to_d == 1.0.to_d
   end
 
   def dead?
