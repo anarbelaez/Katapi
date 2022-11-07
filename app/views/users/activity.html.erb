@@ -1,8 +1,20 @@
 
 <% if @user.goals.present? %>
+<style>
+@media screen and (min-width: 800px) {
+  .modal-dialog {
+    margin-right: 0 !important;
+    margin-top: 0 !important;
+  }
+}
+</style>
+<div class="col-md-8 order-1 order-md-0">
+    <h5 class="pb-2 mb-3 border-bottom">Goals summary</h5>
+</div>
+
+<% if @user.goals.count > 0 %>
 <div class="row g-4">
   <div class="col-md-8 order-1 order-md-0">
-    <h5 class="pb-2 mb-3 border-bottom">Goals summary</h5>
 
     <div class="row gx-3">
       <div class="col-4 col-sm-4 align-items-stretch mb-2">
@@ -121,6 +133,9 @@
     <div class="mt-4 pb-1 d-flex justify-content-between align-items-center border-bottom">
       <h5 class="m-0 p-0">Goals</h5>
       <%= link_to "All goals", goals_path, class: "text-decoration-none link-info fs-07" %>
+    <div class="mt-5 pb-1 d-flex justify-content-between align-items-center border-bottom">
+      <h4 class="p-0">Goals</h4>
+      <h6><%= link_to "All goals", goals_path, class: "text-decoration-none text-dark bg-primary m-0 px-2 rounded-pill fs-6" %></h6>
     </div>
 
 

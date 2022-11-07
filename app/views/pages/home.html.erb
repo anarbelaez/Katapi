@@ -9,7 +9,11 @@
       </div>
 
       <div class="col-lg-6">
-        <h1 class="display-5 fw-bold lh-1 mb-3">Welcome to Katapi</h1>
+        <h1 class="display-5 fw-bold lh-1 mb-3">Manage each of your goals! </h1>
+        <p>
+          Receive a tree for each new goal, take care of its growth while you focus on
+          fulfilling each tasks, visualizing the katapi tree will encourage you to complete your goals and motivate
+          you to overcome procrastination </p>
         <p class="lead"></p>
         <div class="d-grid gap-2 d-md-flex justify-content-md-start">
           <button type="button" class="btn btn-primary btn-lg px-4 me-md-2 rounded-pill">Sign up</button>
@@ -21,32 +25,35 @@
 </section>
 
 <%# Features %>
-<section class="">
+<section class="bg-warning">
   <div class="container py-5">
     <div class="row row-cols-1 row-cols-md-3 g-3">
       <div class="col">
-        <div class="card border-0 shadow-sm">
-          <img src="https://payload.cargocollective.com/1/9/290563/11353476/Business_Illustration_002_1000.png">
-          <div class="card-body">
-            <p class="card-text">Katapi</p>
+        <div class="card border-0 shadow-sm bg-success rounded-4">
+          <%= image_tag "https://res.cloudinary.com/dknxl9ghi/image/upload/v1667583448/goals-board_hsiubo.png" %>
+          <div class="card-body bg-secondary">
+            <strong><h3 class="text-white-smoke"> Visualize  </h3></strong>
+            <p class="card-text text-white-smoke"> Constantly monitor the progress of your tasks </p>
           </div>
         </div>
       </div>
 
       <div class="col">
-        <div class="card border-0 shadow-sm">
-          <img src="https://payload.cargocollective.com/1/9/290563/11353476/Business_Illustration_002_1000.png">
-          <div class="card-body">
-            <p class="card-text">Katapi</p>
+        <div class="card border-0 shadow-sm bg-info rounded-4">
+          <img src="assets/all-tasks.png">
+          <div class="card-body bg-secondary">
+            <strong><h3 class="text-white-smoke"> Prioritize </h3></strong>
+            <p class="card-text text-white-smoke"> Organize all your tasks in one place </p>
           </div>
         </div>
       </div>
 
       <div class="col">
-        <div class="card border-0 shadow-sm">
-          <img src="https://payload.cargocollective.com/1/9/290563/11353476/Business_Illustration_002_1000.png">
-          <div class="card-body">
-            <p class="card-text">Katapi</p>
+        <div class="card border-0 shadow-sm rounded-4 bg-primary">
+          <%= image_tag "https://res.cloudinary.com/dknxl9ghi/image/upload/v1667583448/calendario_mzkxru.png" %>
+          <div class="card-body bg-secondary">
+          <strong><h3 class="text-white-smoke"> Stay up to date </h3></strong>
+            <p class="card-text text-white-smoke">Meet deadlines to achieve your tasks</p>
           </div>
         </div>
       </div>
@@ -55,44 +62,48 @@
 </section>
 
 <%# More information about Katapi %>
-<section class="">
-  <div class="container px-4 py-5">
+<section class="bg-primary">
+  <div class="container px-4 py-5 bg-primary">
     <div class="row row-cols-1 row-cols-md-2 align-items-md-center g-5 py-5">
-      <div class="d-flex flex-column align-items-start gap-2">
-        <h3 class="fw-bold">Katapi</h3>
-        <p class="text-muted">Katapi</p>
+       <div class="d-flex flex-column align-items-start gap-2 px-5">
+        <h3 class="fw-bold"> Create a goal</h3>
+        <!-- <p class="text-muted">Katapi</p> -->
+        <video class="rounded-4" width="400" height="400" controls>
+          <source src="https://res.cloudinary.com/dknxl9ghi/video/upload/v1667583449/katapi-add-goal_pcw94o.mp4" type="video/mp4">
+         Your browser does not support the video tag.
+        </video>
       </div>
       <div class="row row-cols-1 row-cols-sm-2 g-4">
         <div class="d-flex flex-column gap-2">
           <div class="">
             <i class="bi bi-1-square align-items-center justify-content-center fs-4 rounded-3"></i>
           </div>
-          <h4 class="fw-semibold mb-0">Katapi</h4>
-          <p class="text-muted">Katapi</p>
+          <h3 class="fw-semibold mb-0"> Add tasks to a goal </h3>
+          <!-- <p class="text-muted">Katapi</p> -->
         </div>
 
         <div class="d-flex flex-column gap-2">
           <div class="">
             <i class="bi bi-2-square align-items-center justify-content-center fs-4 rounded-3"></i>
           </div>
-          <h4 class="fw-semibold mb-0">Katapi</h4>
-          <p class="text-muted">Katapi</p>
+          <h3 class="fw-semibold mb-0"> Update your tasks status </h3>
+          <!-- <p class="text-muted">Katapi</p> -->
         </div>
 
         <div class="d-flex flex-column gap-2">
           <div class="">
             <i class="bi bi-3-square align-items-center justify-content-center fs-4 rounded-3"></i>
           </div>
-          <h4 class="fw-semibold mb-0">Katapi</h4>
-          <p class="text-muted">Katapi</p>
+          <h3 class="fw-semibold mb-0">Visualize your progress</h3>
+          <!-- <p class="text-muted">Katapi</p> -->
         </div>
 
         <div class="d-flex flex-column gap-2">
           <div class="">
             <i class="bi bi-4-square align-items-center justify-content-center fs-4 rounded-3"></i>
           </div>
-          <h4 class="fw-semibold mb-0">Katapi</h4>
-          <p class="text-muted">Katapi</p>
+          <h3 class="fw-semibold mb-0"> Add notes to your goals and tasks</h3>
+          <!-- <p class="text-muted">Katapi</p> -->
         </div>
       </div>
     </div>
