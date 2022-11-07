@@ -104,9 +104,6 @@
 
 <!-- fin de camilo -->
 
-
-
-
       <div class="col bg-secondary rounded-4 m-2 fs-1 p-2 my-lg-4">
         <div class="row">
           <div class="col-6 px-lg-4 align-items-center">
@@ -115,7 +112,7 @@
             <div class="col-sm-12 col-lg-6 d-flex justify-content-end px-5 align-items-center">
 
               <div class="class text-primary px-lg-2">
-                <%= @tasks.count {|t| t.done?} %>
+                <%= current_user.tasks.done.count %>
               </div>
               <i class="fa-solid fa-trophy  text-warning p-2"></i>
             </div>
@@ -130,7 +127,7 @@
             <div class="col-sm-12 col-lg-6 d-flex justify-content-end px-5 align-items-center">
 
               <div class="class text-primary px-lg-2">
-                <%= @goals.count {|t| t.adult?} %>
+                <%= current_user.goals.adult.count %>
               </div>
               <i class="fa-solid fa-trophy  text-warning p-2"></i>
             </div>

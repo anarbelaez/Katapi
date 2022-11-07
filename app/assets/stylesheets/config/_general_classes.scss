@@ -46,7 +46,6 @@ canvas {
 .text-body {
   color: white;
 }
-
 .text-white-smoke{
   color: whitesmoke;
 }
@@ -86,32 +85,26 @@ canvas {
 table.dataTable.display>tbody>tr.odd>.sorting_1, table.dataTable.order-column.stripe>tbody>tr.odd>.sorting_1 {
   box-shadow: 0 !important;
 }
+.color-bottom-cancel{
+  background-color: #889097 !important;
+}
+.color-bg-sweet{
+  background: #dff9fb !important;
+}
+.notscale{
+  transform: scale(1) !important;
+}
+.card{
+  transition: transform 0.5s;
+}
+.card:hover{
+  transform: scale(1.05);
+}
+.round-4{
+  border-radius: 20px !important;
+}
 @media (max-width: 576px) {
   .flickity-prev-next-button {
     display: none;
   }
-=======
-
-.color-bottom-cancel{
-  background-color: #889097 !important;
-}
-
-.color-bg-sweet{
-  background: #dff9fb !important;
-}
-
-.notscale{
-  transform: scale(1) !important;
-}
-
-.card{
-  transition: transform 0.5s;
-}
-
-.card:hover{
-  transform: scale(1.05);
-}
-
-.round-4{
-  border-radius: 20px !important;
 }
