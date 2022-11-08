@@ -26,24 +26,41 @@ module ApplicationHelper
     title.length >= 30 ? title.first(27) + "..." : title
   end
 
+  def goal_status(maturity)
+    if maturity == "0"
+      "very young goals"
+    elsif maturity == "1"
+      "young goals"
+    else
+      "adult goals"
+    end
+  end
+
+  def date_stylized(datetime)
+    datetime.strftime('%b %d, %Y')
+  end
+
+  def message(alive, dead)
+    if alive > dead
+      "Yay! Most of your trees are alive!"
+    else
+      "Oh no! Most of your trees are dead!"
+    end
+  end
+
   def porcentaje(total_tareas, total_terminadas)
    total_terminadas / total_tareas
   end
 
   def percentage_not_started
-    all_tasks = @tasks.all.count
-    (@tasks.not_started.count.fdiv(all_tasks)*100).to_i
+    (current_user.not_started_tasks_fraction * 100).to_i || 0
   end
 
   def percentage_in_progress
-    all_tasks = @tasks.all.count
-    (@tasks.in_progress.count.fdiv(all_tasks)*100).to_i
+    (current_user.in_progress_tasks_fraction * 100).to_i || 0
   end
 
   def percentage_done
-    all_tasks = @tasks.all.count
-    (@tasks.done.count.fdiv(all_tasks)*100).to_i
+    (current_user.done_tasks_fraction * 100).to_i || 0
   end
-
-
 end

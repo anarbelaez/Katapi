@@ -18,16 +18,28 @@ class User < ApplicationRecord
     goals.distinct.pluck(:category)
   end
 
-  def baby_goals_count
-    goals.baby.count
+  # def baby_goals_count
+  #   goals.baby.count
+  # end
+
+  # def young_goals_count
+  #   goals.young.count
+  # end
+
+  # def adult_goals_count
+  #   goals.adult.count
+  # end
+
+  def baby_goals_fraction
+    goals.present? ? goals.baby.count.fdiv(goals.count) : 0
   end
 
-  def young_goals_count
-    goals.young.count
+  def young_goals_fraction
+    goals.present? ? goals.young.count.fdiv(goals.count) : 0
   end
 
-  def adult_goals_count
-    goals.adult.count
+  def adult_goals_fraction
+    goals.present? ? goals.adult.count.fdiv(goals.count) : 0
   end
 
   def upcoming_tasks
@@ -36,6 +48,18 @@ class User < ApplicationRecord
 
   def tasks_grouped_by_day
     upcoming_tasks.order(:due_date).group_by { |t| t.due_date.strftime("%e %B") }
+  end
+
+  def not_started_tasks_fraction
+    tasks.present? ? tasks.not_started.count.fdiv(tasks.count) : 0
+  end
+
+  def in_progress_tasks_fraction
+    tasks.present? ? tasks.in_progress.count.fdiv(tasks.count) : 0
+  end
+
+  def done_tasks_fraction
+    tasks.present? ? tasks.done.count.fdiv(tasks.count) : 0
   end
 
   def self.from_omniauth(auth)

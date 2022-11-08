@@ -5,8 +5,20 @@ class UsersController < ApplicationController
     @goals = @user.goals
 
     # Upcoming tasks
-    @upcoming_tasks_day = current_user.tasks_grouped_by_day.keys[0]
-    @upcoming_tasks = current_user.tasks_grouped_by_day.values[0]
+    @upcoming_tasks_day = @user.tasks_grouped_by_day.keys[0]
+    @upcoming_tasks = @user.tasks_grouped_by_day.values[0]
+
+    # Percentages
+    @baby_percentage = (@user.baby_goals_fraction * 100).round
+    @young_percentage = (@user.young_goals_fraction * 100).round
+    @adult_percentage = (@user.adult_goals_fraction * 100).round
+
+    # Tasks counts
+    @not_started_tasks = current_user.tasks.not_started.count
+    @in_progress_tasks = current_user.tasks.in_progress.count
+    @done_tasks = current_user.tasks.done.count
+
+
 
     # if @goals.count > 0
     #   @seed_percentage = (@user.seed_count.fdiv(@goals.count) * 100).round

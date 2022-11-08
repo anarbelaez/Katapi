@@ -45,6 +45,10 @@ class GoalsController < ApplicationController
     # render json: goal_tree
   end
 
+  def by_status
+    @goals = current_user.goals.by_status(params[:maturity])
+  end
+
   def new
   end
 
