@@ -4,14 +4,17 @@
 
 import { application } from "./application"
 
+import CarouselCardsController from "./carousel_cards_controller"
+application.register("carousel-cards", CarouselCardsController)
+
 import GetGoalInformationController from "./get_goal_information_controller"
 application.register("get-goal-information", GetGoalInformationController)
 
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
 
-// import RefreshGoalsListController from "./refresh_goals_list_controller"
-// application.register("refresh-goals-list", RefreshGoalsListController)
+import RefreshGoalsListController from "./refresh_goals_list_controller"
+application.register("refresh-goals-list", RefreshGoalsListController)
 
 import SearchFormController from "./search_form_controller"
 application.register("search-form", SearchFormController)

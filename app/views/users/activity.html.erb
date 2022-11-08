@@ -8,7 +8,7 @@
 </style>
 <% if @user.goals.present? %>
 <div class="row g-4">
-  <div class="col-md-8 order-1 order-md-0">
+  <div class="col-md-8 order-1 order-md-0 mb-5 pb-5">
     <h5 class="pb-2 mb-3 border-bottom">Goals summary</h5>
     <div class="row gx-3">
       <div class="col-4 col-sm-4 align-items-stretch mb-2">
@@ -53,7 +53,7 @@
     </div>
 
 
-    <h5 class="pt-3 pb-2 mb-3 border-bottom">General activity</h5>
+    <h5 class="mt-3 pt-3 pb-2 mb-3 border-bottom">General activity</h5>
     <div class="row gx-3">
       <div class="col-4">
         <div class="mx-0 card rounded-4 border-0 bg-secondary notscale bg-cover" style="height: 100%; background-image: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0)), url(https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/4b37e17d-1ebb-4caa-90c6-fabbb17caf51/df5k96c-d2c2009e-d9f7-4cd9-8b6d-61d0c4f23d93.png/v1/fill/w_946,h_797,q_80,strp/fractal_tree_in_the_fall_by_bucbowie_df5k96c-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9Nzk3IiwicGF0aCI6IlwvZlwvNGIzN2UxN2QtMWViYi00Y2FhLTkwYzYtZmFiYmIxN2NhZjUxXC9kZjVrOTZjLWQyYzIwMDllLWQ5ZjctNGNkOS04YjZkLTYxZDBjNGYyM2Q5My5wbmciLCJ3aWR0aCI6Ijw9OTQ2In1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmltYWdlLm9wZXJhdGlvbnMiXX0.qqKTKEMvpcEknE3b2bd46_IPbMoy_K6CTihADQH_ugM)">
@@ -135,25 +135,80 @@
 
 
     <%# Aqui se renderizan las goals %>
-    <div class="mt-4 pb-1 d-flex justify-content-between align-items-center border-bottom">
+    <div class="mt-5 pb-1 d-flex justify-content-between align-items-center border-bottom">
       <h5 class="m-0 p-0">Goals</h5>
       <%= link_to "All goals", goals_path, class: "text-decoration-none link-info fs-07" %>
     </div>
 
-
-    <%# Carousel %>
-    <div class="row">
-      <div class="main-carousel bg-body" data-flickity='{ "draggable": false, "cellAlign": "left", "contain": true, "freeScroll": false, "wrapAround": true, "pageDots": false }'>
-        <% @goals.each do |goal| %>
-          <div class="carousel-cell col-5 col-lg-3 me-3">
-            <%= render "card_goal_board", goal: goal %>
+    <div class="row gx-2">
+      <% @goals.each do |goal| %>
+        <div class="col-6 col-sm-3">
+          <div class="d-flex align-items-stretch">
+            <a href="" class="text-decoration-none link-dark" data-bs-toggle="modal" data-bs-target="#modalGoal"
+              data-bs-goal-name="<%= goal.name %>" data-bs-goal-description="<%= goal.description %>" data-bs-goal-category="<%= goal.category %>"
+              data-bs-goal-date="<%= goal.completion_date %>" data-bs-goal-url="<%= request.base_url %>/goals/<%= goal.id %>">
+              <%= render "card_goal_board", goal: goal %>
+            </a>
+            <div class="modal fade mt-5" id="modalGoal" tabindex="-1" aria-labelledby="modalGoalLabel" aria-hidden="true">
+              <%= render "modal_for_goal", goal: goal %>
+            </div>
           </div>
-        <% end %>
-        <div class="carousel-cell col-5 col-md-3 me-3">
-          <%= render "ghost_card" %>
         </div>
-      </div>
+      <% end %>
     </div>
+    <%# Carousel %>
+
+
+    <div id="carouselCards" class="carousel slide" data-controller="carousel-cards" data-bs-interval="false" data-ride="carousel" data-pause="hover">
+  <div class="carousel-inner p-1">
+
+    <% i = 0 %>
+    <%#= Iteramos sobre listas de maximo 6 elementos %>
+    <% @goals.last(11).each_slice(4) do |sublist| %>
+    <%# Se crea un item del carousel con estos elementos %>
+      <div class="carousel-card carousel-item" data-carousel-cards-target="item">
+          <div class="row g-3">
+
+          <%# Presentamos el objeto en forma de card %>
+            <% sublist.each do |object| %>
+              <div class="col-6 col-md-3">
+              <a href="" class="text-decoration-none link-dark" data-bs-toggle="modal" data-bs-target="#modalGoal"
+              data-bs-goal-name="<%= object.name %>" data-bs-goal-description="<%= object.description %>" data-bs-goal-category="<%= object.category %>"
+              data-bs-goal-date="<%= object.completion_date %>" data-bs-goal-url="/goals/<%= object.id %>">
+              <%= render "card_goal_board", goal: object %>
+            </a>
+            <div class="modal fade mt-5" id="modalGoal" tabindex="-1" aria-labelledby="modalGoalLabel" aria-hidden="true">
+              <%= render "modal_for_goal", goal: object %>
+            </div>
+                <% i += 1 %>
+              </div>
+
+              <%# Si existen mas de 11 objetos entonces mostramos una ghost card "Ver mas" %>
+              <% if i == 11 %>
+              <div class="col-6 col-md-2">
+                <%= render "ghost_card"%>
+              </div>
+              <% end %>
+            <% end %>
+          </div>
+      </div>
+    <% end %>
+
+  </div>
+
+  <%# Si se muestran mas de 6 elementos entonces los controles del carousel son visibles %>
+  <% unless @goals.size <= 6 %>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselCards" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon " aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselCards" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  <% end %>
+</div>
+
   </div>
 
   <div class="col-md-4 order-0 order-md-1">
@@ -177,6 +232,8 @@
       </div>
     </div>
   </div>
+
+
 </div>
 
 <% else %>
@@ -200,3 +257,32 @@
 </div>
 <% end %>
 </div>
+<script>
+  const modalGoal = document.getElementById('modalGoal')
+    modalGoal.addEventListener('show.bs.modal', event => {
+    const goal = event.relatedTarget
+    const goalName = goal.getAttribute('data-bs-goal-name')
+    const goalDescription = goal.getAttribute('data-bs-goal-description')
+    const goalCategory = goal.getAttribute('data-bs-goal-category')
+    const goalDate = goal.getAttribute('data-bs-goal-date')
+    const goalUrl = goal.getAttribute('data-bs-goal-url')
+    const goalNameM = modalGoal.querySelector('#goalName')
+    const goalDescriptionM = modalGoal.querySelector('#goalDescription')
+    const goalCategoryM = modalGoal.querySelector('#goalCategory')
+    const goalDateM = modalGoal.querySelector('#goalDate')
+    const goalURL = modalGoal.querySelector('#goalURL')
+    console.log(goalUrl)
+    goalNameM.textContent = `${ goalName }`
+    goalDescriptionM.textContent = `${ goalDescription }`
+    goalCategoryM.textContent = `${ goalCategory }`
+    goalDateM.textContent = `${ goalDate }`
+    goalURL.textContent = `${ goalUrl }`
+    console.log(goalURL)
+  })
+</script>
+
+
+<script>
+const exampleEl = document.getElementById('elTooltip')
+const tooltip = new bootstrap.Tooltip(exampleEl, options)
+</script>
