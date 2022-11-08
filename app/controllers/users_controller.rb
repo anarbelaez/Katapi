@@ -18,22 +18,12 @@ class UsersController < ApplicationController
     @in_progress_tasks = current_user.tasks.in_progress.count
     @done_tasks = current_user.tasks.done.count
 
-
-
-    # if @goals.count > 0
-    #   @seed_percentage = (@user.seed_count.fdiv(@goals.count) * 100).round
-    #   @sapling_percentage = (@user.sapling_count.fdiv(@goals.count) * 100).round
-    #   @mature_tree_percentage = (@user.mature_tree_count.fdiv(@goals.count) * 100).round
-    # end
-
-    # def search
-    #   if params[:query].present?
-    #     @query = params[:query]
-    #     @products = Product.search(params[:query]).available
-    #   else
-    #     @products = Product.available
-    #   end
-    # end
+    dead_count = 0
+    @goals.each { |goal| dead_count += 1 if goal.dead? }
+    @dead_count = dead_count
+    @alive_count = @goals.count - dead_count
+    @alive_percentage = (@alive_count.fdiv(@goals.count) * 100).round
+    @dead_percentage = (@dead_count.fdiv(@goals.count) * 100).round
   end
 
   # def send_notification

@@ -6,10 +6,10 @@
         <%= date.day %>
       </button>
       <div class="dropdown">
-        <ul class="dropdown-menu shadow-lg bg-gradient fs-08  rounded-4 bg-body" aria-labelledby="dateTask">
+        <ul class="m-0 dropdown-menu shadow-lg border-2 border-bottom border-end border-info fs-07 rounded-4 bg-body px-2" aria-labelledby="dateTask">
           <% tasks.each do |task| %>
-            <li>
-             <%= link_to "• #{title_stylized(task.name)}" , task, class:"btn btn-white text-primary" %>
+            <li class="m-0 text-center">
+             <%= link_to "• #{title_stylized(task.name)}" , task, class:"text-decoration-none fs-08 text-primary" %>
             </li>
           <% end %>
         </ul>

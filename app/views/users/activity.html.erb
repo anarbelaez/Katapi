@@ -4,6 +4,13 @@
     margin-right: 0 !important;
     margin-top: 0 !important;
   }
+  .circle{
+    width: 12px;
+    height: 12px;
+    -webkit-border-radius: 25px;
+    -moz-border-radius: 25px;
+    border-radius: 25px;
+  }
 }
 </style>
 <% if @user.goals.present? %>
@@ -68,25 +75,29 @@
               <%= link_to "Add a new goal", new_goal_path, class: "bg-gradient badge bg-primary p-1 px-2 link-dark rounded-pill text-decoration-none" %>
             </div>
                 <div class="progress rounded-4 mb-2">
-                  <div class="progress-bar" role="progressbar" aria-label="Segment one" style="width: 15%" aria-valuenow="15" aria-valuemin="0" aria-valuemax="100"><span class="fw-bold fst-italic text-dark px-2">Alive trees</span></div>
-                  <div class="progress-bar bg-info" role="progressbar" aria-label="Segment two" style="width: 30%" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"><span class="fw-bold fst-italic text-dark px-2">Dying trees</span></div>
+                  <div class="progress-bar bg-success" role="progressbar" aria-label="Segment one" style="width: <%= @alive_percentage %>%" aria-valuenow="<%= @alive_percentage %>" aria-valuemin="0" aria-valuemax="100"><span class="fs-07 fw-bold fst-italic text-dark px-2"><%= @alive_percentage %>%</span></div>
+                  <div class="progress-bar bg-danger" role="progressbar" aria-label="Segment two" style="width: <%= @dead_percentage %>%" aria-valuenow="<%= @dead_percentage %>" aria-valuemin="0" aria-valuemax="100"><span class="fs-07 fw-bold fst-italic text-dark px-2"><%= @dead_percentage %>%</span></div>
+                </div>
+                <div class="d-flex justify-content-end align-items-center fs-07">
+                  <div class="circle me-2 bg-success"></div><span class="fst-italic">Alive trees percentage</span>
+                  <div class="circle ms-3 me-2 bg-danger"></div><span class="fst-italic">Dead trees percentage</span>
                 </div>
                 <div class="d-flex mt-3 mb-2">
                   <table class="table text-light fs-08 w-50">
                     <tbody>
                       <tr>
                         <td class="fst-italic fw-bold">• Alive trees</td>
-                        <td>56</td>
+                        <td><%= @alive_count %></td>
                       </tr>
                       <tr>
                         <td class="fst-italic fw-bold">• Dead trees</td>
-                        <td>78</td>
+                        <td><%= @dead_count %></td>
                       </tr>
                     </tbody>
                   </table>
                   <div class="card border-end border-bottom border-primary border-2 notscale rounded-4 bg-body ms-3 w-50">
                     <div class="card-body text-center fst-italic ">
-                      <span><%= message(74, 56)%></span>
+                      <span><%= message(@alive_count, @dead_count)%></span>
                     </div>
                   </div>
                 </div>
