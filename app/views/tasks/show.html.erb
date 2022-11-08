@@ -1,6 +1,5 @@
 
 <div class="row px-3 justify-content-center ">
-
   <div class="row">
     <div class="col-sm-12 col-lg-6 px-lg-5 d-flex justify-content-end align-items-center">
       <%= link_to edit_task_path(@task), class: "text-decoration-none link-dark circle-icon me-2" do %>
@@ -11,30 +10,21 @@
       data: { turbo_method: :delete, controller: 'sweetalert', action: "click->sweetalert#show", sweetalert_title_value: @task.name } do %>
         <i class="bi bi-trash3 rounded-circle p-2 bg-danger fw-bold fs-5 shadow-sm bg-gradient"></i>
       <% end %>
-
-
         <%= link_to goal_path(@task.goal), class: "btn btn-primary rounded-pill ms-2 text-dark" do %>
           <i class="fa-solid fa-grip"></i> Board
         <% end %>
-
     </div>
-
     <div class="col-sm-4 col-lg-2">
       <h4 class="text-light fw-bold px-0"> Your Goal: </h4>
     </div>
     <div class="colsm-8 col-lg-4">
       <h5 class="text-primary d-flex justify-content-start px-0">  <%= @task.goal.name %></h5>
     </div>
-
   </div>
-
-
-
   <div class="col-sm-12 col-lg-5 my-3 p-4 rounded-4 bg-secondary shadow-sm">
     <h3 class="text-light fw-bold"><%= @task.name&.capitalize%></h3>
     <h5 class=""><%= @task.description&.capitalize %></h5>
     <hr>
-
     <div class="row bg-body d-flex  align-items-center mb-2 rounded-4 p-1 mx-1 my-1">
       <div class="col-4">
         <h5 class="p-1 my-1">Status:</h5>
@@ -49,12 +39,10 @@
         <% end %>
       </div>
     </div>
-
     <div class="row bg-body d-flex  align-items-center mb-2 rounded-4 p-1 mx-1 my-1">
       <div class="col-4 ">
         <h5 class="p-1 my-1">Difficulty:</h5>
       </div>
-
       <div class="col-8 ">
           <% if @task.easy? %>
             <span class="badge rounded-pill bg-danger text-dark py-1" style="width: 70px;"> <%= @task.difficulty %></span>
@@ -65,8 +53,6 @@
           <% end %>
       </div>
     </div>
-
-
     <div class="row bg-body d-flex  align-items-center mb-2 rounded-4 p-1 mx-1 my-1">
       <div class="col-4 ">
         <h5 class="p-1 my-1">Created at:</h5>
@@ -75,7 +61,6 @@
           <p class="p-1 my-1"><%= @task.created_at&.strftime("%d/%m/%y") %></p>
       </div>
     </div>
-
     <div class="row bg-body d-flex  align-items-center mb-2 rounded-4 p-1 mx-1 my-1">
       <div class="col-4 ">
         <h5 class="p-1 my-1">Due Date:</h5>
@@ -84,7 +69,6 @@
           <p class="p-1 my-1"> <%= @task.due_date&.strftime("%d/%m/%y") %></p>
       </div>
     </div>
-
     <div class="row bg-body d-flex  align-items-center mb-2 rounded-4 p-1 mx-1 my-1">
       <div class="col-4 ">
         <h5 class="p-1 my-1">Completion Date:</h5>
@@ -93,7 +77,6 @@
           <p class="p-1 my-1"> <%= @task.completion_date&.strftime("%d/%m/%y") %> </p>
       </div>
     </div>
-
     <div class="row bg-body d-flex  align-items-center mb-2 rounded-4 p-1 mx-1 my-1">
       <div class="col-4">
         <h5 class="p-1 my-1">Progress:</h5>
@@ -114,13 +97,9 @@
         <% end %>
       </div>
     </div>
-
   </div>
-
-
       <div class="col-sm-12 col-lg-6 pe-0">
         <%= render 'tasks/partials/richtext_task' %>
       </div>
   </div>
-
 </div>
