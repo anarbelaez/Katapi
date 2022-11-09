@@ -22,9 +22,10 @@ class UsersController < ApplicationController
     @goals.each { |goal| dead_count += 1 if goal.dead? }
     @dead_count = dead_count
     @alive_count = @goals.count - dead_count
-    @alive_percentage = (@alive_count.fdiv(@goals.count) * 100).round if @goal.present?
-    @dead_percentage = (@dead_count.fdiv(@goals.count) * 100).round if @goal.present?
-
+    if @goals.present?
+      @alive_percentage = (@alive_count.fdiv(@goals.count) * 100).round
+      @dead_percentage = (@dead_count.fdiv(@goals.count) * 100).round
+    end
     @goal_information = @goals.map do |goal|
       {
         id: goal.id,
