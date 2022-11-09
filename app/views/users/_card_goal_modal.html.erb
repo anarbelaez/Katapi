@@ -1,7 +1,7 @@
 <div class="card border-0 rounded-4 notscale mb-2 bg-secondary border-2 border-bottom border-end border-primary">
   <div class="mx-0 card-body d-flex align-items-center justify-content-start py-1">
     <%#= image_tag "completed_tasks.svg", width: "75px", class: "me-3 my-1" %>
-    <img src="https://i.pinimg.com/736x/b9/5f/28/b95f288699b2dec39cc6e688a45e92df--arte-fractal-colour-wheel.jpg" class="card-img-left rounded-4 img-fluid me-3 my-1" style="width: 100px" alt="arbol">
+    <img src="<%= health_goal_image(goal.dead?, goal.maturity) %>" class="card-img-left rounded-4 img-fluid me-3 my-1" style="width: 100px" alt="arbol">
     <div class="">
       <h6 class="mb-2 fw-bold"><%= goal.name %></h6>
       <h6 class="mb-1 fs-07 opacity-75">Created at: <%= date_stylized(goal.created_at) %></h6>

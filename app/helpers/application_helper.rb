@@ -73,4 +73,42 @@ module ApplicationHelper
       "I am alive!"
     end
   end
+
+  def health_goal_image(status, maturity)
+    if status == false
+      if maturity == "baby"
+        "https://res.cloudinary.com/dknxl9ghi/image/upload/v1668017718/arbol_bebe_uab5p1.png"
+      elsif maturity == "young"
+        "https://res.cloudinary.com/dknxl9ghi/image/upload/v1668017718/arbol_young_bybm1s.png"
+      else
+        "https://res.cloudinary.com/dknxl9ghi/image/upload/v1668017721/arbol_adulto_grrhmj.png"
+      end
+    # else
+    #   if maturity == "baby"
+
+    #   elsif maturity == "young"
+
+    #   else
+
+    #   end
+    end
+  end
+
+  def health_goals_image_url
+    if current_user.tasks.present?
+      not_started_tasks = current_user.tasks.not_started.count.fdiv(current_user.tasks.count)
+      in_progress_tasks = current_user.tasks.in_progress.count.fdiv(current_user.tasks.count)
+      done_tasks = current_user.tasks.done.count.fdiv(current_user.tasks.count)
+
+      if not_started_tasks >= in_progress_tasks && not_started_tasks >= done_tasks
+        "https://res.cloudinary.com/dknxl9ghi/image/upload/v1668020023/purplebabytree_glfifh.png"
+      elsif in_progress_tasks >= done_tasks && in_progress_tasks >= not_started_tasks
+        "https://res.cloudinary.com/dknxl9ghi/image/upload/v1668020024/purpleyoungtree_oqzkg5.png"
+      else
+        "https://res.cloudinary.com/dknxl9ghi/image/upload/v1668020006/purpleadultree_fac9nn.png"
+      end
+    else
+      "https://res.cloudinary.com/dknxl9ghi/image/upload/v1668020344/landscapewithouttree_wadq0k.png"
+    end
+  end
 end

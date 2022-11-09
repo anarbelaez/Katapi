@@ -46,6 +46,10 @@ class User < ApplicationRecord
     tasks.not_done.where('due_date >= ?', Date.today)
   end
 
+  def last_updated_goals
+    goals.order(updated_at: :desc).first(3)
+  end
+
   def tasks_grouped_by_day
     upcoming_tasks.order(:due_date).group_by { |t| t.due_date.strftime("%e %B") }
   end
