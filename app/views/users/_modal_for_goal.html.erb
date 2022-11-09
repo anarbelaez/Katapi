@@ -8,7 +8,7 @@
 
 </style>
 
-<div class="modal-dialog modal-sm mx-auto" style="max-width: 360px" style="">
+<div class="modal-dialog modal-sm mx-auto" style="max-width: 22.2rem" style="">
   <div class="modal-content shadow-sm border-0 rounded-4">
     <div class="modal-header border-0 pb-1">
       <button type="button" class="btn-close fs-08" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -18,30 +18,29 @@
         <div class="row pt-1">
           <div class="col-12 d-flex flex-column">
             <div class="img rounded-4" style="background-image: url(https://i.pinimg.com/564x/f2/52/fa/f252fa96c51dd1cb0ac71f85858632db.jpg)"></div>
-            <h5 class="modal-title text-warning my-2 fw-bold" id="goalName"></h5>
-            <h6 class="fs-08 mb-3"><span class="text-bg-info rounded-4 px-2" id="goalCategory"></span></h6>
-            <h5 class="fs-08 fw-bold mb-3 text-muted">Due date: <span id="goalDate"></span></h5>
-            <h5 class="fs-08 fw-bold mb-3">Due date: <span id="goalURL" class="text-light"></span></h5>
-            <h6 class="fw-bold text-warning">Description</h6>
+            <h5 class="modal-title text-light my-2 fw-bold" id="goalName"></h5>
+            <h6 class="fs-08 mb-3"><span class="badge bg-primary text-dark rounded-pill px-2" id="goalCategory"></span></h6>
+            <h5 class="fs-08 mb-3 text-muted d-none">Due date: <span id="goalDate"></span></h5>
+            <h6 class="text-primary">Description</h6>
             <p class="fs-08" id="goalDescription"></p>
-            <h6 class="fw-bold mb-1 text-warning">Tasks</h6>
+            <h6 class="mb-1 text-primary">Tasks</h6>
             <div class="row mt-1 mb-3">
               <div class="col-4">
                 <div class="d-flex flex-column text-center">
-                  <p class="m-0 p-0 fs-4" id="taskCountNotStarted">-</p>
-                  <p class="m-0 p-0 fs-08">Not started</p>
+                  <p class="m-0 p-0 fs-4" id="taskCountNotStarted"></p>
+                  <p class="m-0 p-0 fs-07">Not started</p>
                 </div>
               </div>
               <div class="col-4">
                 <div class="d-flex flex-column text-center">
-                  <p class="m-0 p-0 fs-4" id="taskCountInProgress">-</p>
-                  <p class="m-0 p-0 fs-08">In progress</p>
+                  <p class="m-0 p-0 fs-4" id="taskCountInProgress"></p>
+                  <p class="m-0 p-0 fs-07">In progress</p>
                 </div>
               </div>
               <div class="col-4">
                 <div class="d-flex flex-column text-center">
-                  <p class="m-0 p-0 fs-4" id="taskCountCompleted">-</p>
-                  <p class="m-0 p-0 fs-08">Completed</p>
+                  <p class="m-0 p-0 fs-4" id="taskCountDone"></p>
+                  <p class="m-0 p-0 fs-07">Completed</p>
                 </div>
               </div>
             </div>
@@ -50,7 +49,7 @@
       </div>
     </div>
     <div class="modal-footer border-0 my-0 pt-0" id="">
-      <a id="goalLink" class="btn btn-warning bg-gradient col-6 mx-auto rounded-4 p-0"><span class="fs-08">See goal details</span></a>
+      <a id="goalLink" class="fw-bold btn btn-warning col-6 mx-auto rounded-4 p-0"><span class="fs-08">See goal details</span></a>
     </div>
   </div>
 </div>

@@ -17,17 +17,26 @@ export default class extends Controller {
     const goalCategory = goal.getAttribute('data-bs-goal-category')
     const goalDate = goal.getAttribute('data-bs-goal-date')
     const goalUrl = goal.getAttribute('data-bs-goal-url')
+    const tasksNotstarted = goal.getAttribute('data-bs-goal-tasks-nostarted')
+    const tasksInprogress = goal.getAttribute('data-bs-goal-tasks-inprogress')
+    const tasksDone = goal.getAttribute('data-bs-goal-tasks-done')
+    console.log(tasksDone, tasksInprogress)
     const goalNameM = modalGoal.querySelector('#goalName')
     const goalDescriptionM = modalGoal.querySelector('#goalDescription')
     const goalCategoryM = modalGoal.querySelector('#goalCategory')
     const goalDateM = modalGoal.querySelector('#goalDate')
-    // const goalURL = modalGoal.querySelector('#goalURL')
     const goalLink = modalGoal.querySelector('#goalLink')
+    const tasksNotstartedM = modalGoal.querySelector('#taskCountNotStarted')
+    const tasksInprogressM = modalGoal.querySelector('#taskCountInProgress')
+    const tasksDoneM = modalGoal.querySelector('#taskCountDone')
+
     goalNameM.textContent = `${ goalName }`
     goalDescriptionM.textContent = `${ goalDescription }`
     goalCategoryM.textContent = `${ goalCategory }`
     goalDateM.textContent = `${ goalDate }`
-    goalURL.textContent = `${ goalUrl }`
+    tasksNotstartedM.textContent = `${ tasksNotstarted }`
+    tasksInprogressM.textContent = `${ tasksInprogress }`
+    tasksDoneM.textContent = `${ tasksDone }`
     goalLink.href = goalUrl
   })
   }

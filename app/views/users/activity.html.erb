@@ -149,7 +149,9 @@
         <% @goals.last(3).each do |goal| %>
           <a href="" class="text-decoration-none link-light" data-bs-toggle="modal" data-bs-target="#modalGoal"
             data-bs-goal-name="<%= goal.name %>" data-bs-goal-description="<%= goal.description %>" data-bs-goal-category="<%= goal.category %>"
-            data-bs-goal-date="<%= goal.completion_date %>" data-bs-goal-url="<%= request.base_url %>/goals/<%= goal.id %>">
+            data-bs-goal-date="<%= goal.completion_date %>" data-bs-goal-tasks-nostarted="<%= goal.tasks.not_started.count %>"
+            data-bs-goal-tasks-inprogress="<%= goal.tasks.in_progress.count %>" data-bs-goal-tasks-done="<%= goal.tasks.done.count %>"
+            data-bs-goal-url="<%= request.base_url %>/goals/<%= goal.id %>">
             <%= render 'card_goal_modal', goal: goal %>
           </a>
           <div class="modal fade mt-5" id="modalGoal" tabindex="-1" aria-labelledby="modalGoalLabel" aria-hidden="true">
