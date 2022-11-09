@@ -83,14 +83,14 @@ module ApplicationHelper
       else
         "https://res.cloudinary.com/dknxl9ghi/image/upload/v1668017721/arbol_adulto_grrhmj.png"
       end
-    # else
-    #   if maturity == "baby"
-
-    #   elsif maturity == "young"
-
-    #   else
-
-    #   end
+    else
+      if maturity == "baby"
+        "https://res.cloudinary.com/dknxl9ghi/image/upload/v1668027465/dead_baby_tree_aul8ps.png"
+      elsif maturity == "young"
+        "https://res.cloudinary.com/dknxl9ghi/image/upload/v1668027465/dead_young_tree_ifk4fb.png"
+      else
+        "https://res.cloudinary.com/dknxl9ghi/image/upload/v1668027465/dead_adult_tree_xdbpyr.png"
+      end
     end
   end
 

@@ -54,11 +54,12 @@ function landscape(){
   } else {
     // Muerto
     gradientBegin = 0;
-    gradientEnd = 60;
-    mountain1 = 20;
-    mountain2 = 20;
-    celestial = 156;
-    grass = 25;
+    gradientEnd = [81,102,118];
+    mountain1 = [33,38,50];
+    mountain2 = [37,40,53];
+    mountain3 = [28,32,40];
+    celestial = [150, 150, 150];
+    grass = 0;
   }
 
   gradient(gradientBegin, gradientEnd);
@@ -95,7 +96,7 @@ function draw(){
       stroke(0,0,77)
     }
   } else {
-    stroke(0)
+    stroke(210)
   }
 
   strokeWeight(branchWeight);
