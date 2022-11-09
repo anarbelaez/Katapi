@@ -20,7 +20,9 @@ export default class extends Controller {
       customClass: {
         confirmButton: 'btn btn-danger me-2 rounded-pill',
         cancelButton: 'btn btn-success ms-2 rounded-pill',
-        popup: 'round-4 color-bg-sweet',
+        popup: 'round-4 bg-secondary',
+        title: 'text-light',
+        htmlContainer: 'text-light',
       },
       buttonsStyling: false
     })
