@@ -1,21 +1,21 @@
 <div class="col-12 px-2 d-flex justify-content-between">
-    <%= link_to task_path(task), class: "text-decoration-none col-10 me-1" do %>
-      <div class="card bg-body rounded-4 border-0 p-2 shadow-sm notscale" style="cursor: grab;">
-        <div class="p-1">
-          <p class="card-title text-light"><%= task.name %></p>
-          <h6 class="card-subtitle mt-2 text-primary fs-07"><i class="fa-regular fa-calendar"></i>  <%= task.due_date %></h6>
-      </div>
+  <%= link_to task_path(task), class: "text-decoration-none col-10 me-1" do %>
+    <div class="card bg-body rounded-4 border-0 p-2 shadow-sm notscale" style="cursor: grab;">
+      <div class="p-1">
+        <p class="card-title text-light"><%= task.name %></p>
+        <h6 class="card-subtitle mt-2 text-primary fs-07"><i class="fa-regular fa-calendar"></i>  <%= task.due_date %></h6>
     </div>
-    <% end %>
+  </div>
+  <% end %>
+  <div class="col-2 d-flex justify-content-center align-items-center">
+    <form action="<%=task.goal.id%>/<%=task.id%>/mark" method="POST">
+      <input type='hidden' name='_method' value='PATCH'/>
+      <% if task.not_started? %>
+        <button type='submit' onclick="location.reload()" class="btn btn-success p-2 rounded-circle ms-1"><i class="fa-solid fa-check"></i></button>
+      <% else %>
+        <button type='submit' onclick="location.reload()" class="btn btn-danger p-2 rounded-circle ms-1"><i class="fa-solid fa-x"></i></button>
+      <% end %>
+    </form>
+  </div>
 
-    <div class="col-2 d-flex justify-content-center align-items-center">
-      <form action="<%=task.goal.id%>/<%=task.id%>/mark" method="POST">
-        <input type='hidden' name='_method' value='PATCH'/>
-        <% if task.not_started? %>
-          <button type='submit' onclick="location.reload()" class="btn btn-success p-2 rounded-circle ms-1"><i class="fa-solid fa-check"></i></button>
-        <% else %>
-          <button type='submit' onclick="location.reload()" class="btn btn-danger p-2 rounded-circle ms-1"><i class="fa-solid fa-x"></i></button>
-        <% end %>
-      </form>
-    </div>
 </div>
