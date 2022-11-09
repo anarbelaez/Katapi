@@ -121,3 +121,12 @@ padding-top: 5px;
 
   .has-events {}
 }
+
+
+.task-btn {
+  .btn-success {
+    --bs-btn-hover-bg: #686de0;
+    --bs-btn-hover-color: whitesmoke;
+    border: none;
+}
+}
