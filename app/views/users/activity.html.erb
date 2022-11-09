@@ -200,18 +200,18 @@
 
 <% else %>
 
-<div class="row justify-content-center" style="height: 80vh">
+<div class="row" style="height: 80vh">
   <div class="col-12">
     <div class="notscale card border-0 bg-transparent" style="">
-      <div class="card-body border-0 bg-transparent d-flex align-items-center">
-      <div class="w-25">
-        <%= image_tag "https://cdn.dribbble.com/userupload/3223957/file/original-7d1a606fab9ae5ddeed8e62d0e6a034c.png?compress=1&resize=1200x861",
-          class: "img-fluid", style: "border-radius: 30% 70% 70% 30% / 54% 50% 50% 46%" %>
-      </div>
-          <div class="ms-4">
-            <h5 class="card-title fs-4">Hmmm... nothing to see here! </h5>
-            <p class="card-text text-end"><%= link_to "Why don't you create a new goal?", new_goal_path, class: "text-decoration-none link-warning fw-bold" %></p>
-          </div>
+      <div class="card-body border-0 bg-transparent d-flex align-items-center justify-content-center">
+        <div class="w-25">
+          <%= image_tag "nothing.svg",
+            class: "img-fluid bg-primary", style: "border-radius: 30% 70% 70% 30% / 54% 50% 50% 46%" %>
+        </div>
+        <div class="ms-4">
+          <h5 class="card-title fs-4">Hmmm... nothing to see here! </h5>
+          <p class="card-text text-end"><%= link_to "Why don't you create a new goal?", new_goal_path, class: "text-decoration-none link-warning fw-bold" %></p>
+        </div>
       </div>
     </div>
 

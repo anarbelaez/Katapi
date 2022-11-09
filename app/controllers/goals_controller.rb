@@ -23,7 +23,7 @@ class GoalsController < ApplicationController
     @doing = @goal.tasks.in_progress
     @done = @goal.tasks.done
 
-    time = (0..17).include?(Time.now.hour) ? "day" : "night"
+    time = (6..17).include?(Time.now.hour) ? "day" : "night"
     @goal_tree = {
       id: @goal.id,
       maturity: @goal.maturity,

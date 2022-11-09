@@ -63,4 +63,14 @@ module ApplicationHelper
   def percentage_done
     (current_user.done_tasks_fraction * 100).to_i || 0
   end
+
+  def health_goal(goal)
+    if goal.dead?
+      "Dead - RIP"
+    elsif goal.dying?
+      "Dying, in less than eight days I will die!"
+    else
+      "I am alive!"
+    end
+  end
 end
