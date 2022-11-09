@@ -24,6 +24,7 @@ class TasksController < ApplicationController
 
   def new
     @task = Task.new
+    redirect_to activity_path, alert: "Oh oh!, this tree is already dead!" if @goal.dead?
   end
 
   def create
