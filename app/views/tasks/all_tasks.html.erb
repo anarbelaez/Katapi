@@ -6,7 +6,7 @@
 </style>
 
 <%# Banner %>
-    <div class="col-12 mb-4 bg-body sticky-top">
+    <div class="col-12 mb-1 bg-body sticky-top">
 <!-- Button back -->
     <div class="back-btn mt-0">
       <%= link_to  :back do%>
@@ -14,11 +14,11 @@
       <% end %>
     </div>
 
-    <div class="d-flex align-items-end mx-4">
-      <%= image_tag "all-list-tasks.svg", class: "img-fluid", width: "140px" %>
+    <div class="d-flex align-items-end mx-4 mb-3">
+      <%= image_tag "all-list-tasks.svg", class: "img-fluid", width: "120px" %>
       <div class="ms-4">
         <h2 class="fw-bold">Tasks</h2>
-        <p class=""> Focus on your next task to do! Here you can find all your task, look at their status, due date and labels</p>
+        <p class="mb-0"> Focus on your next task to do! Here you can find all your task, look at their status, due date and labels</p>
       </div>
     </div>
   </div>
@@ -26,8 +26,8 @@
 <div class="row mx-4">
 
 
-  <div class="col-sm-12 col-lg-8 shadow-sm mx-auto my-auto bg-body rounded-5 bg-secondary">
-    <div class="row d-flex justify-content-between bg-secondary rounded-5 p-md-4">
+  <div class="col-sm-12 col-lg-8 shadow-sm mx-auto  bg-body rounded-5 bg-secondary">
+    <div class="row d-flex justify-content-between bg-secondary rounded-5 p-md-1">
       <%= form_with url: "", method: :get, data: {turbo_frame: "tasks", turbo_action: "advance"} do |form| %>
         <div class="row">
           <div class="col">
