@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <style>
   .rails-default-error-page {
-    background-color: #EFEFEF;
+    background-color: #1F1D2C;
     color: #2E2F30;
     text-align: center;
     font-family: arial, sans-serif;
@@ -23,7 +23,7 @@
     border-right-color: #999;
     border-left-color: #999;
     border-bottom-color: #BBB;
-    border-top: #B00100 solid 4px;
+    border-top: #5BE4A8 solid 4px;
     border-top-left-radius: 9px;
     border-top-right-radius: 9px;
     background-color: white;
@@ -32,36 +32,45 @@
   }
 
   .rails-default-error-page h1 {
-    font-size: 100%;
-    color: #730E15;
+    font-size: 25px;
+    color: #5BE4A8;
     line-height: 1.5em;
   }
 
-  .rails-default-error-page div.dialog > p {
-    margin: 0 0 1em;
-    padding: 1em;
-    background-color: #F7F7F7;
-    border: 1px solid #CCC;
-    border-right-color: #999;
-    border-left-color: #999;
-    border-bottom-color: #999;
-    border-bottom-left-radius: 4px;
-    border-bottom-right-radius: 4px;
-    border-top-color: #DADADA;
-    color: #666;
-    box-shadow: 0 3px 8px rgba(50, 50, 50, 0.17);
+  p {
+    color: #fff;
+  }
+  .margin1{
+    margin: 15px 0;
+  }
+  a{
+    text-decoration: none;
+    color: #5BE4A8;
+    font-size: 25px;
+  }
+  a:hover{
+    color: #fff;
+    text-decoration: underline;
+  }
+  img{
+    width: 500px;
+  }
+  body{
+    background: #000;
   }
   </style>
 </head>
 
 <body class="rails-default-error-page">
   <!-- This file lives in public/404.html -->
-  <div class="dialog">
-    <div>
-      <h1>The page you were looking for doesn't exist.</h1>
-      <p>You may have mistyped the address or the page may have moved.</p>
+        <h1>The page doesn't exist</h1>
+        <p>You may have mistyped the address or the page may have moved.</p>
+      
+      <div class="margin1">
+        <img src="https://img.freepik.com/free-vector/404-error-with-person-looking-concept-illustration_114360-7912.jpg?w=1800&t=st=1667965705~exp=1667966305~hmac=95bc2bae24e83ac9544bcd5a0fdca9c40ef7fcd8756802a0a823ac0cb9f56b28" alt="">
+      </div>
     </div>
-    <p>If you are the application owner check the logs for more information.</p>
+    <a href="#">Return of your dashboard</a>
   </div>
 </body>
 </html>
