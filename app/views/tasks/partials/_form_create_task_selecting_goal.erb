@@ -14,7 +14,7 @@
               <div class="col-1 my-auto mx-auto d-flex align-items-center">
                 <i class="fa-solid fa-list-check fs-3"></i>
               </div>
-              <div class="col-10 pb-2 text-white-smoke">
+              <div class="col-10 pb-2 text-light">
                 <h5>Task name</h5>
                 <%= f.input :name, input_html: {class:"border-0 rounded-4 p-3 bg-white"}, label:false, placeholder:"Enter task tittle..." %>
               </div>
@@ -26,7 +26,7 @@
                 <div class="col-1 my-auto mx-auto d-flex align-items-center">
                   <i class="bi bi-calendar-minus fs-3"></i>
                 </div>
-                <div class="col-10 pb-2  text-white-smoke">
+                <div class="col-10 pb-2  text-light">
                   <h5>Select a Due Date</h5>
                   <%= f.input :due_date, html5:true, input_html: {class:"border-0 rounded-4 bg-white nice-class"}, label:false, placeholder:false %>
                 </div>
@@ -38,7 +38,7 @@
                 <div class="col-1 my-auto mx-auto d-flex align-items-center">
                   <i class="bi bi-compass fs-4"></i>
                 </div>
-                <div class="col-10 pb-2  text-white-smoke">
+                <div class="col-10 pb-2  text-light">
                    <h5>Select a goal to add your task</h5>
                     <div>
                      <%= f.association :goal, prompt: "Choose a goal", label: false, error: 'Please select one option', input_html: {class:"border-0 rounded-4 bg-white"}%>
