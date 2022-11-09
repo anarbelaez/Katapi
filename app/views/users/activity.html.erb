@@ -7,7 +7,7 @@
 }
 </style>
 <% if @user.goals.present? %>
-<div class="row g-4">
+<div class="row g-4 mb-5">
   <div class="col-md-8 order-1 order-md-0">
     <h5 class="pb-2 mb-3 border-bottom">Goals summary</h5>
     <div class="row gx-3">
@@ -53,68 +53,84 @@
     </div>
 
 
-    <h5 class="pt-3 pb-2 mb-3 border-bottom">General activity</h5>
+    <h5 class="mt-3 pt-3 pb-2 mb-3 border-bottom">General activity</h5>
     <div class="row gx-3">
       <div class="col-4">
-        <div class="mx-0 card rounded-4 border-0 bg-secondary notscale bg-cover" style="height: 100%; background-image: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0)), url(https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/4b37e17d-1ebb-4caa-90c6-fabbb17caf51/df5k96c-d2c2009e-d9f7-4cd9-8b6d-61d0c4f23d93.png/v1/fill/w_946,h_797,q_80,strp/fractal_tree_in_the_fall_by_bucbowie_df5k96c-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9Nzk3IiwicGF0aCI6IlwvZlwvNGIzN2UxN2QtMWViYi00Y2FhLTkwYzYtZmFiYmIxN2NhZjUxXC9kZjVrOTZjLWQyYzIwMDllLWQ5ZjctNGNkOS04YjZkLTYxZDBjNGYyM2Q5My5wbmciLCJ3aWR0aCI6Ijw9OTQ2In1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmltYWdlLm9wZXJhdGlvbnMiXX0.qqKTKEMvpcEknE3b2bd46_IPbMoy_K6CTihADQH_ugM)">
+        <div class="mx-0 card rounded-4 border-0 bg-secondary notscale bg-cover" style="height: 100%; background-image: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0)), url(<%= health_goals_image_url%>)">
         </div>
       </div>
       <div class="mx-0 col-8">
         <div class="card notscale rounded-4 border-0 bg-secondary">
           <div class="card-body">
-            <div>
+            <div class="mb-3">
             <div class="pb-3 d-flex justify-content-between align-items-center">
-              <p class="m-0 fw-bold">Goals</p>
+              <p class="m-0 fw-bold fst-italic">Goals</p>
               <%= link_to "Add a new goal", new_goal_path, class: "bg-gradient badge bg-primary p-1 px-2 link-dark rounded-pill text-decoration-none" %>
             </div>
                 <div class="progress rounded-4 mb-2">
-                  <div class="progress-bar" role="progressbar" aria-label="Segment one" style="width: 15%" aria-valuenow="15" aria-valuemin="0" aria-valuemax="100"><span class="fw-bold fst-italic text-dark px-2">Alive trees</span></div>
-                  <div class="progress-bar bg-info" role="progressbar" aria-label="Segment two" style="width: 30%" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"><span class="fw-bold fst-italic text-dark px-2">Dying trees</span></div>
+                  <div class="progress-bar bg-success" role="progressbar" aria-label="Segment one" style="width: <%= @alive_percentage %>%" aria-valuenow="<%= @alive_percentage %>" aria-valuemin="0" aria-valuemax="100"><span class="fs-07 fw-bold fst-italic text-dark px-2"><%= @alive_percentage %>%</span></div>
+                  <div class="progress-bar bg-danger" role="progressbar" aria-label="Segment two" style="width: <%= @dead_percentage %>%" aria-valuenow="<%= @dead_percentage %>" aria-valuemin="0" aria-valuemax="100"><span class="fs-07 fw-bold fst-italic text-dark px-2"><%= @dead_percentage %>%</span></div>
+                </div>
+                <div class="d-flex justify-content-end align-items-center fs-07">
+                  <div class="circle me-2 bg-success"></div><span class="fst-italic">Alive trees percentage</span>
+                  <div class="circle ms-3 me-2 bg-danger"></div><span class="fst-italic">Dead trees percentage</span>
                 </div>
                 <div class="d-flex mt-3 mb-2">
                   <table class="table text-light fs-08 w-50">
                     <tbody>
                       <tr>
                         <td class="fst-italic fw-bold">• Alive trees</td>
-                        <td>56</td>
+                        <td><%= @alive_count %></td>
                       </tr>
                       <tr>
                         <td class="fst-italic fw-bold">• Dead trees</td>
-                        <td>78</td>
+                        <td><%= @dead_count %></td>
                       </tr>
                     </tbody>
                   </table>
-                  <div class="card border-end border-bottom border-primary border-2 notscale rounded-4 bg-body ms-3 w-50">
+                  <div class="card border-end border-bottom border-primary border-3 notscale rounded-4 bg-body ms-3 w-50">
                     <div class="card-body text-center fst-italic ">
-                      <span><%= message(74, 56)%></span>
+                      <span class=""><%= message(@alive_count, @dead_count)%></span>
                     </div>
                   </div>
                 </div>
             </div>
-            <div>
+            <hr class="bg-body border-2 border-top">
+            <div class="mt-3">
               <p class="m-0 fw-bold fst-italic">Tasks</p>
-                <div class="d-flex mt-2">
-                  <table class="table text-light fs-08 w-50">
+                <div class="d-flex justify-content-between">
+                <div class="col-6 pe-2">
+                  <table class="table text-light fs-08 mt-3">
                     <tbody>
                       <tr>
-                        <td class="fst-italic fw-bold">• No started</td>
+                        <td class="fst-italic fw-bold">• <span class="">Not started</span></td>
                         <td><%= @not_started_tasks %></td>
                       </tr>
                       <tr>
-                        <td class="fst-italic fw-bold">• In progress</td>
+                        <td class="fst-italic fw-bold">• <span class="">In progress</span></td>
                         <td><%= @in_progress_tasks %></td>
                       </tr>
                       <tr>
-                        <td class="fst-italic fw-bold">• Completed</td>
+                        <td class="fst-italic fw-bold">• <span class="">Completed</span></td>
                         <td><%= @done_tasks %></td>
                       </tr>
                     </tbody>
                   </table>
-                  <div class="card border-0 notscale rounded-4 bg-body ms-3 w-50">
-                    <div class="card-body fs-07">
-                      Soy un grafico!
+                  </div>
+                  <div class="col-6">
+                  <div class="card border-0 notscale rounded-4 bg-body ms-2">
+                    <div class="card-body fs-07 py-3">
+                      <p class="m-0 fs-08 fst-italic text-center mb-2">Number of tasks by status</p>
+                      <%= pie_chart current_user.tasks.group(:status).count, height: "50px", legend: false, library: {animation: {easing: 'easeOutQuad'}, elements: {arc: {borderWidth: 0}}}, colors: ["#ff7979", "#badc58","#7ed6df"], empty: "Oops you haven't any task to see here!" %>
+                      <div class="text-center fs-07 mt-2">
+                        <span class="badge bg-danger rounded-4 px-1 text-dark fst-italic fw-bold">Not started</span>
+                        <span class="badge bg-success rounded-4 px-1 text-dark fst-italic fw-bold">In progress</span>
+                        <span class="badge bg-primary rounded-4 px-1 text-dark fst-italic fw-bold">Completed</span>
+                      </div>
                     </div>
                   </div>
+                  </div>
+
                 </div>
             </div>
           </div>
@@ -124,25 +140,37 @@
 
 
     <%# Aqui se renderizan las goals %>
-    <div class="mt-4 pb-1 d-flex justify-content-between align-items-center border-bottom">
-      <h5 class="m-0 p-0">Goals</h5>
-      <%= link_to "All goals", goals_path, class: "text-decoration-none link-info fs-07" %>
+    <div class="mt-5 pb-1 d-flex justify-content-between align-items-center border-bottom">
+      <h5 class="m-0 p-0">Last updated goals</h5>
     </div>
 
-
-    <%# Carousel %>
-    <div class="row">
-      <div class="main-carousel bg-body" data-flickity='{ "draggable": false, "cellAlign": "left", "contain": true, "freeScroll": false, "wrapAround": true, "pageDots": false }'>
-        <% @goals.each do |goal| %>
-          <div class="carousel-cell col-5 col-lg-3 me-3">
-            <%= render "card_goal_board", goal: goal %>
+    <div class="row mt-3 gx-3">
+      <div class="col-8 rounded-4" data-controller="goal-modal">
+        <% @last_updated_goals.each do |goal| %>
+          <a href="" class="text-decoration-none link-light" data-bs-toggle="modal" data-bs-target="#modalGoal"
+            data-bs-goal-name="<%= goal.name %>" data-bs-goal-maturity="<%= goal.maturity %>" data-bs-goal-description="<%= goal.description %>" data-bs-goal-category="<%= goal.category %>"
+            data-bs-goal-date="<%= goal.completion_date %>" data-bs-goal-status="<%= goal.dead? %>" data-bs-goal-tasks-nostarted="<%= goal.tasks.not_started.count %>"
+            data-bs-goal-tasks-inprogress="<%= goal.tasks.in_progress.count %>" data-bs-goal-tasks-done="<%= goal.tasks.done.count %>"
+            data-bs-goal-url="<%= request.base_url %>/goals/<%= goal.id %>">
+            <%= render 'card_goal_modal', goal: goal %>
+          </a>
+          <div class="modal fade mt-5" id="modalGoal" tabindex="-1" aria-labelledby="modalGoalLabel" aria-hidden="true">
+            <%= render "modal_for_goal" %>
           </div>
         <% end %>
-        <div class="carousel-cell col-5 col-md-3 me-3">
-          <%= render "ghost_card" %>
+      </div>
+      <div class="col-4">
+        <div class="p-3 bg-secondary d-flex flex-column align-items-center justify-content-center rounded-4" style="height: 98%">
+          <%= image_tag "explore_tree2.svg", width: "150px" %>
+          <div class="mt-4">
+            <span class="fw-bold">Let's explore your trees</span>
+            <p class="fs-08 fst-italic my-2">See the forest created by you!</p>
+          </div>
+          <%= link_to "See all goals", goals_path, class: "mt-2 badge bg-primary text-decoration-none link-dark rounded-pill fs-08" %>
         </div>
       </div>
     </div>
+
   </div>
 
   <div class="col-md-4 order-0 order-md-1">
@@ -166,22 +194,24 @@
       </div>
     </div>
   </div>
+
+
 </div>
 
 <% else %>
 
-<div class="row justify-content-center" style="height: 80vh">
+<div class="row" style="height: 80vh">
   <div class="col-12">
     <div class="notscale card border-0 bg-transparent" style="">
-      <div class="card-body border-0 bg-transparent d-flex align-items-center">
-      <div class="w-25">
-        <%= image_tag "https://cdn.dribbble.com/userupload/3223957/file/original-7d1a606fab9ae5ddeed8e62d0e6a034c.png?compress=1&resize=1200x861",
-          class: "img-fluid", style: "border-radius: 30% 70% 70% 30% / 54% 50% 50% 46%" %>
-      </div>
-          <div class="ms-4">
-            <h5 class="card-title fs-4">Hmmm... nothing to see here! </h5>
-            <p class="card-text text-end"><%= link_to "Why don't you create a new goal?", new_goal_path, class: "text-decoration-none link-warning fw-bold" %></p>
-          </div>
+      <div class="card-body border-0 bg-transparent d-flex align-items-center justify-content-center">
+        <div class="w-25">
+          <%= image_tag "nothing.svg",
+            class: "img-fluid bg-primary", style: "border-radius: 30% 70% 70% 30% / 54% 50% 50% 46%" %>
+        </div>
+        <div class="ms-4">
+          <h5 class="card-title fs-4">Hmmm... nothing to see here! </h5>
+          <p class="card-text text-end"><%= link_to "Why don't you create a new goal?", new_goal_path, class: "text-decoration-none link-warning fw-bold" %></p>
+        </div>
       </div>
     </div>
 
