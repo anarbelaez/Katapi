@@ -77,6 +77,16 @@ class TasksController < ApplicationController
     %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
   end
 
+  def done_task
+    task = Task.find(params[:task_id])
+    if task.done?
+      task.not_started!
+    else
+      task.done!
+    end
+    redirect_to goal_path(task.goal_id)
+  end
+
   # Metodos privados
   private
 
@@ -101,4 +111,5 @@ class TasksController < ApplicationController
     set_goal
     redirect_to activity_path, alert: "You don't have permission to access this page" unless current_user == @goal.user
   end
+
 end

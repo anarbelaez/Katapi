@@ -10,7 +10,7 @@ class Task < ApplicationRecord
 
   pg_search_scope :search, against: %i[name description priority difficulty], using: { tsearch: { prefix: true } }
 
-  validates :name, :status, :priority, :difficulty, :goal, presence: true
+  validates :name, :status, :priority, :difficulty, :goal, :due_date, presence: true
   validates :name, length: { minimum: 5 }
   validates :description, length: { maximum: 200 }
 

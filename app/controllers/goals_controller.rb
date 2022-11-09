@@ -98,4 +98,7 @@ class GoalsController < ApplicationController
     set_goal
     redirect_to activity_path, alert: "You don't have permission to access this page" unless current_user == @goal.user
   end
+
+
+
 end

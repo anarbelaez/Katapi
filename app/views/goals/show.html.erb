@@ -72,6 +72,10 @@
         </div>
         <hr>
       </div>
+      <hr>
+    </div>
+
+    <%= render 'goals/partials/tasks_render_mobile', tasks: @goal.tasks %>
     <%= render 'tasks/partials/board_task_cards' %>
     <% else %>
       <div class="row">
@@ -111,5 +115,4 @@
       </div>
     </div>
   </div>
-
 </div>

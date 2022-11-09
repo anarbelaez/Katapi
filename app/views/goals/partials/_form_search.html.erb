@@ -1,7 +1,13 @@
 <%= form_with(url: goals_path, method: :get, data: {controller: "search-form", turbo_frame: "goals", turbo_action: "advance"}) do |form| %>
-  <%= form.label :query, "Search goals:", class: "mb-3 fs-5" %>
-  <div class="flex space-x-3">
-    <%= form.text_field :query, class: "rounded-pill p-1 border-0 mb-2 px-5", data: {action: "input->search-form#search"} %>
-    <%= form.submit 'Search', class: "rounded-pill bg-primary border-0 m-1 p-1" %>
+  <%= form.label :query, "Search goals:", class: "mb-3 fs-4" %>
+  <div class="row">
+  <div class="col-12 d-flex justify-content-between">
+    <div class="flex space-x-3">
+      <%= form.text_field :query, class: "rounded-pill p-1 border-0 mb-2 px-5 py-2", data: {action: "input->search-form#search"} %>
+      <%= form.submit 'Search', class: "rounded-pill bg-primary border-0 m-1 px-3 py-2" %>
+    </div>
+    <%= link_to "New Goal +", new_goal_path, class: "btn btn-primary rounded-pill m-1 px-3 py-2" %>
   </div>
+  </div>
+
 <% end %>

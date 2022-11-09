@@ -1,6 +1,6 @@
 import Swal from 'sweetalert2'
 import { Controller } from "@hotwired/stimulus"
-// import 'animate.css';
+
 // Connects to data-controller="sweetalert"
 export default class extends Controller {
   static values = { title: String }
@@ -20,13 +20,15 @@ export default class extends Controller {
       customClass: {
         confirmButton: 'btn btn-danger me-2 rounded-pill',
         cancelButton: 'btn btn-success ms-2 rounded-pill',
-        popup: 'round-4 color-bg-sweet',
+        popup: 'round-4 bg-secondary',
+        title: 'text-light',
+        htmlContainer: 'text-light',
       },
       buttonsStyling: false
     })
 
     swalWithBootstrapButtons.fire({
-      imageUrl: 'https://i.gifer.com/origin/6e/6e9883667103218ba64b5739f5b10b5f.gif',
+      icon: 'warning',
       title: "Are you sure of delete" + " " + this.titleValue + "?",
       text: "You won't be able to revert this!",
       showCancelButton: true,
