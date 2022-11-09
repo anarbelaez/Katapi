@@ -65,16 +65,12 @@
     <% unless @goal.dead? %>
       <div class="pt-3 px-3">
         <div class="d-flex align-items-center">
-            <h4 class="m-0 me-3 ps-1">Tasks</h4>
-            <%= link_to new_goal_task_path(@goal) do %>
-              <i class="fa-solid fa-circle-plus fs-5"></i>
-            <% end %>
+          <h4 class="m-0 me-3 ps-1">Tasks</h4>
+          <%= link_to new_goal_task_path(@goal) do %>
+            <i class="fa-solid fa-circle-plus fs-5"></i>
+          <% end %>
         </div>
-        <hr>
       </div>
-      <hr>
-    </div>
-
     <%= render 'goals/partials/tasks_render_mobile', tasks: @goal.tasks %>
     <%= render 'tasks/partials/board_task_cards' %>
     <% else %>
