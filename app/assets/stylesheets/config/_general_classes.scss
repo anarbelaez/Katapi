@@ -108,3 +108,9 @@ table.dataTable.display>tbody>tr.odd>.sorting_1, table.dataTable.order-column.st
     display: none;
   }
 }
+.back-btn{
+  transition: transform 0.5s;
+}
+.back-btn:hover{
+  transform: scale(1.010);
+}
