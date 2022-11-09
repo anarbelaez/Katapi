@@ -1,0 +1,69 @@
+    <div class="row gx-2">
+      <% @goals.each do |goal| %>
+        <div class="col-6 col-sm-3">
+          <div class="d-flex align-items-stretch">
+            <a href="" class="text-decoration-none link-dark" data-bs-toggle="modal" data-bs-target="#modalGoal"
+              data-bs-goal-name="<%= goal.name %>" data-bs-goal-description="<%= goal.description %>" data-bs-goal-category="<%= goal.category %>"
+              data-bs-goal-date="<%= goal.completion_date %>" data-bs-goal-url="<%= request.base_url %>/goals/<%= goal.id %>">
+              <%= render "card_goal_board", goal: goal %>
+            </a>
+            <div class="modal fade mt-5" id="modalGoal" tabindex="-1" aria-labelledby="modalGoalLabel" aria-hidden="true">
+              <%= render "modal_for_goal", goal: goal %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+
+
+    <%# Carousel %>
+    <div id="carouselCards" class="carousel slide" data-controller="carousel-cards" data-bs-interval="false" data-ride="carousel" data-pause="hover">
+
+      <div class="carousel-inner p-1">
+
+        <% i = 0 %>
+        <%#= Iteramos sobre listas de maximo 6 elementos %>
+        <% @goals.last(11).each_slice(4) do |sublist| %>
+        <%# Se crea un item del carousel con estos elementos %>
+          <div class="carousel-card carousel-item" data-carousel-cards-target="item">
+              <div class="row g-3">
+
+              <%# Presentamos el objeto en forma de card %>
+                <% sublist.each do |object| %>
+                  <div class="col-6 col-md-3">
+                  <a href="" class="text-decoration-none link-dark" data-bs-toggle="modal" data-bs-target="#modalGoal"
+                  data-bs-goal-name="<%= object.name %>" data-bs-goal-description="<%= object.description %>" data-bs-goal-category="<%= object.category %>"
+                  data-bs-goal-date="<%= object.completion_date %>" data-bs-goal-url="/goals/<%= object.id %>">
+                  <%= render "card_goal_board", goal: object %>
+                </a>
+                <div class="modal fade mt-5" id="modalGoal" tabindex="-1" aria-labelledby="modalGoalLabel" aria-hidden="true">
+                  <%= render "modal_for_goal", goal: object %>
+                </div>
+                    <% i += 1 %>
+                  </div>
+
+                  <%# Si existen mas de 11 objetos entonces mostramos una ghost card "Ver mas" %>
+                  <% if i == 11 %>
+                  <div class="col-6 col-md-2">
+                    <%= render "ghost_card"%>
+                  </div>
+                  <% end %>
+                <% end %>
+              </div>
+          </div>
+        <% end %>
+
+      </div>
+
+      <%# Si se muestran mas de 6 elementos entonces los controles del carousel son visibles %>
+      <% unless @goals.size <= 6 %>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselCards" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon " aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselCards" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      <% end %>
+    </div>

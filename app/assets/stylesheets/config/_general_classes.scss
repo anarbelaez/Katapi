@@ -103,6 +103,17 @@ table.dataTable.display>tbody>tr.odd>.sorting_1, table.dataTable.order-column.st
 .round-4{
   border-radius: 20px !important;
 }
+.circle{
+  width: 12px;
+  height: 12px;
+  -webkit-border-radius: 25px;
+  -moz-border-radius: 25px;
+  border-radius: 25px;
+}
+.carousel-control-prev, .carousel-control-next {
+  width: 10% !important;
+  color: #fdfdfd;
+}
 @media (max-width: 576px) {
   .flickity-prev-next-button {
     display: none;

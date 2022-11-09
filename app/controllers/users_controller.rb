@@ -24,6 +24,20 @@ class UsersController < ApplicationController
     @alive_count = @goals.count - dead_count
     @alive_percentage = (@alive_count.fdiv(@goals.count) * 100).round
     @dead_percentage = (@dead_count.fdiv(@goals.count) * 100).round
+
+    @goal_information = @goals.map do |goal|
+      {
+        id: goal.id,
+        name: goal.name,
+        description: goal.description,
+        category: goal.category,
+        date: goal.completion_date
+      }
+    end
+  end
+
+  def show
+    @user = current_user
   end
 
   # def send_notification
@@ -33,8 +47,4 @@ class UsersController < ApplicationController
   #     end
   #   end
   # end
-
-  def show
-    @user = current_user
-  end
 end
