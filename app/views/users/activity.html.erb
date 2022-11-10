@@ -56,7 +56,7 @@
     <h5 class="mt-3 pt-3 pb-2 mb-3 border-bottom">General activity</h5>
     <div class="row gx-3">
       <div class="col-4">
-        <div class="mx-0 card rounded-4 border-0 bg-secondary notscale bg-cover" style="height: 100%; background-image: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0)), url(https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/4b37e17d-1ebb-4caa-90c6-fabbb17caf51/df5k96c-d2c2009e-d9f7-4cd9-8b6d-61d0c4f23d93.png/v1/fill/w_946,h_797,q_80,strp/fractal_tree_in_the_fall_by_bucbowie_df5k96c-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9Nzk3IiwicGF0aCI6IlwvZlwvNGIzN2UxN2QtMWViYi00Y2FhLTkwYzYtZmFiYmIxN2NhZjUxXC9kZjVrOTZjLWQyYzIwMDllLWQ5ZjctNGNkOS04YjZkLTYxZDBjNGYyM2Q5My5wbmciLCJ3aWR0aCI6Ijw9OTQ2In1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmltYWdlLm9wZXJhdGlvbnMiXX0.qqKTKEMvpcEknE3b2bd46_IPbMoy_K6CTihADQH_ugM)">
+        <div class="mx-0 card rounded-4 border-0 bg-secondary notscale bg-cover" style="height: 100%; background-image: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0)), url(<%= health_goals_image_url%>)">
         </div>
       </div>
       <div class="mx-0 col-8">
@@ -146,10 +146,10 @@
 
     <div class="row mt-3 gx-3">
       <div class="col-8 rounded-4" data-controller="goal-modal">
-        <% @goals.last(3).each do |goal| %>
+        <% @last_updated_goals.each do |goal| %>
           <a href="" class="text-decoration-none link-light" data-bs-toggle="modal" data-bs-target="#modalGoal"
-            data-bs-goal-name="<%= goal.name %>" data-bs-goal-description="<%= goal.description %>" data-bs-goal-category="<%= goal.category %>"
-            data-bs-goal-date="<%= goal.completion_date %>" data-bs-goal-tasks-nostarted="<%= goal.tasks.not_started.count %>"
+            data-bs-goal-name="<%= goal.name %>" data-bs-goal-maturity="<%= goal.maturity %>" data-bs-goal-description="<%= goal.description %>" data-bs-goal-category="<%= goal.category %>"
+            data-bs-goal-date="<%= goal.completion_date %>" data-bs-goal-status="<%= goal.dead? %>" data-bs-goal-tasks-nostarted="<%= goal.tasks.not_started.count %>"
             data-bs-goal-tasks-inprogress="<%= goal.tasks.in_progress.count %>" data-bs-goal-tasks-done="<%= goal.tasks.done.count %>"
             data-bs-goal-url="<%= request.base_url %>/goals/<%= goal.id %>">
             <%= render 'card_goal_modal', goal: goal %>

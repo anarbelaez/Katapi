@@ -1,72 +1,23 @@
 <style>
-  .category-wrapper {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
+ .form-select {
+  display: block;
+  width: 90%;
+  background-image: none;
   }
-
-  .category-item {
-    flex: 0 0 30%;
-  }
-
-  .category-selector {
-    position: absolute;
-    transform: scale(0);
-  }
-
-  .category-selector + label {
-    display: block;
-    cursor: pointer;
-    box-sizing: border-box;
-    width: 100%;
-    font-size: 12px;
-    text-align: center;
-    padding: 2px 2px 2px 2px;
-    /* border: 1px solid #EAEAEA; */
-    border-radius: 12px;
-    background-color: #262638;
-  }
-
-  .category-selector:checked + label {
-    background-color: #badc58;
-    color: #1F1D2C !important;
-  }
+</style>
 
 
-  #snippet_category_ruby + label {
-    color: #FD1015;
-  }
-
-  #snippet_category_ruby:checked + label {
-    background-color: #FD1015;
-    border-color: #FD1015;
-  }
-
-
-  #snippet_category_javascript + label {
-    color: #FFC65A;
-  }
-
-  #snippet_category_javascript:checked + label {
-    background-color: #FFC65A;
-    border-color: #FFC65A;
-  }
-
-
-  #snippet_category_css + label {
-    color: #62DDF5;
-  }
-
-  #snippet_category_css:checked + label {
-    background-color: #62DDF5;
-    border-color: #62DDF5;
-  }
-  </style>
-
-  <div class="row justify-content-center">
+ <div class="row justify-content-center">
     <div class="col-sm-12 col-md-8">
 
       <div class="row justify-content-center mx-auto bg-secondary p-4 rounded-5">
+
+<!-- Button back -->
+    <div class="back-btn">
+      <%= link_to  :back do%>
+          <i class="fa-solid fa-circle-arrow-left fs-5" class="back-btn rounded-4" data-bs-toggle="tooltip" data-bs-placement="top" title="Go Back"></i>
+      <% end %>
+    </div>
 
           <div class="d-flex justify-content-center">
           <% if @task.name.nil? %>
@@ -93,7 +44,7 @@
       <!-- Inicio cuadricula -->
               <div class="row row-cols-sm-1  row-cols-lg-3">
 
-                <div class="col-sm-1">
+                <div class="col-sm-12">
                   <div class="row p-1 rounded-5 g-2 mb-3 text-white-smoke bg-body">
                     <div class="col-1 my-auto mx-auto d-flex align-items-center text-primary">
                       <i class="fa-solid fa-circle-exclamation fs-4"></i>
@@ -113,7 +64,7 @@
                   </div>
                 </div>
 
-                <div class="col-sm-1">
+                <div class="col-sm-12">
                   <div class="row p-1 rounded-5 g-2 mb-3 text-white-smoke bg-body">
                     <div class="col-1 my-auto mx-auto d-flex align-items-center text-primary">
                       <i class="fa-solid fa-tag fs-4"></i>
@@ -141,7 +92,7 @@
                     <div class="col-10 p-2">
                     <h5>Due Date</h5>
                         <div>
-                         <%= f.input :due_date, html5:true, input_html: {class:"border-0 rounded-4 bg-secondary text-info"}, label: false, placeholder:false%>
+                         <%= f.input :due_date, html5:true, input_html: {class:"border-0 rounded-4 bg-white text-info px-2"}, label: false, placeholder:false%>
                         </div>
                     </div>
                   </div>
@@ -149,8 +100,8 @@
               </div>
         <!-- Fin cuadricula collapse -->
 
-            <div class="row col-12 mb-3 shadow-md">
-              <%= f.input :description, input_html: {class:"border-1 rounded-4 text-white"}, size: "60x4", label: "Description", placeholder: "  Add a more detailed description..." %>
+            <div class="row col-12 mb-3 shadow-md m-0">
+              <%= f.input :description, input_html: {class:"border-1 rounded-4 text-white m-0"}, size: "60x4", label: "Description", placeholder: "  Add a more detailed description..." %>
             </div>
 
 

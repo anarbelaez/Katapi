@@ -1,1 +1,20 @@
+<%# Banner %>
+  <div class="col-12 mb-2 bg-body sticky-top pb-4">
+<!-- Button back -->
+    <div class="back-btn">
+      <%= link_to  :back do%>
+          <i class="fa-solid fa-circle-arrow-left fs-5" class="back-btn rounded-4" data-bs-toggle="tooltip" data-bs-placement="top" title="Go Back"></i>
+      <% end %>
+    </div>
+
+    <div class="d-flex align-items-end mx-4">
+      <%= image_tag "calendar-title.svg", class: "img-fluid", width: "110px" %>
+      <div class="ms-4">
+        <h2 class="fw-bold">Task Calendar</h2>
+        <p class=""> Stay up to date! check your tasks on the calendar and improve time management </p>
+      </div>
+    </div>
+  </div>
+
+
 <%= render 'tasks/partials/calendar_index' %>

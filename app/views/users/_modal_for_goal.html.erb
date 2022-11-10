@@ -1,9 +1,8 @@
 <style>
   .img {
-    background-size: cover;
-    background-position: center;
     height: 120px;
     max-height: 120px;
+    object-fit: contain;
   }
 
 </style>
@@ -17,9 +16,11 @@
       <div class="container-fluid">
         <div class="row pt-1">
           <div class="col-12 d-flex flex-column">
-            <div class="img rounded-4" style="background-image: url(https://i.pinimg.com/564x/f2/52/fa/f252fa96c51dd1cb0ac71f85858632db.jpg)"></div>
-            <h5 class="modal-title text-light my-2 fw-bold" id="goalName"></h5>
-            <h6 class="fs-08 mb-3"><span class="badge bg-primary text-dark rounded-pill px-2" id="goalCategory"></span></h6>
+            <div class="text-center">
+              <img id="goalImage" class="img rounded-4" src="">
+            </div>
+            <h5 class="modal-title text-light mt-3 text-center my-2 fw-bold" id="goalName"></h5>
+            <h6 class="fs-08 mb-3 text-center"><span class="badge bg-primary text-dark rounded-pill px-2" id="goalCategory"></span></h6>
             <h5 class="fs-08 mb-3 text-muted d-none">Due date: <span id="goalDate"></span></h5>
             <h6 class="text-primary">Description</h6>
             <p class="fs-08" id="goalDescription"></p>

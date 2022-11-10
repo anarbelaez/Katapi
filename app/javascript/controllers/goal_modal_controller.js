@@ -15,12 +15,13 @@ export default class extends Controller {
     const goalName = goal.getAttribute('data-bs-goal-name')
     const goalDescription = goal.getAttribute('data-bs-goal-description')
     const goalCategory = goal.getAttribute('data-bs-goal-category')
+    const goalMaturity = goal.getAttribute('data-bs-goal-maturity')
     const goalDate = goal.getAttribute('data-bs-goal-date')
     const goalUrl = goal.getAttribute('data-bs-goal-url')
     const tasksNotstarted = goal.getAttribute('data-bs-goal-tasks-nostarted')
     const tasksInprogress = goal.getAttribute('data-bs-goal-tasks-inprogress')
     const tasksDone = goal.getAttribute('data-bs-goal-tasks-done')
-    console.log(tasksDone, tasksInprogress)
+    const goalStatus = goal.getAttribute('data-bs-goal-status')
     const goalNameM = modalGoal.querySelector('#goalName')
     const goalDescriptionM = modalGoal.querySelector('#goalDescription')
     const goalCategoryM = modalGoal.querySelector('#goalCategory')
@@ -29,6 +30,7 @@ export default class extends Controller {
     const tasksNotstartedM = modalGoal.querySelector('#taskCountNotStarted')
     const tasksInprogressM = modalGoal.querySelector('#taskCountInProgress')
     const tasksDoneM = modalGoal.querySelector('#taskCountDone')
+    const goalImage = modalGoal.querySelector('#goalImage')
 
     goalNameM.textContent = `${ goalName }`
     goalDescriptionM.textContent = `${ goalDescription }`
@@ -38,6 +40,25 @@ export default class extends Controller {
     tasksInprogressM.textContent = `${ tasksInprogress }`
     tasksDoneM.textContent = `${ tasksDone }`
     goalLink.href = goalUrl
+
+    if (goalStatus === "false") {
+      if (goalMaturity === "baby") {
+        goalImage.src = "https://res.cloudinary.com/dknxl9ghi/image/upload/v1668017718/arbol_bebe_uab5p1.png"
+      } else if (goalMaturity === "young") {
+        goalImage.src = "https://res.cloudinary.com/dknxl9ghi/image/upload/v1668017718/arbol_young_bybm1s.png"
+      } else {
+        goalImage.src = "https://res.cloudinary.com/dknxl9ghi/image/upload/v1668017721/arbol_adulto_grrhmj.png"
+      }
+    } else {
+      if (goalMaturity === "baby") {
+        goalImage.src = "https://res.cloudinary.com/dknxl9ghi/image/upload/v1668027465/dead_baby_tree_aul8ps.png"
+      } else if (goalMaturity === "young") {
+        goalImage.src = "https://res.cloudinary.com/dknxl9ghi/image/upload/v1668027465/dead_young_tree_ifk4fb.png"
+      } else {
+        goalImage.src = "https://res.cloudinary.com/dknxl9ghi/image/upload/v1668027465/dead_adult_tree_xdbpyr.png"
+      }
+    }
+
   })
   }
 }

@@ -1,16 +1,14 @@
-<div class="row bg-secondary rounded-4 shadow-1 mx-4 p-2">
-  <div class="row d-md-block rounded-4 index-calendar">
+<div class="row bg-secondary rounded-4 shadow-1 mx-4 p-2 mb-5 pb-5">
+  <div class="row d-md-block rounded-4 index-calendar task-btn">
     <%= month_calendar events: @tasks do |date, tasks| %>
     <div class="d-flex justify-content-end">
     <strong> <%= date.day %> </strong>
       </div>
         <% tasks.each do |task| %>
-          <div class="bg-success mb-1 rounded-4 col-12 shadow-sm">
-            <%= link_to task, class:"btn btn-white btn-sm" do %>
+            <%= link_to task, class:"btn btn-success btn-hover-red col-12 rounded-4 mb-1 shadow-sm" do %>
           <i class="bi bi-calendar4-event d-md-none"></i>
-          <p class="d-none d-md-block mb-0 my-0" > <%= "#{title_stylized(task.name)}"%> </p>
-            <% end %>
-          </div>
+          <p class="d-none d-md-block mb-0 my-0 fs-07" ><%= "• #{title_stylized(task.name)}"%> </p>
+        <% end %>
       <% end %>
     <% end %>
   </div>

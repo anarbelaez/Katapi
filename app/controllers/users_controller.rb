@@ -14,10 +14,11 @@ class UsersController < ApplicationController
     @adult_percentage = (@user.adult_goals_fraction * 100).round
 
     # Tasks counts
-    @not_started_tasks = current_user.tasks.not_started.count
-    @in_progress_tasks = current_user.tasks.in_progress.count
-    @done_tasks = current_user.tasks.done.count
+    @not_started_tasks = @user.tasks.not_started.count
+    @in_progress_tasks = @user.tasks.in_progress.count
+    @done_tasks = @user.tasks.done.count
 
+    @last_updated_goals = @user.last_updated_goals
     dead_count = 0
     @goals.each { |goal| dead_count += 1 if goal.dead? }
     @dead_count = dead_count
