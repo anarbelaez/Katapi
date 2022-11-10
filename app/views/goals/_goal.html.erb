@@ -1,7 +1,7 @@
 <div class="my-1 col-6 col-md-3" id="<%= dom_id goal %>">
  <%= link_to goal_path(goal), class:"text-decoration-none text-dark active" do %>
-  <div class="card bg-secondary my-2 rounded-4 border-0 shadow-sm">
-    <img src="https://i.pinimg.com/564x/f2/52/fa/f252fa96c51dd1cb0ac71f85858632db.jpg" class="card-img-top rounded-bottom rounded-4 " alt="arbol">
+  <div class="card bg-secondary my-2 rounded-4 border-0 shadow-sm notscale border-end border-bottom border-primary border-1">
+    <img src="<%= health_goal_image(goal.dead?, goal.maturity) %>" class="card-img-top rounded-bottom rounded-4 " alt="arbol">
     <div class="card-body text-light">
       <h5 class="card-title fs-6"><%= title_stylized(goal.name).capitalize %></h5>
       <h6 class="card-text text-muted fs-08 my-1"><span class="badge fs-09 text-bg-primary rounded-pill"><%= goal.category.capitalize %></span></h6>
