@@ -6,10 +6,10 @@
 </style>
 
 <%# Banner %>
-    <div class="col-12 mb-1 bg-body sticky-top">
+    <div class="col-12 mb-1 bg-body sticky-top pb-3">
 <!-- Button back -->
     <div class="back-btn mt-0">
-      <%= link_to  :back do%>
+      <%= link_to :back do%>
           <i class="fa-solid fa-circle-arrow-left fs-5" class="back-btn rounded-4" data-bs-toggle="tooltip" data-bs-placement="top" title="Go Back"></i>
       <% end %>
     </div>
@@ -23,15 +23,13 @@
     </div>
   </div>
 
-<div class="row mx-4">
-
-
-  <div class="col-sm-12 col-lg-8 shadow-sm mx-auto  bg-body rounded-5 bg-secondary">
-    <div class="row d-flex justify-content-between bg-secondary rounded-5 p-md-1">
+<div class="row mx-4 pb-5 mb-5">
+  <div class="col-sm-12 col-lg-8 mx-auto rounded-4 bg-secondary">
+    <div class="row d-flex justify-content-between bg-secondary rounded-4 p-md-1 mt-4">
       <%= form_with url: "", method: :get, data: {turbo_frame: "tasks", turbo_action: "advance"} do |form| %>
         <div class="row">
           <div class="col">
-            <i class="fa-solid fa-magnifying-glass"></i> <%= form.search_field :query, value: params[:query], oninput: "this.form.requestSubmit()", placeholder: "Search a task...", class:"shadow-sm p-1 px-2 rounded-pill" %>
+            <i class="fa-solid fa-magnifying-glass me-2"></i> <%= form.search_field :query, value: params[:query], oninput: "this.form.requestSubmit()", placeholder: "Search a task...", class:"border-end border-bottom border-primary border-2 bg-body text-light shadow-sm p-1 px-2 rounded-pill" %>
           </div>
           <div class="col d-flex justify-content-end">
             <p> Show <%= form.select :count, options_for_select([10, 25, 50, 100], class:"rounded-pill", selected: params[:count]), {}, { onchange: "this.form.requestSubmit()"} %> entries </p>
@@ -39,7 +37,7 @@
         </div>
       <% end%>
       <%= turbo_frame_tag "tasks" do %>
-        <div class="table">
+        <div class="table mt-3">
           <div class="table-header-group d-flex">
             <%= sort_link_to "Name", ":name", class: "table-cell text-decoration-none", style:"width: 120%;", data: { turbo_action: "advance" } %>
             <%= sort_link_to "Priority", ":priority", class: "table-cell text-decoration-none", style:"width: 60%;", data: { turbo_action: "advance" }  %>
@@ -51,7 +49,7 @@
         </div>
 
         <div class="p-2 d-flex justify-content-end pagy1">
-          <%== pagy_nav @pagy, class:"d-flex justify-content-end" %>
+          <%#== pagy_nav @pagy, class:"d-flex justify-content-end " %>
           <% end %>
         </div>
       </div>
