@@ -1,59 +1,38 @@
 <%# Hero section %>
-<section class="bg-cover-top banner" style="background-image: url('https://res.cloudinary.com/dknxl9ghi/image/upload/v1668017721/banner_home_katapi_imhbhq.png')">
+<section class="bg-cover-top banner" style="background-image: linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.3)), url('https://res.cloudinary.com/dknxl9ghi/image/upload/v1668017722/banner_home_katapi_2_e8qhny.png')">
   <div class="container col-xxl-8 py-5">
-
     <div class="row align-items-center g-5 py-5">
       <%# <div class="col-10 col-sm-8 col-lg-6 mx-auto">
         <img src="https://payload.cargocollective.com/1/9/290563/11353476/Business_Illustration_002_1000.png"
              class="d-block mx-lg-auto img-fluid" alt="" width="700" height="500" loading="lazy">
       </div> %>
 
-      <div class="col-lg-6">
-        <h1 class="display-5 fw-bold lh-1 mb-3">Manage each of your goals! </h1>
-        <p>
-          Receive a tree for each new goal, take care of its growth while you focus on
-          fulfilling each tasks, visualizing the katapi tree will encourage you to complete your goals and motivate
-          you to overcome procrastination </p>
-        <p class="lead"></p>
-        <div class="d-grid gap-2 d-md-flex justify-content-md-start">
-          <button type="button" class="btn btn-primary btn-lg px-4 me-md-2 rounded-pill">Sign up</button>
+      <div class="col-lg-12 text-center animate__animated animate__fadeInUp">
+        <h1 class="display-4 fw-bold lh-1 ff-montserrat text-center text-light text-shadow mb-3">Katapi is the new to-do list app</h1>
+        <p class="lead display-6 text-light my-4 fw-bold opacity-75">Don't over think it, do it</p>
+        <div class="d-grid gap-2 d-md-flex justify-content-md-center mt-5">
+          <%= link_to "Start now", new_user_registration_path, class:"text-decoration-none fs-5 border-0 px-3 py-2 bg-candyblue text-light fw-bold btn-lg me-md-2 rounded-pill" %>
         </div>
       </div>
+
 
     </div>
   </div>
 </section>
 
+<div class="bg-gradient-navy-purple">
 <%# Features %>
-<section class="bg-warning">
+<section class="pt-5" id="about">
   <div class="container py-5">
-    <div class="row row-cols-1 row-cols-md-3 g-3">
-      <div class="col">
-        <div class="card border-0 shadow-sm bg-success rounded-4">
-          <%= image_tag "https://res.cloudinary.com/dknxl9ghi/image/upload/v1667583448/goals-board_hsiubo.png" %>
-          <div class="card-body bg-secondary">
-            <strong><h3 class="text-white-smoke"> Visualize  </h3></strong>
-            <p class="card-text text-white-smoke"> Constantly monitor the progress of your tasks </p>
-          </div>
-        </div>
+    <div class="row rounded-5 py-5 gx-5 align-items-center shadow-lg">
+      <div class="col-6 text-end animate__animated animate__slideInLeft">
+        <p class="display-6 text-light fw-bold">What Katapi does?</p>
+        <p class="fs-2 text-light">Katapi visually represent the progress of your goals by showing the growth of a tree</p>
       </div>
-
-      <div class="col">
-        <div class="card border-0 shadow-sm bg-info rounded-4">
-          <img src="assets/all-tasks.png">
-          <div class="card-body bg-secondary">
-            <strong><h3 class="text-white-smoke"> Prioritize </h3></strong>
-            <p class="card-text text-white-smoke"> Organize all your tasks in one place </p>
-          </div>
-        </div>
-      </div>
-
-      <div class="col">
-        <div class="card border-0 shadow-sm rounded-4 bg-primary">
-          <%= image_tag "https://res.cloudinary.com/dknxl9ghi/image/upload/v1667583448/calendario_mzkxru.png" %>
-          <div class="card-body bg-secondary">
-          <strong><h3 class="text-white-smoke"> Stay up to date </h3></strong>
-            <p class="card-text text-white-smoke">Meet deadlines to achieve your tasks</p>
+      <div class="col-6 animate__animated animate__slideInRight">
+        <div class="card notscale img-fluid bg-transparent border-0" style="">
+          <div class="">
+            <img src="https://res.cloudinary.com/dknxl9ghi/image/upload/v1668096913/katapi_tree_vu2ein.gif" class="shadow-sm fancy-box img-fluid" alt="" width="480px">
           </div>
         </div>
       </div>
@@ -61,9 +40,157 @@
   </div>
 </section>
 
+<section class="pt-3" id="features">
+  <div class="container">
+    <div class="row gx-5">
+      <div class="text-center py-4">
+        <p class="fw-bold text-light fs-2">In Katapi you can</p>
+      </div>
+      <ul class="nav nav-tabs text-center justify-content-center animate__animated animate__fadeInDown" id="myTab" role="tablist">
+        <li class="nav-item fs-4 mx-4" role="presentation">
+          <button class="nav-link rounded-5 active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane" type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true">
+            <i class="fa-solid fa-rocket"></i>
+            <p class="fs-09">Manage your goals</p>
+          </button>
+        </li>
+        <li class="nav-item fs-4 mx-4" role="presentation">
+          <button class="nav-link rounded-5" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile-tab-pane" type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false">
+            <i class="fa-solid fa-seedling"></i>
+            <p class="fs-09">See your progress</p>
+          </button>
+        </li>
+        <li class="nav-item fs-4 mx-4" role="presentation">
+          <button class="nav-link rounded-5" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact-tab-pane" type="button" role="tab" aria-controls="contact-tab-pane" aria-selected="false">
+            <i class="bi bi-journal-bookmark" style="-webkit-text-stroke: 1px"></i>
+            <p class="fs-09">Add notes to your goals</p>
+          </button>
+        </li>
+      </ul>
+      <div class="tab-content justify-content-center" id="myTabContent">
+        <div class="tab-pane fade show py-5 active animate__animated animate__fadeInUp" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
+          <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="false">
+            <div class="carousel-inner">
+              <div class="carousel-item active px-5">
+                <div class="row align-items-center">
+                  <div class="col-6">
+                    <img src="https://res.cloudinary.com/dknxl9ghi/image/upload/v1668105050/katapi_features_6_s9tspn.png" class="d-block w-100 fancy-box shadow-sm" alt="...">
+                  </div>
+                  <div class="col-6">
+                    <div class="ps-4">
+                      <p class="fs-4 text-light">
+                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ducimus est, quis quas minus vero assumenda, nemo laborum molestias et maiores illo quod iste at? Ea rerum quibusdam corporis consequatur sapiente.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="carousel-item px-5">
+                <div class="row align-items-center">
+                  <div class="col-6">
+                    <img src="https://res.cloudinary.com/dknxl9ghi/image/upload/v1668105051/katapi_features_11_tckjbn.png" class="d-block w-100 fancy-box shadow-sm" alt="...">
+                  </div>
+                  <div class="col-6">
+                    <div class="ps-4">
+                      <p class="fs-4 text-light">
+                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ducimus est, quis quas minus vero assumenda, nemo laborum molestias et maiores illo quod iste at? Ea rerum quibusdam corporis consequatur sapiente.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="carousel-item px-5 ">
+                <div class="row align-items-center">
+                  <div class="col-6">
+                    <img src="https://res.cloudinary.com/dknxl9ghi/image/upload/v1668105048/katapi_features_4_bdfrkp.png" class="d-block w-100 fancy-box shadow-sm" alt="...">
+                  </div>
+                  <div class="col-6">
+                    <div class="ps-4">
+                      <p class="fs-4 text-light">
+                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ducimus est, quis quas minus vero assumenda, nemo laborum molestias et maiores illo quod iste at? Ea rerum quibusdam corporis consequatur sapiente.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <button class="carousel-control-prev pe-5" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next ps-5" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+         </div>
+        <div class="tab-pane fade py-5 animate__animated animate__fadeInUp" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
+          <div class="row justify-content-center px-5">
+            <div class="col-4 text-center">
+              <div class="card mx-auto rounded-4 border-0 bg-transparent" style="width: 18rem;">
+                <img src="https://res.cloudinary.com/dknxl9ghi/image/upload/v1668105052/katapi_features_12_mjdtok.png" class="border-0 fancy-box border-end border-bottom border-info border-3" alt="...">
+                <div class="card-body">
+                  <p class="card-text text-light fs-5">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-4 text-center">
+              <div class="card mx-auto rounded-4 border-0 bg-transparent" style="width: 18rem;">
+                <img src="https://res.cloudinary.com/dknxl9ghi/image/upload/v1668105049/katapi_features_5_k8i2fp.png" class="border-0 fancy-box border-end border-bottom border-info border-3" alt="...">
+                <div class="card-body">
+                  <p class="card-text text-light fs-5">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-4 text-center">
+              <div class="card mx-auto rounded-4 border-0 bg-transparent" style="width: 18rem;">
+                <img src="https://res.cloudinary.com/dknxl9ghi/image/upload/v1668109292/katapi_features_3_hspgx7.png" class="border-0 fancy-box border-end border-bottom border-info border-3" alt="...">
+                <div class="card-body">
+                  <p class="card-text text-light fs-5">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <div class="tab-pane fade py-5 animate__animated animate__fadeInUp" id="contact-tab-pane" role="tabpanel" aria-labelledby="contact-tab" tabindex="0">
+          <div class="row px-5">
+            <div class="col-12 px-5">
+              <div class="d-flex justify-content-center align-items-center">
+                <div class="col-7 ms-5">
+                  <p class="fs-4 text-light">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis adipisci nobis nulla excepturi officia ut magnam, earum perferendis necessitatibus reprehenderit possimus ipsum quod similique! Aliquid fugit expedita voluptatum quibusdam distinctio?
+                  </p>
+                </div>
+                <div class="col-5">
+                  <img class="img-fluid fancy-box shadow-lg" src="https://res.cloudinary.com/dknxl9ghi/image/upload/v1668105050/katapi_features_1_rhwbl2.png" alt="">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="py-5">
+  <div class="container text-center p-5">
+    <div class="row px-5 gx-3">
+      <div class="col-12 text-center">
+        <p class="text-light fs-1 fw-bold">People don't want to procrastinate, they want to be efficient!</p>
+      </div>
+      <div class="col-12 text-center mt-5 animate__animated animate__flipInX">
+        <%= image_tag "tree_swing_girl.svg", class: "w-50 img-fluid bg-primary fancy-box shadow-lg" %>
+      </div>
+    </div>
+  </div>
+</section>
+
+<img src="https://res.cloudinary.com/dknxl9ghi/image/upload/v1668112839/alive_dead_ujdkud.jpg" alt="">
 <%# More information about Katapi %>
-<section class="bg-primary">
-  <div class="container px-4 py-5 bg-primary">
+<section class="">
+  <div class="container px-4 py-5">
     <div class="row row-cols-1 row-cols-md-2 align-items-md-center g-5 py-5">
        <div class="d-flex flex-column align-items-start gap-2 px-5">
         <h3 class="fw-bold"> Create a goal</h3>
@@ -111,16 +238,17 @@
 </section>
 
 <%# About us %>
-<%# <section class="py-4 bg-light">
+<section class="py-4">
   <div class="container text-center p-5">
     <h2>I do not know what to put here</h2>
   </div>
-</section> %>
+</section>
 
 <%# Call to action again %>
-<section class="py-3 bg-light">
+<section class="py-3">
   <div class="container text-center p-5">
     <h2 class="my-4">Be part of Katapi!</h2>
     <a href="#" class="btn btn-primary btn-lg rounded-pill">Sign up</a>
   </div>
 </section>
+</div>
