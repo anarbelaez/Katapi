@@ -44,7 +44,7 @@
   <div class="container">
     <div class="row gx-5">
       <div class="text-center py-4">
-        <p class="fw-bold text-light fs-2">In Katapi you can</p>
+        <p class="fw-bold text-light fs-1">In Katapi you can</p>
       </div>
       <ul class="nav nav-tabs text-center justify-content-center animate__animated animate__fadeInDown" id="myTab" role="tablist">
         <li class="nav-item fs-4 mx-4" role="presentation">
@@ -198,7 +198,7 @@
           <div class="card border-0 bg-transparent" style="">
             <img src="https://res.cloudinary.com/dknxl9ghi/image/upload/v1668017721/arbol_adulto_grrhmj.png" class="card-img-top fancy-box-t shadow-lg border-5 border-end border-bottom border-primary" alt="...">
             <div class="card-body">
-              <h5 class="card-title text-light fs-3 ff-montserrat">A beautiful alive tree</h5>
+              <h5 class="card-title ff-montserrat text-light fs-3 ff-montserrat">A beautiful alive tree</h5>
             </div>
           </div>
         </div>
@@ -206,7 +206,7 @@
           <div class="card border-0 bg-transparent" style="">
             <img src="https://res.cloudinary.com/dknxl9ghi/image/upload/v1668027465/dead_adult_tree_xdbpyr.png" class="card-img-top fancy-box-t shadow-lg border-5 border-end border-bottom border-primary" alt="...">
             <div class="card-body">
-              <h5 class="card-title text-light fs-3 ff-montserrat">A sad dead tree</h5>
+              <h5 class="card-title ff-montserrat text-light fs-3 ff-montserrat">A sad dead tree</h5>
             </div>
           </div>
         </div>
@@ -219,11 +219,48 @@
   </div>
 </section>
 
-<%# Call to action again %><section class="pb-5 animate__animated animate__headShake">  <div class="container text-center p-5 shadow-lg rounded-4 my-3">
-    <div class="d-flex justify-content-center align-items-center">
+<section>
+  <div class="container text-center p-5">
+    <div class="row px-5 gx-3 justify-content-center text-light">
+      <p class="display-6 fw-bold pb-5">Ten las goals en todo momento</p>
+      <div class="col-12 col-md-4 pt-5">
+        <div class="card notscale rounded-5 border-end border-botttom border-3 border-primary bg-transparent" style="width: 18rem;">
+          <img src="https://res.cloudinary.com/dknxl9ghi/image/upload/v1667583448/goals-board_hsiubo.png" class="card-img-top bg-primary rounded-5" alt="...">
+          <div class="card-body">
+            <h4 class="card-title ff-montserrat fw-bold">Visualize</h4>
+            <p class="card-text">Constantly monitor the progress of your tasks</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-4">
+        <div class="card notscale rounded-5 border-end border-botttom border-3 border-warning bg-transparent" style="width: 18rem;">
+          <img src="https://res.cloudinary.com/dknxl9ghi/image/upload/v1667583448/all-tasks_ripoli.png" class="card-img-top bg-warning rounded-5" alt="...">
+          <div class="card-body">
+            <h4 class="card-title ff-montserrat fw-bold">Prioritize</h4>
+            <p class="card-text">Organize all your tasks in one place</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-4 pt-5">
+        <div class="card notscale rounded-5 border-end border-botttom border-3 border-info bg-transparent" style="width: 18rem;">
+          <img src="https://res.cloudinary.com/dknxl9ghi/image/upload/v1667583448/calendario_mzkxru.png" class="card-img-top bg-info rounded-5" alt="...">
+          <div class="card-body">
+            <h4 class="card-title ff-montserrat fw-bold"> Stay up to date </h4>
+            <p class="card-text">Meet deadlines to achieve your tasks</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<%# Call to action again %>
+<section class="pb-5 animate__animated animate__headShake">
+  <div class="container text-center p-5 shadow-lg rounded-5 my-3">
+    <div class="d-flex justify-content-center align-items-center animate__animated animate__slideInLeft">
       <%= image_tag "welcome.svg", class:"col-3 img-fluid me-5" %>
       <div>
-        <h2 class="py-4 ff-montserrat fw-bold display-5 text-white mb-3">Don't miss up, be part of Katapi!</h2>
+        <h2 class="py-4 ff-montserrat fw-bold display-5 text-white mb-">Don't miss up, be part of Katapi!</h2>
         <%= link_to "Start now", new_user_registration_path, class:"text-decoration-none fs-5 border-0 px-3 py-2 bg-candyblue text-light fw-bold btn-lg me-md-2 rounded-pill" %>
       </div>
     </div>
