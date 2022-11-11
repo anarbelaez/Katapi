@@ -53,6 +53,7 @@
               </div>
             </div>
           </div>
+          <% if @goal.description.present? %>
           <div class="row">
             <div class="col-12 mx-4 mt-2">
               <p class="mb-1 fs-09 fw-bold">Description</p>
@@ -60,9 +61,10 @@
           </div>
           <div class="row">
             <div class="col-12 mx-4 mt-1">
-              <p class="fs-08 opacity-75 mt-1"><%= @goal.description  %></p>
+              <p class="fs-08 opacity-75 mb-3"><%= @goal.description  %></p>
             </div>
           </div>
+          <% end %>
           <div class="row mt-2 mx-2">
             <div class="col">
               <div class="row p-1 rounded-4 g-2 mb-3 text-light bg-body">

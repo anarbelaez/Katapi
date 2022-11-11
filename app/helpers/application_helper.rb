@@ -37,7 +37,7 @@ module ApplicationHelper
   end
 
   def date_stylized(datetime)
-    datetime.strftime('%b %d, %Y')
+    datetime&.strftime('%b %d, %Y')
   end
 
   def message(alive, dead)
