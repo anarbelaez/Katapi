@@ -3,6 +3,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital@0;1&display=swap');
 body {
   font-family: 'Montserrat', sans-serif;
+  background: rgb(84, 55, 172) !important;
+  background: linear-gradient(147deg, rgba(84, 55, 172,1) 0%, rgb(47, 0, 83) 100%) !important;
 }
 .ff-montserrat {
   font-family: 'Montserrat', sans-serif;
@@ -83,4 +85,7 @@ body {
 }
 .fancy-box-t {
   border-radius: 52% 48% 44% 56% / 56% 56% 44% 44% ;
+}
+.form-control-light {
+  background-color: whitesmoke !important;
 }
