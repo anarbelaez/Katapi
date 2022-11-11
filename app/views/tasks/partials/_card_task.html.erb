@@ -2,12 +2,12 @@
 <div class="card bg-body rounded-4 border-0 p-2 mx-auto shadow-sm col-12 notscale" style="cursor: grab;">
 
   <div class="d-flex justify-content-between align-items-center mx-2">
-    <%= link_to task_path(task), class: "text-decoration-none col-8 " do %>
       <div class="col-10">
-          <p class="card-title text-light fs-09"><%= task.name %></p>
-          <h6 class="card-subtitle mt-2 text-primary fs-07"><i class="fa-regular fa-calendar"></i>  <%= task.due_date %></h6>
+          <p class="card-title text-light fs-09">
+            <%= link_to task.name, task_path(task), class: "text-decoration-none text-light col-8 " %>
+          </p>
+          <h6 class="card-subtitle mt-2 text-primary opacity-75 fs-07"><i class="fa-regular fa-calendar"></i>  <%= task.due_date %></h6>
       </div>
-    <% end %>
 
     <div class="col-2 d-flex justify-content-end">
       <%= link_to edit_task_path(task), class: "text-decoration-none link-primary circle-icon me-1" do %>

@@ -37,18 +37,128 @@
 <div class="tab-content mb-3 pb-3" id="myTabContent">
 
   <div class="tab-pane fade show active" id="tree-goal-tab-pane" role="tabpanel" aria-labelledby="tree-goal-tab" tabindex="0">
-    <div class="row">
+    <div class="row pb-5">
+
       <div class="col-12 col-md-4">
-        <div class="p-2 bg-secondary rounded-4 border-end border-bottom border-primary">
-        <p>Tree status: <%= health_goal(@goal) %></p>
-        <p class=" text-center opacity-75 mt-1"><%= @goal.description || "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec qu" %></p>
-        <p>Category: <%= @goal.category %></p>
-        <p>Completion date: <%= @goal.completion_date || "Open" %></p>
-        <p>Tasks</p>
-        <p>Total: <%= @goal.tasks.count %></p>
-        <p>Not started: <%= @goal.tasks.not_started.count %></p>
-        <p>In progress: <%= @goal.tasks.in_progress.count %></p>
-        <p>Done: <%= @goal.tasks.done.count %></p>
+        <div class="p-2 bg-secondary rounded-4 border-3 border-end border-bottom border-primary">
+          <div class="row">
+            <div class="col-12 mx-4 mt-2">
+              <div class="row">
+                <div class="col-4">
+                  <p class="fw-bold text-success m-0">Tree status:</p>
+                </div>
+                <div class="col-6">
+                  <p class="fs-09"><%= health_goal(@goal) %></p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-12 mx-4 mt-2">
+              <p class="mb-1 fs-09 fw-bold">Description</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-12 mx-4 mt-1">
+              <p class="fs-08 opacity-75 mt-1"><%= @goal.description  %></p>
+            </div>
+          </div>
+          <div class="row mt-2 mx-2">
+            <div class="col">
+              <div class="row p-1 rounded-4 g-2 mb-3 text-light bg-body">
+                <div class="col-3 my-auto mx-auto d-flex align-items-center justify-content-center text-primary">
+                  <i class="fa-solid fa-tag text-warning"></i>
+                </div>
+                <div class="col-9 py-2">
+                  <div>
+                    <p class="fs-07 m-0 fw-bold text-warning">Category</p>
+                  </div>
+                  <div>
+                    <p class="m-0 fs-07"><%= @goal.category %></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="row p-1 rounded-4 g-2 mb-3 text-light bg-body">
+                <div class="col-3 my-auto mx-auto d-flex align-items-center justify-content-center text-primary">
+                  <i class="fa-solid fa-clock text-primary"></i>
+                </div>
+                <div class="col-9 py-2">
+                  <div>
+                    <p class="fs-07 m-0 fw-bold text-primary">Completion date</p>
+                  </div>
+                  <div>
+                   <p class="m-0 fs-07"> <%= date_stylized(@goal.completion_date) || "Open" %></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row mt-2 mx-2">
+            <div class="col">
+              <div class="row p-1 rounded-4 g-2 mb-3 text-light bg-body">
+                <div class="col-3 my-auto mx-auto d-flex align-items-center justify-content-center text-primary">
+                  <i class="fa-solid fa-clipboard-list text-info"></i>
+                </div>
+                <div class="col-9">
+                  <div>
+                    <p class="fs-07 m-0 fw-bold text-info">Total tasks</p>
+                  </div>
+                  <div>
+                    <p class="d-flex justify-content-center"><%= @goal.tasks.count %></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="row p-1 rounded-4 g-2 mb-3 text-light bg-body">
+                <div class="col-3 my-auto mx-auto d-flex align-items-center justify-content-center text-primary">
+                  <i class="fa-solid fa-hourglass text-danger"></i>
+                </div>
+                <div class="col-9">
+                  <div>
+                    <p class="fs-07 m-0 fw-bold text-danger">Not started</p>
+                  </div>
+                  <div>
+                    <p class="d-flex justify-content-center"> <%= @goal.tasks.not_started.count %> </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row mt-2 mx-2">
+            <div class="col">
+              <div class="row p-1 rounded-4 g-2 mb-3 text-light bg-body">
+                <div class="col-3 my-auto mx-auto d-flex align-items-center justify-content-center text-primary">
+                  <i class="fa-solid fa-spinner text-primary"></i>
+                </div>
+                <div class="col-9">
+                  <div>
+                    <p class="fs-07 m-0 fw-bold text-primary">In progress</p>
+                  </div>
+                  <div>
+                  <p class="d-flex justify-content-center"><%= @goal.tasks.in_progress.count %></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="row p-1 rounded-4 g-2 mb-3 text-light bg-body">
+                <div class="col-3 my-auto mx-auto d-flex align-items-center justify-content-center text-primary">
+                  <i class="fa-solid fa-circle-check text-success"></i>
+                </div>
+                <div class="col-9">
+                  <div>
+                    <p class="fs-07 m-0 fw-bold text-success">Done</p>
+                  </div>
+                  <div>
+                  <p class="d-flex justify-content-center"> <%= @goal.tasks.done.count %> </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 
