@@ -25,11 +25,11 @@
 <section class="pt-5" id="about">
   <div class="container py-5">
     <div class="row rounded-5 py-5 gx-5 align-items-center shadow-lg">
-      <div class="col-6 text-end animate__animated animate__slideInLeft">
+      <div class="col-12 col-md-6 text-end animate__animated animate__slideInLeft">
         <p class="display-6 text-light fw-bold">What Katapi does?</p>
         <p class="fs-2 text-light">Katapi visually represent the progress of your goals by showing the growth of a tree</p>
       </div>
-      <div class="col-6 animate__animated animate__slideInRight">
+      <div class="col-12 col-md-6 animate__animated animate__slideInRight">
         <div class="card notscale img-fluid bg-transparent border-0" style="">
           <div class="">
             <img src="https://res.cloudinary.com/dknxl9ghi/image/upload/v1668096913/katapi_tree_vu2ein.gif" class="shadow-sm fancy-box img-fluid" alt="" width="480px">
@@ -72,10 +72,10 @@
             <div class="carousel-inner">
               <div class="carousel-item active px-5">
                 <div class="row align-items-center">
-                  <div class="col-6">
+                  <div class="col-12 col-md-6">
                     <img src="https://res.cloudinary.com/dknxl9ghi/image/upload/v1668105050/katapi_features_6_s9tspn.png" class="d-block w-100 fancy-box shadow-sm" alt="...">
                   </div>
-                  <div class="col-6">
+                  <div class="col-12 col-md-6">
                     <div class="ps-4">
                       <p class="fs-4 text-light">
                         Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ducimus est, quis quas minus vero assumenda, nemo laborum molestias et maiores illo quod iste at? Ea rerum quibusdam corporis consequatur sapiente.
@@ -86,10 +86,10 @@
               </div>
               <div class="carousel-item px-5">
                 <div class="row align-items-center">
-                  <div class="col-6">
+                  <div class="col-12 col-md-6">
                     <img src="https://res.cloudinary.com/dknxl9ghi/image/upload/v1668105051/katapi_features_11_tckjbn.png" class="d-block w-100 fancy-box shadow-sm" alt="...">
                   </div>
-                  <div class="col-6">
+                  <div class="col-12 col-md-6">
                     <div class="ps-4">
                       <p class="fs-4 text-light">
                         Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ducimus est, quis quas minus vero assumenda, nemo laborum molestias et maiores illo quod iste at? Ea rerum quibusdam corporis consequatur sapiente.
@@ -100,10 +100,10 @@
               </div>
               <div class="carousel-item px-5 ">
                 <div class="row align-items-center">
-                  <div class="col-6">
+                  <div class="col-12 col-md-6">
                     <img src="https://res.cloudinary.com/dknxl9ghi/image/upload/v1668105048/katapi_features_4_bdfrkp.png" class="d-block w-100 fancy-box shadow-sm" alt="...">
                   </div>
-                  <div class="col-6">
+                  <div class="col-12 col-md-6">
                     <div class="ps-4">
                       <p class="fs-4 text-light">
                         Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ducimus est, quis quas minus vero assumenda, nemo laborum molestias et maiores illo quod iste at? Ea rerum quibusdam corporis consequatur sapiente.
@@ -180,75 +180,53 @@
       <div class="col-12 text-center">
         <p class="text-light fs-1 fw-bold">People don't want to procrastinate, they want to be efficient!</p>
       </div>
-      <div class="col-12 text-center mt-5 animate__animated animate__flipInX">
-        <%= image_tag "tree_swing_girl.svg", class: "w-50 img-fluid bg-primary fancy-box shadow-lg" %>
+      <div class="col-12 col-md-6 mx-auto mt-5 animate__animated animate__flipInX">
+        <%= image_tag "tree_swing_girl.svg", class: "img-fluid bg-primary fancy-box shadow-lg " %>
       </div>
     </div>
   </div>
 </section>
 
-<img src="https://res.cloudinary.com/dknxl9ghi/image/upload/v1668112839/alive_dead_ujdkud.jpg" alt="">
 <%# More information about Katapi %>
-<section class="">
-  <div class="container px-4 py-5">
-    <div class="row row-cols-1 row-cols-md-2 align-items-md-center g-5 py-5">
-       <div class="d-flex flex-column align-items-start gap-2 px-5">
-        <h3 class="fw-bold"> Create a goal</h3>
-        <!-- <p class="text-muted">Katapi</p> -->
-        <video class="rounded-4" width="400" height="400" controls>
-          <source src="https://res.cloudinary.com/dknxl9ghi/video/upload/v1667583449/katapi-add-goal_pcw94o.mp4" type="video/mp4">
-         Your browser does not support the video tag.
-        </video>
-      </div>
-      <div class="row row-cols-1 row-cols-sm-2 g-4">
-        <div class="d-flex flex-column gap-2">
-          <div class="">
-            <i class="bi bi-1-square align-items-center justify-content-center fs-4 rounded-3"></i>
+<section class="pt-3 pb-1">
+  <div class="container text-center p-5">
+    <div class="row px-5 gx-3 justify-content-center">
+      <p class="fw-bold display-6 text-light">Which do you prefer?</p>
+
+      <div class="row py-4 mt-5 justify-content-center">
+        <div class="col-12 col-md-4">
+          <div class="card border-0 bg-transparent" style="">
+            <img src="https://res.cloudinary.com/dknxl9ghi/image/upload/v1668017721/arbol_adulto_grrhmj.png" class="card-img-top fancy-box-t shadow-lg border-5 border-end border-bottom border-primary" alt="...">
+            <div class="card-body">
+              <h5 class="card-title text-light fs-3 ff-montserrat">A beautiful alive tree</h5>
+            </div>
           </div>
-          <h3 class="fw-semibold mb-0"> Add tasks to a goal </h3>
-          <!-- <p class="text-muted">Katapi</p> -->
+        </div>
+        <div class="col-12 col-md-4">
+          <div class="card border-0 bg-transparent" style="">
+            <img src="https://res.cloudinary.com/dknxl9ghi/image/upload/v1668027465/dead_adult_tree_xdbpyr.png" class="card-img-top fancy-box-t shadow-lg border-5 border-end border-bottom border-primary" alt="...">
+            <div class="card-body">
+              <h5 class="card-title text-light fs-3 ff-montserrat">A sad dead tree</h5>
+            </div>
+          </div>
         </div>
 
-        <div class="d-flex flex-column gap-2">
-          <div class="">
-            <i class="bi bi-2-square align-items-center justify-content-center fs-4 rounded-3"></i>
-          </div>
-          <h3 class="fw-semibold mb-0"> Update your tasks status </h3>
-          <!-- <p class="text-muted">Katapi</p> -->
-        </div>
-
-        <div class="d-flex flex-column gap-2">
-          <div class="">
-            <i class="bi bi-3-square align-items-center justify-content-center fs-4 rounded-3"></i>
-          </div>
-          <h3 class="fw-semibold mb-0">Visualize your progress</h3>
-          <!-- <p class="text-muted">Katapi</p> -->
-        </div>
-
-        <div class="d-flex flex-column gap-2">
-          <div class="">
-            <i class="bi bi-4-square align-items-center justify-content-center fs-4 rounded-3"></i>
-          </div>
-          <h3 class="fw-semibold mb-0"> Add notes to your goals and tasks</h3>
-          <!-- <p class="text-muted">Katapi</p> -->
+        <div class="pt-5">
+          <p class="text-center text-light fs-5 fw-bold">Lorem ipsum dolor sit amet consectetur.</p>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<%# About us %>
-<section class="py-4">
-  <div class="container text-center p-5">
-    <h2>I do not know what to put here</h2>
-  </div>
-</section>
-
-<%# Call to action again %>
-<section class="py-3">
-  <div class="container text-center p-5">
-    <h2 class="my-4">Be part of Katapi!</h2>
-    <a href="#" class="btn btn-primary btn-lg rounded-pill">Sign up</a>
+<%# Call to action again %><section class="pb-5 animate__animated animate__headShake">  <div class="container text-center p-5 shadow-lg rounded-4 my-3">
+    <div class="d-flex justify-content-center align-items-center">
+      <%= image_tag "welcome.svg", class:"col-3 img-fluid me-5" %>
+      <div>
+        <h2 class="py-4 ff-montserrat fw-bold display-5 text-white mb-3">Don't miss up, be part of Katapi!</h2>
+        <%= link_to "Start now", new_user_registration_path, class:"text-decoration-none fs-5 border-0 px-3 py-2 bg-candyblue text-light fw-bold btn-lg me-md-2 rounded-pill" %>
+      </div>
+    </div>
   </div>
 </section>
 </div>
