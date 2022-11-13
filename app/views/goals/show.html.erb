@@ -1,4 +1,5 @@
 <%# Tabs %>
+<div>
 <ul class="nav nav-tabs border-0 bg-transparent" id="myTab" role="tablist">
   <li class="nav-item" role="presentation" data-controller="get-goal-information">
     <button class="nav-link active" onclick="location.reload()" id="tree-goal-tab" data-bs-toggle="tab" data-bs-target="#tree-goal-tab-pane" type="button" role="tab" aria-controls="tree-goal-tab-pane" aria-selected="true"><i class="bi bi-signpost-fill me-2"></i>Tree</button>
@@ -223,6 +224,8 @@
     </div>
   </div>
 </div>
+</div>
+
 <script>
 if(!window.location.hash.includes("#reloaded")) {
     window.location.href += "#reloaded";
